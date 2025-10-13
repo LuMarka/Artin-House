@@ -1,0 +1,11 @@
+/* App Component Styles - BEM & Mobile First */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__main {
+  flex-grow: 1;
+}

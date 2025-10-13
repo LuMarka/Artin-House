@@ -1,0 +1,75 @@
+/* Amenities Component Styles - BEM & Mobile First */
+
+.amenities {
+  padding: 5rem 0;
+  background-color: #f9fafb;
+}
+
+.amenities__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.amenities__title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 3rem;
+}
+
+.amenities__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.amenities__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.amenities__icon-wrapper {
+  background-color: white;
+  border-radius: 50%;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.amenities__icon {
+  width: 2rem;
+  height: 2rem;
+  color: #047857;
+}
+
+.amenities__name {
+  color: #374151;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .amenities__title {
+    font-size: 2.5rem;
+  }
+
+  .amenities__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .amenities__item {
+    padding: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .amenities__grid {
+    gap: 2.5rem;
+  }
+}

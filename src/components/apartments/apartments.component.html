@@ -1,0 +1,38 @@
+<section id="apartments" class="apartments">
+  <div class="apartments__container">
+    <h2 class="apartments__title">{{ title() }}</h2>
+    <p class="apartments__subtitle">{{ subtitle() }}</p>
+    <div class="apartments__grid">
+      <!-- Artin House I -->
+      <div class="apartments__card">
+        <h3 class="apartments__card-title">{{ artin1.title() }}</h3>
+        <p class="apartments__card-description">{{ artin1.desc() }}</p>
+        <ul class="apartments__features">
+          <li class="apartments__feature">
+            <svg class="apartments__feature-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+            {{ artin1.guests() }}
+          </li>
+          <li class="apartments__feature">
+            <svg class="apartments__feature-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm10 2H6v2h8V4zm0 4H6v2h8V8zm0 4H6v2h8v-2z" clip-rule="evenodd"/></svg>
+            {{ artin1.rooms() }}
+          </li>
+        </ul>
+      </div>
+      <!-- Artin House II -->
+      <div class="apartments__card">
+        <h3 class="apartments__card-title">{{ artin2.title() }}</h3>
+        <p class="apartments__card-description">{{ artin2.desc() }}</p>
+        <ul class="apartments__features">
+          <li class="apartments__feature">
+            <svg class="apartments__feature-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+            {{ artin2.guests() }}
+          </li>
+          <li class="apartments__feature">
+            <svg class="apartments__feature-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm10 2H6v2h8V4zm0 4H6v2h8V8zm0 4H6v2h8v-2z" clip-rule="evenodd"/></svg>
+            {{ artin2.rooms() }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

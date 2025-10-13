@@ -1,0 +1,91 @@
+<section id="booking" class="booking">
+  <div class="booking__container">
+    <h2 class="booking__title">{{ t.title() }}</h2>
+    <div class="booking__content">
+      <!-- Calendar -->
+      <div class="booking__calendar">
+        <div class="booking__calendar-header">
+          <button (click)="changeMonth(-1)" class="booking__calendar-nav">
+            <svg class="booking__calendar-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+          <h3 class="booking__calendar-month">{{ monthYearDisplay() }}</h3>
+          <button (click)="changeMonth(1)" class="booking__calendar-nav">
+            <svg class="booking__calendar-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
+        <div class="booking__weekdays">
+          <div>{{ t.weekdays.sun() }}</div><div>{{ t.weekdays.mon() }}</div><div>{{ t.weekdays.tue() }}</div><div>{{ t.weekdays.wed() }}</div><div>{{ t.weekdays.thu() }}</div><div>{{ t.weekdays.fri() }}</div><div>{{ t.weekdays.sat() }}</div>
+        </div>
+        <div class="booking__calendar-grid">
+          @for (week of calendarGrid(); track $index) {
+            @for (day of week; track day.date) {
+              <div 
+                (click)="selectDate(day)"
+                [class]="{
+                  'booking__calendar-day--selectable': day.isCurrentMonth && !day.isBooked,
+                  'booking__calendar-day--other-month': !day.isCurrentMonth,
+                  'booking__calendar-day--current-month': day.isCurrentMonth,
+                  'booking__calendar-day--booked': day.isBooked,
+                  'booking__calendar-day--selected': isDateSelected(day.date),
+                  'booking__calendar-day--in-range': isDateInRange(day.date)
+                }"
+                class="booking__calendar-day">
+                {{ day.date.getDate() }}
+              </div>
+            }
+          }
+        </div>
+      </div>
+      <!-- Booking Form -->
+      <div class="booking__form">
+        <h3 class="booking__form-title">{{ t.subtitle() }}</h3>
+        
+        <div class="booking__field">
+          <label class="booking__label">{{ t.apartmentLabel() }}</label>
+          <select [ngModel]="selectedApartment()" (ngModelChange)="selectedApartment.set($event)" class="booking__select">
+            <option value="Artin House I">Artin House I</option>
+            <option value="Artin House II">Artin House II</option>
+          </select>
+        </div>
+
+        <div class="booking__dates">
+          <div class="booking__date-field">
+            <label class="booking__label">{{ t.checkinLabel() }}</label>
+            <div class="booking__date-display">
+              {{ checkInDate() ? (checkInDate() | date:'shortDate':undefined:language()) : t.selectDate() }}
+            </div>
+          </div>
+          <div class="booking__date-field">
+            <label class="booking__label">{{ t.checkoutLabel() }}</label>
+            <div class="booking__date-display">
+              {{ checkOutDate() ? (checkOutDate() | date:'shortDate':undefined:language()) : t.selectDate() }}
+            </div>
+          </div>
+        </div>
+        
+        @if (numberOfNights() > 0) {
+          <div class="booking__nights-info">
+            <p class="booking__nights-text">
+              {{ t.totalStay() }}: {{ numberOfNights() }} {{ numberOfNights() === 1 ? t.nights().slice(0, -1) : t.nights() }}
+            </p>
+          </div>
+        }
+
+        <button (click)="confirmBooking()" class="booking__submit-button">
+          {{ t.bookButton() }}
+        </button>
+
+        @if (bookingStatus() === 'booked') {
+          <div class="booking__message booking__message--success">
+            {{ t.successMsg() }}
+          </div>
+        }
+        @if (bookingStatus() === 'error') {
+          <div class="booking__message booking__message--error">
+            {{ t.errorMsg() }}
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

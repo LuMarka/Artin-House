@@ -1,0 +1,52 @@
+<header class="header">
+  <div class="header__container">
+    <div class="header__brand">
+      <a href="#" (click)="$event.preventDefault(); scrollTo('hero')" class="header__brand">ARTIN HOUSE</a>
+    </div>
+    
+    <!-- Desktop Nav -->
+    <div class="header__desktop-nav">
+      <nav class="header__nav">
+        <a (click)="scrollTo('apartments')" class="header__nav-link">{{ nav.apartments() }}</a>
+        <a (click)="scrollTo('amenities')" class="header__nav-link">{{ nav.amenities() }}</a>
+        <a (click)="scrollTo('gallery')" class="header__nav-link">{{ nav.gallery() }}</a>
+        <button (click)="scrollTo('booking')" class="header__nav-button">{{ nav.bookNow() }}</button>
+      </nav>
+      <!-- Language Switcher -->
+      <div class="header__language-switcher">
+        <button (click)="setLanguage('es')" 
+                [class]="language() === 'es' ? 'header__language-btn header__language-btn--active' : 'header__language-btn header__language-btn--inactive'">ES</button>
+        <span class="header__language-separator">/</span>
+        <button (click)="setLanguage('en')" 
+                [class]="language() === 'en' ? 'header__language-btn header__language-btn--active' : 'header__language-btn header__language-btn--inactive'">EN</button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div>
+      <button (click)="toggleMenu()" class="header__mobile-button">
+        <svg class="header__mobile-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu -->
+  @if (isMenuOpen()) {
+    <div class="header__mobile-menu">
+      <nav class="header__mobile-nav">
+        <a (click)="scrollTo('apartments')" class="header__mobile-nav-link">{{ nav.apartments() }}</a>
+        <a (click)="scrollTo('amenities')" class="header__mobile-nav-link">{{ nav.amenities() }}</a>
+        <a (click)="scrollTo('gallery')" class="header__mobile-nav-link">{{ nav.gallery() }}</a>
+        <button (click)="scrollTo('booking')" class="header__mobile-nav-button">{{ nav.bookNow() }}</button>
+      </nav>
+      <div class="header__mobile-language">
+        <button (click)="setLanguage('es'); isMenuOpen.set(false)" 
+                [class]="language() === 'es' ? 'header__mobile-language-btn header__mobile-language-btn--active' : 'header__mobile-language-btn header__mobile-language-btn--inactive'">Español</button>
+        <button (click)="setLanguage('en'); isMenuOpen.set(false)" 
+                [class]="language() === 'en' ? 'header__mobile-language-btn header__mobile-language-btn--active' : 'header__mobile-language-btn header__mobile-language-btn--inactive'">English</button>
+      </div>
+    </div>
+  }
+</header>
