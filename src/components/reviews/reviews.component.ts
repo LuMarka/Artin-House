@@ -35,7 +35,7 @@ export class ReviewsComponent {
   ];
 
   averageRating = 5.0;
-  //totalReviews = 2;
+  totalReviews = 2;
 
   getStarsArray(rating: number): number[] {
     return Array(5).fill(0).map((_, i) => i < rating ? 1 : 0);

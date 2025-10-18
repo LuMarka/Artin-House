@@ -275,6 +275,7 @@ import {
   registerNgModuleType,
   renderDeferBlockState,
   resetCompiledComponents,
+  resetIncrementalHydrationEnabledWarnedForTests,
   resetJitOptions,
   resolveComponentResources,
   resolveForwardRef,
@@ -494,7 +495,7 @@ import {
   ɵɵvalidateIframeAttribute,
   ɵɵviewQuery,
   ɵɵviewQuerySignal
-} from "./chunk-NRPQQNF4.js";
+} from "./chunk-PCCVDXI3.js";
 import "./chunk-GOMI4DH3.js";
 export {
   ANIMATION_MODULE_TYPE,
@@ -786,6 +787,7 @@ export {
   registerLocaleData as ɵregisterLocaleData,
   renderDeferBlockState as ɵrenderDeferBlockState,
   resetCompiledComponents as ɵresetCompiledComponents,
+  resetIncrementalHydrationEnabledWarnedForTests as ɵresetIncrementalHydrationEnabledWarnedForTests,
   resetJitOptions as ɵresetJitOptions,
   resolveComponentResources as ɵresolveComponentResources,
   restoreComponentResolutionQueue as ɵrestoreComponentResolutionQueue,

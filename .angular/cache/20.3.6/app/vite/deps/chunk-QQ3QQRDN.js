@@ -1,7 +1,7 @@
 import {
   XhrFactory,
   parseCookieValue
-} from "./chunk-W2WIUP6R.js";
+} from "./chunk-ZMLREZMJ.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   ApplicationRef,
@@ -42,7 +42,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-NRPQQNF4.js";
+} from "./chunk-PCCVDXI3.js";
 import {
   __objRest,
   __spreadValues
@@ -2781,9 +2781,9 @@ export {
 @angular/common/fesm2022/module.mjs:
 @angular/common/fesm2022/http.mjs:
   (**
-   * @license Angular v20.3.4
+   * @license Angular v20.3.6
    * (c) 2010-2025 Google LLC. https://angular.dev/
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-OIA2ASYS.js.map
+//# sourceMappingURL=chunk-QQ3QQRDN.js.map
