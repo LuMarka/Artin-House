@@ -1,0 +1,199 @@
+<div class="contact">
+  <app-header></app-header>
+  
+  <!-- Video Header Container -->
+  <section class="contact__video">
+    <div class="contact__video-container">
+      <video 
+        class="contact__video-player"
+        src="src/assets/apartments/complejo/video-complejo-artin-house.mp4" 
+        autoplay 
+        muted 
+        loop
+        poster="src/assets/apartments/complejo/video-complejo-artin-house-poster.jpg"
+        title="Vista exterior del complejo Artin House"
+        loading="lazy">
+      </video>
+      <div class="contact__video-overlay">
+        <h1 class="contact__title">{{ t().title }}</h1>
+        <p class="contact__subtitle">{{ t().subtitle }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form and Map Container -->
+  <section class="contact__content">
+    <div class="contact__content-wrapper">
+      
+      <!-- Contact Form -->
+      <div class="contact__form-container">
+        <h2 class="contact__form-title">{{ t().formTitle }}</h2>
+        
+        <form 
+          class="contact__form" 
+          (ngSubmit)="onSubmit()" 
+          #contactFormRef="ngForm">
+          
+          <!-- Name Field -->
+          <div class="contact__field">
+            <label 
+              for="name" 
+              class="contact__label">
+              {{ t().nameLabel }} *
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name"
+              class="contact__input"
+              [(ngModel)]="contactForm.name"
+              required
+              #nameField="ngModel">
+            <div 
+              class="contact__error" 
+              *ngIf="nameField.invalid && nameField.touched">
+              Este campo es requerido
+            </div>
+          </div>
+
+          <!-- Email Field -->
+          <div class="contact__field">
+            <label 
+              for="email" 
+              class="contact__label">
+              {{ t().emailLabel }} *
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email"
+              class="contact__input"
+              [(ngModel)]="contactForm.email"
+              required
+              email
+              #emailField="ngModel">
+            <div 
+              class="contact__error" 
+              *ngIf="emailField.invalid && emailField.touched">
+              <span *ngIf="emailField.errors?.['required']">Este campo es requerido</span>
+              <span *ngIf="emailField.errors?.['email']">Ingrese un email válido</span>
+            </div>
+          </div>
+
+          <!-- Phone Field -->
+          <div class="contact__field">
+            <label 
+              for="phone" 
+              class="contact__label">
+              {{ t().phoneLabel }}
+            </label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone"
+              class="contact__input"
+              required
+              [(ngModel)]="contactForm.phone">
+          </div>
+
+          <!-- Apartment Selection -->
+          <div class="contact__field">
+            <label 
+              for="apartment" 
+              class="contact__label">
+              {{ t().apartmentLabel }}
+            </label>
+            <select 
+              id="apartment" 
+              name="apartment"
+              class="contact__select"
+              [(ngModel)]="contactForm.apartment">
+              <option value="Artin House I">Artin House I</option>
+              <option value="Artin House II">Artin House II</option>
+              <option value="Ambos">Ambos Apartamentos</option>
+            </select>
+          </div>
+
+          <!-- Message Field -->
+          <div class="contact__field">
+            <label 
+              for="message" 
+              class="contact__label">
+              {{ t().messageLabel }} *
+            </label>
+            <textarea 
+              id="message" 
+              name="message"
+              class="contact__textarea"
+              [(ngModel)]="contactForm.message"
+              rows="5"
+              required
+              #messageField="ngModel">
+            </textarea>
+            <div 
+              class="contact__error" 
+              *ngIf="messageField.invalid && messageField.touched">
+              Este campo es requerido
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            class="contact__submit"
+            [disabled]="contactFormRef.invalid">
+            {{ t().sendButton }}
+          </button>
+        </form>
+      </div>
+
+      <!-- Map Container -->
+      <div class="contact__map-container">
+        <h3 class="contact__map-title">{{ t().locationTitle }}</h3>
+        
+        <div class="contact__map-wrapper">
+          <iframe 
+            class="contact__map-iframe"
+            [src]="safeMapUrl"
+            [title]="companyInfo.map.title"
+            width="100%" 
+            height="400" 
+            frameborder="0" 
+            style="border:0;" 
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <!-- Address Info -->
+        <div class="contact__address">
+          <h4 class="contact__address-title">{{ companyInfo.name }}</h4>
+          <p class="contact__address-text">
+            {{ companyInfo.address.street }},
+            {{ companyInfo.address.city }}, {{ companyInfo.address.province }}<br>
+            {{ companyInfo.address.postalCode }}, {{ companyInfo.address.country }}
+          </p>
+<!--           <div class="contact__contact-info">
+            <p class="contact__info-item">
+              <span class="contact__info-icon">📧</span>
+              <a href="mailto:{{ companyInfo.contact.email }}" class="contact__info-link">
+                {{ companyInfo.contact.email }}
+              </a>
+            </p>
+            <p class="contact__info-item">
+              <span class="contact__info-icon">📱</span>
+              <a href="tel:{{ companyInfo.contact.phone }}" class="contact__info-link">
+                {{ companyInfo.contact.phone }}
+              </a>
+            </p>
+          </div> -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+  <app-footer></app-footer>
+  <app-whatsapp-button></app-whatsapp-button>
+</div>

@@ -43,7 +43,13 @@
 .amenities__icon {
   width: 2rem;
   height: 2rem;
-  color: #047857;
+  object-fit: contain;
+  filter: opacity(0.8);
+  transition: filter 0.3s ease;
+}
+
+.amenities__item:hover .amenities__icon {
+  filter: opacity(1);
 }
 
 .amenities__name {

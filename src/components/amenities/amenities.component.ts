@@ -19,12 +19,11 @@ export class AmenitiesComponent {
   
   private amenityDefs: Amenity[] = [
     { icon: 'wifi', key: 'amenities.wifi' },
-    { icon: 'pool', key: 'amenities.pool' },
     { icon: 'parking', key: 'amenities.parking' },
     { icon: 'ac', key: 'amenities.ac' },
+    { icon: 'heating', key: 'amenities.heating' },
     { icon: 'kitchen', key: 'amenities.kitchen' },
     { icon: 'tv', key: 'amenities.tv' },
-    { icon: 'bbq', key: 'amenities.bbq' },
     { icon: 'garden', key: 'amenities.garden' }
   ];
 

@@ -4,7 +4,7 @@
     <p class="apartments__subtitle">{{ subtitle() }}</p>
     <div class="apartments__grid">
       <!-- Artin House I -->
-      <div class="apartments__card">
+      <div class="apartments__card apartments__card--clickable" (click)="navigateToApartment('artin-house-i')">
         <h3 class="apartments__card-title">{{ artin1.title() }}</h3>
         <p class="apartments__card-description">{{ artin1.desc() }}</p>
         <ul class="apartments__features">
@@ -17,9 +17,12 @@
             {{ artin1.rooms() }}
           </li>
         </ul>
+        <div class="apartments__card-overlay">
+          <span class="apartments__card-cta">Ver detalles</span>
+        </div>
       </div>
       <!-- Artin House II -->
-      <div class="apartments__card">
+      <div class="apartments__card apartments__card--clickable" (click)="navigateToApartment('artin-house-ii')">
         <h3 class="apartments__card-title">{{ artin2.title() }}</h3>
         <p class="apartments__card-description">{{ artin2.desc() }}</p>
         <ul class="apartments__features">
@@ -32,6 +35,9 @@
             {{ artin2.rooms() }}
           </li>
         </ul>
+        <div class="apartments__card-overlay">
+          <span class="apartments__card-cta">Ver detalles</span>
+        </div>
       </div>
     </div>
   </div>

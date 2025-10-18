@@ -1,15 +1,23 @@
 <header class="header">
   <div class="header__container">
     <div class="header__brand">
-      <a href="#" (click)="$event.preventDefault(); scrollTo('hero')" class="header__brand">ARTIN HOUSE</a>
+      <a href="#" (click)="$event.preventDefault(); navigateToHome()" class="header__brand">ARTIN HOUSE</a>
     </div>
     
     <!-- Desktop Nav -->
     <div class="header__desktop-nav">
       <nav class="header__nav">
-        <a (click)="scrollTo('apartments')" class="header__nav-link">{{ nav.apartments() }}</a>
+        <a (click)="scrollTo('about')" class="header__nav-link">{{ nav.about() }}</a>
+        <div class="header__dropdown">
+          <a (click)="scrollTo('apartments')" class="header__nav-link">{{ nav.apartments() }}</a>
+          <div class="header__dropdown-content">
+            <a (click)="navigateToApartment('/artin-house-i')" class="header__dropdown-link">{{ nav.artinHouseI() }}</a>
+            <a (click)="navigateToApartment('/artin-house-ii')" class="header__dropdown-link">{{ nav.artinHouseII() }}</a>
+          </div>
+        </div>
         <a (click)="scrollTo('amenities')" class="header__nav-link">{{ nav.amenities() }}</a>
         <a (click)="scrollTo('gallery')" class="header__nav-link">{{ nav.gallery() }}</a>
+        <a (click)="navigateToContact()" class="header__nav-link">{{ nav.contact() }}</a>
         <button (click)="scrollTo('booking')" class="header__nav-button">{{ nav.bookNow() }}</button>
       </nav>
       <!-- Language Switcher -->
@@ -36,9 +44,13 @@
   @if (isMenuOpen()) {
     <div class="header__mobile-menu">
       <nav class="header__mobile-nav">
+        <a (click)="scrollTo('about')" class="header__mobile-nav-link">{{ nav.about() }}</a>
         <a (click)="scrollTo('apartments')" class="header__mobile-nav-link">{{ nav.apartments() }}</a>
+        <a (click)="navigateToApartment('/artin-house-i')" class="header__mobile-nav-link">{{ nav.artinHouseI() }}</a>
+        <a (click)="navigateToApartment('/artin-house-ii')" class="header__mobile-nav-link">{{ nav.artinHouseII() }}</a>
         <a (click)="scrollTo('amenities')" class="header__mobile-nav-link">{{ nav.amenities() }}</a>
         <a (click)="scrollTo('gallery')" class="header__mobile-nav-link">{{ nav.gallery() }}</a>
+        <a (click)="navigateToContact()" class="header__mobile-nav-link">{{ nav.contact() }}</a>
         <button (click)="scrollTo('booking')" class="header__mobile-nav-button">{{ nav.bookNow() }}</button>
       </nav>
       <div class="header__mobile-language">

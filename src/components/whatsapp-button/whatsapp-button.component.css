@@ -1,0 +1,70 @@
+/* WhatsApp Button Component Styles - BEM & Mobile First */
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.875rem;
+  max-width: 60px;
+  overflow: hidden;
+}
+
+.whatsapp-button:hover {
+  background-color: #128c7e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  max-width: 200px;
+}
+
+.whatsapp-button__icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+}
+
+.whatsapp-button__text {
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-left: 0.25rem;
+}
+
+.whatsapp-button:hover .whatsapp-button__text {
+  opacity: 1;
+}
+
+/* Tablet and Desktop */
+@media (min-width: 768px) {
+  .whatsapp-button {
+    bottom: 2.5rem;
+    right: 2.5rem;
+    padding: 1.25rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .whatsapp-button__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .whatsapp-button {
+    bottom: 3rem;
+    right: 3rem;
+  }
+}

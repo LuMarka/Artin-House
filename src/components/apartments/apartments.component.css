@@ -38,11 +38,41 @@
   border-radius: 0.5rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   text-align: left;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.apartments__card:hover {
+.apartments__card--clickable {
+  cursor: pointer;
+}
+
+.apartments__card--clickable:hover {
   transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.apartments__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(4, 120, 87, 0.9), rgba(6, 95, 70, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.apartments__card--clickable:hover .apartments__card-overlay {
+  opacity: 1;
+}
+
+.apartments__card-cta {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .apartments__card-title {

@@ -1,0 +1,127 @@
+<app-header></app-header>
+
+<div class="policies">
+  <div class="policies__container">
+    <header class="policies__header">
+      <h1 class="policies__title">{{ translate('policies.title')() }}</h1>
+      <div class="policies__nav">
+        <a routerLink="/" class="policies__nav-link">
+          <img src="/assets/icons/home.png" alt="Inicio" class="policies__nav-icon">
+          Volver al inicio
+        </a>
+      </div>
+    </header>
+
+    <main class="policies__content">
+      <section class="policies__intro">
+        <p class="policies__welcome" [innerHTML]="translateToHtml('policies.welcome')()"></p>
+      </section>
+
+      <section class="policies__section">
+        <h2 class="policies__section-title">{{ translate('policies.apartments.title')() }}</h2>
+        <p class="policies__text">{{ translate('policies.apartments.desc')() }}</p>
+        
+        <div class="policies__apartments">
+          <div class="policies__apartment">
+            <h3 class="policies__apartment-title">Artin House I</h3>
+            <p class="policies__apartment-desc" [innerHTML]="translateToHtml('policies.apartments.house1')()"></p>
+          </div>
+          
+          <div class="policies__apartment">
+            <h3 class="policies__apartment-title">Artin House II</h3>
+            <p class="policies__apartment-desc" [innerHTML]="translateToHtml('policies.apartments.house2')()"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="policies__section">
+        <h2 class="policies__section-title">{{ translate('policies.amenities.title')() }}</h2>
+        <p class="policies__text">{{ translate('policies.amenities.desc')() }}</p>
+      </section>
+
+      <section class="policies__section">
+        <h2 class="policies__section-title">{{ translate('policies.booking.title')() }}</h2>
+        <div class="policies__booking-grid">
+          <div class="policies__booking-item">
+            <h3 class="policies__booking-subtitle">{{ translate('policies.booking.advanceTitle')() }}</h3>
+            <p class="policies__text" [innerHTML]="translateToHtml('policies.booking.advance')()"></p>
+          </div>
+          
+          <div class="policies__booking-item">
+            <h3 class="policies__booking-subtitle">{{ translate('policies.booking.minimumTitle')() }}</h3>
+            <p class="policies__text" [innerHTML]="translateToHtml('policies.booking.minimum')()"></p>
+          </div>
+          
+          <div class="policies__booking-item">
+            <h3 class="policies__booking-subtitle">{{ translate('policies.booking.discountTitle')() }}</h3>
+            <p class="policies__text" [innerHTML]="translateToHtml('policies.booking.discount')()"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="policies__section">
+        <h2 class="policies__section-title">{{ translate('policies.cancellation.title')() }}</h2>
+        <p class="policies__text" [innerHTML]="translateToHtml('policies.cancellation.desc')()"></p>
+      </section>
+
+      <section class="policies__section">
+        <h2 class="policies__section-title">{{ translate('policies.schedule.title')() }}</h2>
+        <div class="policies__schedules-grid">
+          <div class="policies__schedule-item">
+            <h3 class="policies__schedule-title">Check-in</h3>
+            <p class="policies__schedule-time" [innerHTML]="translateToHtml('policies.schedule.checkin')()"></p>
+          </div>
+          
+          <div class="policies__schedule-item">
+            <h3 class="policies__schedule-title">Check-out</h3>
+            <p class="policies__schedule-time" [innerHTML]="translateToHtml('policies.schedule.checkout')()"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="policies__section">
+        <h2 class="policies__section-title">{{ translate('policies.rules.title')() }}</h2>
+        <p class="policies__text">{{ translate('policies.rules.desc')() }}</p>
+        
+        <div class="policies__rules-list">
+          <div class="policies__rule-item">
+            <h3 class="policies__rule-title">{{ translate('policies.rules.smoking.title')() }}</h3>
+            <p class="policies__text">{{ translate('policies.rules.smoking.desc')() }}</p>
+          </div>
+          
+          <div class="policies__rule-item">
+            <h3 class="policies__rule-title">{{ translate('policies.rules.parties.title')() }}</h3>
+            <p class="policies__text">{{ translate('policies.rules.parties.desc')() }}</p>
+          </div>
+          
+          <div class="policies__rule-item">
+            <h3 class="policies__rule-title">{{ translate('policies.rules.guests.title')() }}</h3>
+            <p class="policies__text">{{ translate('policies.rules.guests.desc')() }}</p>
+          </div>
+          
+          <div class="policies__rule-item">
+            <h3 class="policies__rule-title">{{ translate('policies.rules.noise.title')() }}</h3>
+            <p class="policies__text">{{ translate('policies.rules.noise.desc')() }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="policies__section">
+        <h2 class="policies__section-title">{{ translate('policies.deposit.title')() }}</h2>
+        <p class="policies__text">{{ translate('policies.deposit.desc')() }}</p>
+      </section>
+
+      <section class="policies__footer-section">
+        <p class="policies__thank-you" [innerHTML]="translateToHtml('policies.thankYou')()"></p>
+        
+        <div class="policies__contact-cta">
+          <a routerLink="/contact" class="policies__contact-button">
+            {{ translate('nav.contact')() }}
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<app-footer></app-footer>

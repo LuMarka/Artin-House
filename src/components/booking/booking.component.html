@@ -22,10 +22,11 @@
               <div 
                 (click)="selectDate(day)"
                 [class]="{
-                  'booking__calendar-day--selectable': day.isCurrentMonth && !day.isBooked,
+                  'booking__calendar-day--selectable': day.isCurrentMonth && !day.isBooked && !day.isPast,
                   'booking__calendar-day--other-month': !day.isCurrentMonth,
                   'booking__calendar-day--current-month': day.isCurrentMonth,
                   'booking__calendar-day--booked': day.isBooked,
+                  'booking__calendar-day--past': day.isPast,
                   'booking__calendar-day--selected': isDateSelected(day.date),
                   'booking__calendar-day--in-range': isDateInRange(day.date)
                 }"
@@ -62,6 +63,38 @@
             </div>
           </div>
         </div>
+
+        <!-- Guest Counter -->
+        <div class="booking__guests">
+          <label class="booking__label">Huéspedes</label>
+          <div class="booking__guest-counter">
+            <button 
+              type="button" 
+              (click)="decrementGuests()" 
+              [disabled]="guests() <= 1"
+              class="booking__counter-btn">
+              <svg class="booking__counter-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+              </svg>
+            </button>
+            <span class="booking__guest-count">{{ guests() }} {{ guests() === 1 ? 'persona' : 'personas' }}</span>
+            <button 
+              type="button" 
+              (click)="incrementGuests()" 
+              [disabled]="guests() >= 5"
+              class="booking__counter-btn">
+              <svg class="booking__counter-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+          </div>
+          <div class="booking__price-display">
+            <span class="booking__price-per-night">${{ pricePerNight().toLocaleString() }} ARS por noche</span>
+            @if (numberOfNights() > 0) {
+              <span class="booking__total-price">Total: ${{ totalPrice().toLocaleString() }} ARS</span>
+            }
+          </div>
+        </div>
         
         @if (numberOfNights() > 0) {
           <div class="booking__nights-info">
@@ -71,13 +104,17 @@
           </div>
         }
 
-        <button (click)="confirmBooking()" class="booking__submit-button">
-          {{ t.bookButton() }}
-        </button>
+        <div class="booking__buttons">
+          <button (click)="confirmBooking()" class="booking__submit-button booking__submit-button--primary">
+            {{ t.bookButton() }}
+          </button>
+        </div>
 
         @if (bookingStatus() === 'booked') {
           <div class="booking__message booking__message--success">
-            {{ t.successMsg() }}
+            <p class="booking__success-message">
+            {{ t.confirmationMessage() }}
+          </p>
           </div>
         }
         @if (bookingStatus() === 'error') {
@@ -85,6 +122,32 @@
             {{ t.errorMsg() }}
           </div>
         }
+      </div>
+    </div>
+
+    <!-- Payment Information Section -->
+    <div class="booking__payment-section">
+      <div class="booking__payment-container">
+        
+        <div class="booking__payment-info">
+          <div class="booking__payment-methods">
+            <h4 class="booking__payment-subtitle">{{ t.payment.methods() }}</h4>
+            <div class="booking__payment-options">
+              <span class="booking__payment-option">{{ t.payment.creditCard() }}</span>
+              <span class="booking__payment-option">{{ t.payment.bankTransfer() }}</span>
+              <span class="booking__payment-option">{{ t.payment.cash() }}</span>
+            </div>
+          </div>
+          <div class="booking__payment-terms">
+            <h4 class="booking__payment-subtitle">{{ t.payment.information() }}</h4>
+            <p class="booking__payment-text">
+              <strong>{{ t.payment.deposit() }}</strong> {{ t.payment.depositAmount() }}<br>
+              <strong>{{ t.payment.checkinTime() }}</strong> {{ t.payment.checkinValue() }}<br>
+              <strong>{{ t.payment.checkoutTime() }}</strong> {{ t.payment.checkoutValue() }}<br>
+              <strong>{{ t.payment.discountInfo() }}</strong> {{ t.payment.discountValue() }}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

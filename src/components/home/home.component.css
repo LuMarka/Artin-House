@@ -1,0 +1,11 @@
+/* Home Component Styles - BEM & Mobile First */
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home__main {
+  flex-grow: 1;
+}

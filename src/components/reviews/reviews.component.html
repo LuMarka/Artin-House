@@ -1,0 +1,54 @@
+<section class="reviews">
+  <div class="reviews__container">
+    <h2 class="reviews__title">{{ t.title() }}</h2>
+    
+    <!-- Resumen de calificaciones -->
+    <div class="reviews__summary">
+      <div class="reviews__rating-score">
+        <span class="reviews__score">{{ averageRating }}</span>
+        <div class="reviews__stars reviews__stars--large">
+          <span class="reviews__star" 
+                *ngFor="let star of [1,2,3,4,5]; let i = index" 
+                [class.reviews__star--filled]="i < averageRating">
+            ★
+          </span>
+        </div>
+        <!-- <p class="reviews__total">{{ totalReviews }} {{ t.totalReviews() }}</p> -->
+      </div>
+      
+      <div class="reviews__rating-breakdown">
+        <div class="reviews__rating-bar" *ngFor="let star of [5,4,3,2,1]">
+          <span class="reviews__rating-number">{{ star }}</span>
+          <div class="reviews__bar">
+            <div class="reviews__bar-fill" 
+                 [style.width.%]="getRatingPercentage(star)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lista de reseñas -->
+    <div class="reviews__list">
+      <article class="reviews__item" *ngFor="let review of reviews">
+        <div class="reviews__user">
+          <div class="reviews__avatar">
+            {{ review.initials }}
+          </div>
+          <div class="reviews__user-info">
+            <h3 class="reviews__user-name">{{ review.name }}</h3>
+            <p class="reviews__date">{{ review.date }}</p>
+            <div class="reviews__stars">
+              <span class="reviews__star" 
+                    *ngFor="let star of [1,2,3,4,5]; let i = index" 
+                    [class.reviews__star--filled]="i < review.rating">
+                ★
+              </span>
+            </div>
+          </div>
+        </div>
+        <p class="reviews__comment">{{ review.comment }}</p>
+      </article>
+    </div>
+  </div>
+</section>
