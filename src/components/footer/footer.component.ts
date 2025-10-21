@@ -70,7 +70,7 @@ export class FooterComponent implements OnInit {
     },
     contact: {
       email: 'artinhousemza@gmail.com',
-      phone: '+54 261 698 4285'
+      phone: '+54 261 590 1250'
     },
     map: {
       embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.500918731006!2d-68.8796112!3d-33.037376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e808383e74889%3A0x6280436d713c77f0!2sBustamante%20482%2C%20M5507CMM%20Luj%C3%A1n%20de%20Cuyo%2C%20Mendoza%2C%20Argentina!5e0!3m2!1sen!2sar!4v1704067200000!5m2!1sen!2sar',

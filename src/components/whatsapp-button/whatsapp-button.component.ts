@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   standalone: true
 })
 export class WhatsappButtonComponent {
-  phoneNumber = '5492616984285'; // Número de WhatsApp
+  phoneNumber = '5492615901250'; // Número de WhatsApp
   
   openWhatsApp() {
     const message = encodeURIComponent('¡Hola! Me interesa obtener más información sobre Artin House Luján.');
