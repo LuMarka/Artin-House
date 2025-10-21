@@ -123,8 +123,8 @@ const translations: Translations = {
   'policies.deposit.amount': { en: '**Deposit Amount:** The value will be equivalent to the cost of one (1) night of accommodation.', es: '**Monto del Depósito:** El valor será equivalente al costo de una (1) noche de alojamiento.', pt: '**Valor do Depósito:** O valor será equivalente ao custo de uma (1) noite de acomodação.' },
   'policies.deposit.purpose': { en: '**Purpose:** This deposit is retained as collateral to cover possible material damage, breakage, or missing items that may occur during the stay.', es: '**Finalidad:** Este depósito se retendrá como fianza para cubrir posibles daños materiales, roturas o faltantes que pudieran ocurrir durante la estadía.', pt: '**Finalidade:** Este depósito é retido como garantia para cobrir possíveis danos materiais, quebras ou itens em falta que possam ocorrer durante a estadia.' },
     'policies.deposit.payment': { en: '**Payment Methods:** The deposit can be paid by bank transfer, cash, or credit/debit card pre-authorization at check-in. Refund will be made by the same method, or by bank transfer if paid in cash.', es: '**Formas de Pago:** El depósito puede ser abonado mediante transferencia bancaria, en efectivo o mediante pre-autorización en tarjeta de crédito/débito al momento del Check-in. La devolución se realizará por el mismo medio, o por transferencia bancaria en caso de haber sido abonado en efectivo.', pt: '**Formas de Pagamento:** O depósito pode ser pago por transferência bancária, em dinheiro ou por pré-autorização no cartão de crédito/débito no check-in. O reembolso será feito pelo mesmo método, ou por transferência bancária se pago em dinheiro.' },
-  'policies.deposit.refund': { en: '**Refund:** The amount will be refunded in full (by the same payment method) on check-out day, once the property has been reviewed and verified that there is no damage.', es: '**Reintegro:** El importe será reintegrado en su totalidad (por el mismo medio de pago) el día del Check-out, una vez que se haya revisado la propiedad y verificado que no existen daños.', pt: '**Reembolso:** O valor será reembolsado integralmente (pelo mesmo método de pagamento) no dia do check-out, uma vez que a propriedade tenha sido revisada e verificado que não há danos.' },
-  'policies.deposit.damages': { en: '**In case of damage:** If damage or theft is found, the cost of repair or replacement will be deducted from the deposit. If the damage exceeds the guarantee amount, the guest must cover the difference.', es: '**En caso de daños:** Si se constatan daños o hurtos, el costo de reparación o reposición se descontará del depósito. Si el daño supera el monto de la garantía, el huésped deberá cubrir la diferencia.', pt: '**Em caso de danos:** Se forem constatados danos ou furtos, o custo de reparo ou substituição será deduzido do depósito. Se o dano exceder o valor da garantia, o hóspede deve cobrir a diferença.' },
+  'policies.deposit.refund': { en: '**Refund:** The amount will be refunded in full (by the same payment method) on check-out day, once the property has been reviewed and verified that there is no damage.', es: '**Reintegro:** El importe será reintegrado em sua totalidade (por el mismo medio de pago) el día del Check-out, una vez que se haya revisado la propiedad y verificado que no existen daños.', pt: '**Reembolso:** O valor será reembolsado integralmente (pelo mesmo método de pagamento) no dia do check-out, uma vez que a propriedade tenha sido revisada e verificado que não há danos.' },
+  'policies.deposit.damages': { en: '**In case of damage:** If damage or theft is found, the cost of repair or replacement will be deducted from the deposit. If the damage exceeds the guarantee amount, the guest must cover the difference.', es: '**En caso de daños:** Si se constatan daños o hurtos, el costo de reparación o reposición se descontará del depósito. Si el daño supera el monto de la garantía, el huésped deberá cubrir a diferença.', pt: '**Em caso de danos:** Se forem constatados danos ou furtos, o custo de reparo ou substituição será deduzido do depósito. Se o dano exceder o valor da garantia, o hóspede deve cobrir a diferença.' },
   
   'policies.thankYou': { en: '**Thank you for choosing Artin House! We look forward to welcoming you soon in Luján de Cuyo.**', es: '**¡Gracias por elegir Artin House! Esperamos recibirlos pronto en Luján de Cuyo.**', pt: '**Obrigado por escolher a Artin House! Esperamos recebê-los em breve em Luján de Cuyo.**' },
   
@@ -170,7 +170,32 @@ const translations: Translations = {
   'booking.nights': { en: 'nights', es: 'noches', pt: 'noites' },
   'booking.bookButton': { en: 'Request to Book', es: 'Solicitar Reserva', pt: 'Solicitar Reserva' },
   'booking.successMsg': { en: 'Booking request sent! We will contact you shortly.', es: '¡Solicitud de reserva enviada! Te contactaremos a la brevedad.', pt: 'Solicitação de reserva enviada! Entraremos em contato em breve.' },
-  
+  'booking.discount.applied': { en: '🎉 10% Discount (4+ nights):', es: '🎉 Descuento 10% (4+ noches):', pt: '🎉 Desconto 10% (4+ noites):' },
+  'booking.discount.savings': { en: 'You save:', es: 'Ahorras:', pt: 'Você economiza:' },
+  'booking.discount.finalPrice': { en: 'Final Total:', es: 'Total Final:', pt: 'Total Final:' },
+  'booking.discount.hint': { en: '💡 Book 4+ nights and get 10% discount!', es: '💡 ¡Reserva 4+ noches y obtén 10% de descuento!', pt: '💡 Reserve 4+ noites e ganhe 10% de desconto!' },
+  'booking.subtotal': { en: 'Subtotal:', es: 'Subtotal:', pt: 'Subtotal:' },
+  'booking.dollarRates': { 
+    en: 'For USD rates, please contact us:', 
+    es: 'Para tarifas en dólares, consultanos:', 
+    pt: 'Para tarifas em dólares, consulte-nos:' 
+  },
+  'booking.contactWhatsApp': { 
+    en: 'WhatsApp', 
+    es: 'WhatsApp', 
+    pt: 'WhatsApp' 
+  },
+  'booking.contactEmail': { 
+    en: 'Email', 
+    es: 'Email', 
+    pt: 'Email' 
+  },
+  'booking.contactForm': { 
+    en: 'Contact Form', 
+    es: 'Formulario de Consulta', 
+    pt: 'Formulário de Consulta' 
+  },
+
   // Home apartment navigation
   'home.viewArtinHouseI': { en: 'View Artin House I', es: 'Ver Artin House I', pt: 'Ver Artin House I' },
   'home.viewArtinHouseII': { en: 'View Artin House II', es: 'Ver Artin House II', pt: 'Ver Artin House II' },
@@ -264,7 +289,7 @@ const translations: Translations = {
   'amenity.garden': { en: 'Garden', es: 'Jardín', pt: 'Jardim' },
 
   // Image descriptions for Artin House I
-  'apartment.artin-house-i.image.masterBedroom': { en: 'Spacious master bedroom with king bed', es: 'Amplio dormitorio principal con cama king', pt: 'Quarto principal espaçoso com cama king' },
+  'apartment.artin-house-i.iimage.masterBedroom': { en: 'Spacious master bedroom with king bed', es: 'Amplio dormitorio principal con cama king', pt: 'Quarto principal espaçoso com cama king' },
   'apartment.artin-house-i.image.kitchen': { en: 'Fully equipped kitchen', es: 'Cocina completamente equipada', pt: 'Cozinha totalmente equipada' },
   'apartment.artin-house-i.image.kitchenView': { en: 'Complete kitchen view', es: 'Vista completa de la cocina', pt: 'Vista completa da cozinha' },
   'apartment.artin-house-i.image.bathroom': { en: 'Full bathroom with shower', es: 'Baño completo con ducha', pt: 'Banheiro completo com chuveiro' },

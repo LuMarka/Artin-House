@@ -47,12 +47,13 @@ export class BookingComponent {
     checkoutLabel: this.translationService.translate('booking.checkoutLabel'),
     guestLabel: this.translationService.translate('booking.guestLabel'),
     selectDate: this.translationService.translate('booking.selectDate'),
-    totalStay: this.translationService.translate('booking.totalStay'),
-    nights: this.translationService.translate('booking.nights'),
     bookButton: this.translationService.translate('booking.bookButton'),
     successMsg: this.translationService.translate('booking.successMsg'),
     errorMsg: this.translationService.translate('booking.errorMsg'),
-    confirmationMessage: this.translationService.translate('booking.confirmationMessage'),
+    dollarRates: this.translationService.translate('booking.dollarRates'),
+    contactWhatsApp: this.translationService.translate('booking.contactWhatsApp'),
+    contactEmail: this.translationService.translate('booking.contactEmail'),
+    contactForm: this.translationService.translate('booking.contactForm'),
     weekdays: {
       sun: this.translationService.translate('booking.weekdays.sun'),
       mon: this.translationService.translate('booking.weekdays.mon'),
@@ -123,6 +124,18 @@ export class BookingComponent {
     return this.numberOfNights() * this.pricePerNight();
   });
 
+  // Agregar después de totalPrice computed
+  hasDiscount = computed(() => this.numberOfNights() >= 4);
+
+  discountedPrice = computed(() => {
+    const total = this.totalPrice();
+    return this.hasDiscount() ? total * 0.9 : total; // 10% descuento
+  });
+
+  savings = computed(() => {
+    return this.hasDiscount() ? this.totalPrice() - this.discountedPrice() : 0;
+  });
+
   isDateInRange(date: Date): boolean {
     const checkIn = this.checkInDate();
     const checkOut = this.checkOutDate();
@@ -188,22 +201,40 @@ export class BookingComponent {
     const checkOut = this.checkOutDate()!;
     const apartment = this.selectedApartment();
     const nights = this.numberOfNights();
-
+    const guests = this.guests();
+    
+    // Usar el precio calculado correctamente
+    const totalPrice = this.hasDiscount() ? this.discountedPrice() : this.totalPrice();
+    const pricePerNight = this.pricePerNight();
+    
     // Crear la reserva internamente (simulación de base de datos)
     this.addBookingToSystem(checkIn, checkOut, apartment);
 
-    // Preparar email de contacto
+    // Preparar email de contacto con precios correctos
     const subject = encodeURIComponent(`Solicitud de reserva - ${apartment}`);
+    
+    let priceDetails = `💰 Precio por noche: $${pricePerNight.toLocaleString('es-AR')} ARS
+💰 Subtotal (${nights} noches): $${this.totalPrice().toLocaleString('es-AR')} ARS`;
+
+    // Agregar información de descuento si aplica
+    if (this.hasDiscount()) {
+      priceDetails += `
+🎉 Descuento 10% (4+ noches): -$${this.savings().toLocaleString('es-AR')} ARS
+💰 Total Final: $${this.discountedPrice().toLocaleString('es-AR')} ARS`;
+    }
+
     const body = encodeURIComponent(`
 ¡Hola!
 
 Deseo realizar una reserva con los siguientes detalles:
 
 🏠 Apartamento: ${apartment}
+👥 Cantidad de huéspedes: ${guests}
 📅 Fecha de entrada: ${checkIn.toLocaleDateString('es-AR')}
 📅 Fecha de salida: ${checkOut.toLocaleDateString('es-AR')}
 🌙 Número de noches: ${nights}
-💰 Total estimado: $${(nights * 65000).toLocaleString('es-AR')} ARS
+
+${priceDetails}
 
 Por favor, confirmen disponibilidad y envíenme los detalles para proceder con el pago de la seña (20%).
 
@@ -305,5 +336,40 @@ Por favor, confirmen disponibilidad y envíenme los detalles para proceder con e
     }
 
     return weeks;
+  }
+
+  // Agregar después de los otros métodos
+  canBook = computed(() => {
+    return this.checkInDate() && 
+           this.checkOutDate() && 
+           this.selectedApartment() && 
+           this.guests() >= 1;
+  });
+
+  book(): void {
+    if (!this.canBook()) {
+      return;
+    }
+    
+    this.sendBookingRequest();
+  }
+
+  navigateToContact(event: Event): void {
+    event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+    
+    // Intentar encontrar el elemento de contacto
+    const contactElement = document.getElementById('contact') || 
+                          document.querySelector('app-contact');
+    
+    if (contactElement) {
+      // Si existe, hacer scroll suave
+      contactElement.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start' 
+      });
+    } else {
+      // Si no existe, navegar a la página de contacto
+      window.open('/contact', '_self');
+    }
   }
 }
