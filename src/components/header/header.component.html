@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header__container">
     <div class="header__brand">
-      <a href="#" (click)="$event.preventDefault(); navigateToHome()" class="header__brand">ARTIN HOUSE</a>
+      <a href="#" (click)="$event.preventDefault(); navigateToHome()" class="header__brand">{{headerBrand}}</a>
     </div>
     
     <!-- Desktop Nav -->
@@ -27,6 +27,9 @@
         <span class="header__language-separator">/</span>
         <button (click)="setLanguage('en')" 
                 [class]="language() === 'en' ? 'header__language-btn header__language-btn--active' : 'header__language-btn header__language-btn--inactive'">EN</button>
+        <span class="header__language-separator">/</span>
+        <button (click)="setLanguage('pt')" 
+                [class]="language() === 'pt' ? 'header__language-btn header__language-btn--active' : 'header__language-btn header__language-btn--inactive'">PT</button>
       </div>
     </div>
 
@@ -58,6 +61,8 @@
                 [class]="language() === 'es' ? 'header__mobile-language-btn header__mobile-language-btn--active' : 'header__mobile-language-btn header__mobile-language-btn--inactive'">Español</button>
         <button (click)="setLanguage('en'); isMenuOpen.set(false)" 
                 [class]="language() === 'en' ? 'header__mobile-language-btn header__mobile-language-btn--active' : 'header__mobile-language-btn header__mobile-language-btn--inactive'">English</button>
+        <button (click)="setLanguage('pt'); isMenuOpen.set(false)" 
+                [class]="language() === 'pt' ? 'header__mobile-language-btn header__mobile-language-btn--active' : 'header__mobile-language-btn header__mobile-language-btn--inactive'">Português</button>
       </div>
     </div>
   }

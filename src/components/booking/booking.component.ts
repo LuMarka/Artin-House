@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, signal, computed, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, computed, inject, input, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslationService } from '../../services/translation.service';
@@ -20,12 +20,20 @@ interface Day {
 export class BookingComponent {
   private translationService = inject(TranslationService);
   
+  // Input para preseleccionar apartamento
+  apartmentInput = input<'Artin House I' | 'Artin House II'>();
+  
   selectedApartment = signal<'Artin House I' | 'Artin House II'>('Artin House I');
   currentDate = signal(new Date());
   
   checkInDate = signal<Date | null>(null);
   checkOutDate = signal<Date | null>(null);
   guests = signal(2); // Default 2 guests
+
+  // Maximum guests based on apartment
+  maxGuests = computed(() => {
+    return this.selectedApartment() === 'Artin House I' ? 5 : 2;
+  });
 
   bookingStatus = signal<'idle' | 'booked' | 'error'>('idle');
   language = this.translationService.language;
@@ -37,6 +45,7 @@ export class BookingComponent {
     apartmentLabel: this.translationService.translate('booking.apartmentLabel'),
     checkinLabel: this.translationService.translate('booking.checkinLabel'),
     checkoutLabel: this.translationService.translate('booking.checkoutLabel'),
+    guestLabel: this.translationService.translate('booking.guestLabel'),
     selectDate: this.translationService.translate('booking.selectDate'),
     totalStay: this.translationService.translate('booking.totalStay'),
     nights: this.translationService.translate('booking.nights'),
@@ -56,6 +65,7 @@ export class BookingComponent {
     payment: {
       methods: this.translationService.translate('booking.payment.methods'),
       creditCard: this.translationService.translate('booking.payment.creditCard'),
+      debitCard: this.translationService.translate('booking.payment.debitCard'),
       bankTransfer: this.translationService.translate('booking.payment.bankTransfer'),
       cash: this.translationService.translate('booking.payment.cash'),
       information: this.translationService.translate('booking.payment.information'),
@@ -72,12 +82,24 @@ export class BookingComponent {
 
   // Hardcoded booked dates for demonstration
   private bookedDatesRaw = [
-    new Date(2024, 6, 20), new Date(2024, 6, 21), new Date(2024, 6, 22),
-    new Date(2024, 7, 5), new Date(2024, 7, 6)
+    new Date(2025, 6, 20), new Date(2025, 6, 21), new Date(2025, 6, 22),
+    new Date(2025, 7, 5), new Date(2025, 7, 6)
   ];
 
   calendarGrid = computed(() => this.generateCalendar(this.currentDate()));
   monthYearDisplay = computed(() => this.currentDate().toLocaleString(this.language(), { month: 'long', year: 'numeric' }));
+
+  constructor() {
+    // Effect para establecer el apartamento cuando se pasa como input
+    effect(() => {
+      const apartment = this.apartmentInput();
+      if (apartment) {
+        this.selectedApartment.set(apartment);
+        // Reset guests when apartment changes
+        this.guests.set(apartment === 'Artin House I' ? 2 : 2);
+      }
+    });
+  }
   
   numberOfNights = computed(() => {
     const checkIn = this.checkInDate();
@@ -183,7 +205,7 @@ Deseo realizar una reserva con los siguientes detalles:
 🌙 Número de noches: ${nights}
 💰 Total estimado: $${(nights * 65000).toLocaleString('es-AR')} ARS
 
-Por favor, confirmen disponibilidad y envíenme los detalles para proceder con el pago de la seña (30%).
+Por favor, confirmen disponibilidad y envíenme los detalles para proceder con el pago de la seña (20%).
 
 ¡Gracias!
     `);
@@ -195,7 +217,7 @@ Por favor, confirmen disponibilidad y envíenme los detalles para proceder con e
   }
 
   incrementGuests(): void {
-    if (this.guests() < 5) {
+    if (this.guests() < this.maxGuests()) {
       this.guests.update(count => count + 1);
     }
   }
@@ -203,6 +225,14 @@ Por favor, confirmen disponibilidad y envíenme los detalles para proceder con e
   decrementGuests(): void {
     if (this.guests() > 1) {
       this.guests.update(count => count - 1);
+    }
+  }
+
+  // Reset guests when changing apartment
+  onApartmentChange(): void {
+    const max = this.maxGuests();
+    if (this.guests() > max) {
+      this.guests.set(max);
     }
   }
 

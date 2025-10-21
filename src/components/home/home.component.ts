@@ -1,5 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
 import { HeaderComponent } from '../header/header.component';
 import { HeroComponent } from '../hero/hero.component';
 import { AboutComponent } from '../about/about.component';
@@ -7,6 +9,7 @@ import { ApartmentsComponent } from '../apartments/apartments.component';
 import { AmenitiesComponent } from '../amenities/amenities.component';
 import { GalleryComponent } from '../gallery/gallery.component';
 import { BookingComponent } from '../booking/booking.component';
+import { BookingPlatformsComponent } from '../booking-platforms/booking-platforms.component';
 import { FooterComponent } from '../footer/footer.component';
 import { WhatsappButtonComponent } from '../whatsapp-button/whatsapp-button.component';
 import { ReviewsComponent } from '../reviews/reviews.component';
@@ -27,8 +30,28 @@ import { ReviewsComponent } from '../reviews/reviews.component';
     GalleryComponent,
     ReviewsComponent,
     BookingComponent,
+    BookingPlatformsComponent,
     FooterComponent,
     WhatsappButtonComponent
   ],
 })
-export class HomeComponent {}
+export class HomeComponent {
+  private router = inject(Router);
+  private translationService = inject(TranslationService);
+
+  // Traducciones
+  t = {
+    viewArtinHouseI: this.translationService.translate('home.viewArtinHouseI'),
+    viewArtinHouseII: this.translationService.translate('home.viewArtinHouseII')
+  };
+
+  // Navegar a Artin House I
+  goToArtinHouseI() {
+    this.router.navigate(['/artin-house-i']);
+  }
+
+  // Navegar a Artin House II
+  goToArtinHouseII() {
+    this.router.navigate(['/artin-house-ii']);
+  }
+}

@@ -24,12 +24,12 @@ export class HeaderComponent {
     contact: this.translationService.translate('nav.contact'),
     bookNow: this.translationService.translate('nav.bookNow'),
   }
-
+  headerBrand= 'ARTIN HOUSE';
   toggleMenu() {
     this.isMenuOpen.update(value => !value);
   }
   
-  setLanguage(lang: 'en' | 'es') {
+  setLanguage(lang: 'en' | 'es' | 'pt') {
     this.translationService.setLanguage(lang);
   }
 

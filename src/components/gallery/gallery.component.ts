@@ -36,21 +36,9 @@ export class GalleryComponent {
     { src: 'src/assets/apartments/artin-house-i/cocina3.jpg', altKey: 'gallery.alt.kitchen1' },
     { src: 'src/assets/apartments/artin-house-i/dormitoriogrande5.jpg', altKey: 'gallery.alt.dormitorioPrincipal' },
     { src: 'src/assets/apartments/artin-house-i/dormitoriochico.jpg', altKey: 'gallery.alt.bedroom' },
+    { src: 'src/assets/apartments/artin-house-ii/cocina.jpg', altKey: 'gallery.alt.kitchen' },
     { src: 'src/assets/apartments/artin-house-i/dormitorioGrande2.jpg', altKey: 'gallery.alt.bedroom' },
-    { src: 'src/assets/apartments/artin-house-i/baño.jpg', altKey: 'gallery.alt.bathroom1' },
     { src: 'src/assets/apartments/artin-house-ii/dormitorio1.jpg', altKey: 'gallery.alt.dormitorio' },
-    { src: 'src/assets/apartments/artin-house-ii/cocina1.jpg', altKey: 'gallery.alt.cocina' },
-    { src: 'src/assets/apartments/artin-house-ii/baño1.jpg', altKey: 'gallery.alt.bathroom' },
-    { src: 'src/assets/apartments/complejo/imagen-complejo-exterior.jpg', altKey: 'gallery.alt.exterior' },
-    { src: 'src/assets/apartments/artin-house-i/cocina6.jpg', altKey: 'gallery.alt.kitchen' },
-    { src: 'src/assets/apartments/artin-house-i/cocina3.jpg', altKey: 'gallery.alt.kitchen1' },
-    { src: 'src/assets/apartments/artin-house-i/dormitoriogrande5.jpg', altKey: 'gallery.alt.livingRoom' },
-    { src: 'src/assets/apartments/artin-house-i/dormitoriochico.jpg', altKey: 'gallery.alt.bedroom' },
-    { src: 'src/assets/apartments/artin-house-i/dormitorioGrande2.jpg', altKey: 'gallery.alt.bedroom' },
-    { src: 'src/assets/apartments/artin-house-i/baño.jpg', altKey: 'gallery.alt.bathroom1' },
-    { src: 'src/assets/apartments/artin-house-ii/dormitorio1.jpg', altKey: 'gallery.alt.dormitorio' },
-    { src: 'src/assets/apartments/artin-house-ii/cocina1.jpg', altKey: 'gallery.alt.cocina' },
-    { src: 'src/assets/apartments/artin-house-ii/baño1.jpg', altKey: 'gallery.alt.bathroom' },
   ];
 
   images = computed(() => {
@@ -64,7 +52,7 @@ export class GalleryComponent {
   // Determina el tamaño de cada imagen basado en su índice
   private getImageSize(index: number): 'small' | 'medium' | 'large' {
     // Patrón de tamaños: más pequeñas y medianas, pocas grandes
-    const sizePattern = ['medium', 'large', 'small', 'large', 'small', 'small', 'medium', 'large', 'small', 'medium', 'small', 'small', 'large', 'small', 'medium', 'small', 'large', 'small', 'medium', 'small'];
+    const sizePattern = ['medium', 'large', 'small', 'large', 'small', 'small', 'medium', 'medium'];
     return sizePattern[index % sizePattern.length] as 'small' | 'medium' | 'large';
   }
 

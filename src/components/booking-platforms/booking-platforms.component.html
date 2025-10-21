@@ -1,0 +1,26 @@
+<section class="booking-platforms">
+  <div class="booking-platforms__container">
+    <div class="booking-platforms__header">
+      <h2 class="booking-platforms__title">{{ t.title() }}</h2>
+      <!-- <p class="booking-platforms__subtitle">{{ t.subtitle() }}</p> -->
+    </div>
+    
+    <div class="booking-platforms__grid">
+      <a 
+        *ngFor="let platform of platforms" 
+        [href]="platform.url" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="booking-platforms__item">
+        <div class="booking-platforms__logo-container">
+          <img 
+            [src]="platform.logo" 
+            [alt]="platform.alt"
+            class="booking-platforms__logo"
+            loading="lazy">
+        </div>
+        <span class="booking-platforms__name">{{ platform.name }}</span>
+      </a>
+    </div>
+  </div>
+</section>

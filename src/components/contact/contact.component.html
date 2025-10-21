@@ -5,14 +5,18 @@
   <section class="contact__video">
     <div class="contact__video-container">
       <video 
+        #contactVideo
         class="contact__video-player"
         src="src/assets/apartments/complejo/video-complejo-artin-house.mp4" 
         autoplay 
-        muted 
+        muted="true"
+        defaultMuted
         loop
+        playsinline
         poster="src/assets/apartments/complejo/video-complejo-artin-house-poster.jpg"
         title="Vista exterior del complejo Artin House"
-        loading="lazy">
+        loading="lazy"
+        preload="metadata">
       </video>
       <div class="contact__video-overlay">
         <h1 class="contact__title">{{ t().title }}</h1>

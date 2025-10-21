@@ -1,0 +1,148 @@
+.booking-platforms {
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #f0f9ff 0%, #ecfdf5 100%);
+}
+
+.booking-platforms__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.booking-platforms__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.booking-platforms__title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #065f46;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.booking-platforms__subtitle {
+  font-size: 1.1rem;
+  color: #4b5563;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.booking-platforms__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.booking-platforms__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.booking-platforms__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: #10b981;
+}
+
+.booking-platforms__logo-container {
+  flex-shrink: 0;
+  width: 120px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.booking-platforms__logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.booking-platforms__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .booking-platforms {
+    padding: 2.5rem 0;
+  }
+  
+  .booking-platforms__container {
+    padding: 0 1.5rem;
+  }
+  
+  .booking-platforms__title {
+    font-size: 1.75rem;
+
+  }
+  
+  .booking-platforms__grid {
+    grid-template-columns: repeat( 1fr);
+    gap: 2rem;
+    max-width: 400px;
+  }
+  
+  .booking-platforms__item {
+    padding: 2rem;
+  }
+  
+  .booking-platforms__logo-container {
+    width: 100px;
+    height: 60px;
+  }
+  
+  .booking-platforms__name {
+    font-size: 1.2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .booking-platforms {
+    padding: 3rem 0;
+  }
+   .booking-platforms__title {
+    font-size: 2.5rem;
+
+  }
+  
+  .booking-platforms__grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+  }
+  
+  .booking-platforms__item {
+    flex-direction: row;
+    text-align: left;
+    padding: 2rem;
+    justify-content: flex-start;
+  }
+  
+  .booking-platforms__logo-container {
+    width: 120px;
+    height: 70px;
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+}

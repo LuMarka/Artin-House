@@ -43,12 +43,12 @@
         
         <div class="booking__field">
           <label class="booking__label">{{ t.apartmentLabel() }}</label>
-          <select [ngModel]="selectedApartment()" (ngModelChange)="selectedApartment.set($event)" class="booking__select">
+          <select [ngModel]="selectedApartment()" (ngModelChange)="selectedApartment.set($event); onApartmentChange()" class="booking__select">
             <option value="Artin House I">Artin House I</option>
             <option value="Artin House II">Artin House II</option>
           </select>
         </div>
-
+        
         <div class="booking__dates">
           <div class="booking__date-field">
             <label class="booking__label">{{ t.checkinLabel() }}</label>
@@ -66,7 +66,7 @@
 
         <!-- Guest Counter -->
         <div class="booking__guests">
-          <label class="booking__label">Huéspedes</label>
+          <label class="booking__label">{{ t.guestLabel() }}</label>
           <div class="booking__guest-counter">
             <button 
               type="button" 
@@ -81,7 +81,7 @@
             <button 
               type="button" 
               (click)="incrementGuests()" 
-              [disabled]="guests() >= 5"
+              [disabled]="guests() >= maxGuests()"
               class="booking__counter-btn">
               <svg class="booking__counter-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
@@ -134,6 +134,7 @@
             <h4 class="booking__payment-subtitle">{{ t.payment.methods() }}</h4>
             <div class="booking__payment-options">
               <span class="booking__payment-option">{{ t.payment.creditCard() }}</span>
+              <span class="booking__payment-option">{{ t.payment.debitCard() }}</span>
               <span class="booking__payment-option">{{ t.payment.bankTransfer() }}</span>
               <span class="booking__payment-option">{{ t.payment.cash() }}</span>
             </div>

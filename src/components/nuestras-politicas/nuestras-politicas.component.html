@@ -6,7 +6,7 @@
       <h1 class="policies__title">{{ translate('policies.title')() }}</h1>
       <div class="policies__nav">
         <a routerLink="/" class="policies__nav-link">
-          <img src="/assets/icons/home.png" alt="Inicio" class="policies__nav-icon">
+          <span class="policies__nav-arrow">←</span>
           Volver al inicio
         </a>
       </div>
@@ -37,6 +37,49 @@
       <section class="policies__section">
         <h2 class="policies__section-title">{{ translate('policies.amenities.title')() }}</h2>
         <p class="policies__text">{{ translate('policies.amenities.desc')() }}</p>
+        
+        <div class="policies__amenities-section">
+          <div class="policies__amenities-grid">
+            <div class="policies__amenities-category">
+              <h3 class="policies__category-title" [innerHTML]="translateToHtml('policies.amenities.general.title')()"></h3>
+              <ul class="policies__list">
+                <li class="policies__list-item">{{ translate('policies.amenities.general.parking')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.general.garden')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.general.gallery')() }}</li>
+              </ul>
+            </div>
+            
+            <div class="policies__amenities-category">
+              <h3 class="policies__category-title" [innerHTML]="translateToHtml('policies.amenities.equipment.title')()"></h3>
+              <ul class="policies__list">
+                <li class="policies__list-item">{{ translate('policies.amenities.equipment.tv')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.equipment.kitchen')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.equipment.fridge')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.equipment.heating')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.equipment.fan')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.equipment.microwave')() }}</li>
+              </ul>
+            </div>
+            
+            <div class="policies__amenities-category">
+              <h3 class="policies__category-title" [innerHTML]="translateToHtml('policies.amenities.services.title')()"></h3>
+              <ul class="policies__list">
+                <li class="policies__list-item">{{ translate('policies.amenities.services.wifi')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.services.bedding')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.services.towels')() }}</li>
+              </ul>
+            </div>
+            
+            <div class="policies__amenities-category">
+              <h3 class="policies__category-title" [innerHTML]="translateToHtml('policies.amenities.security.title')()"></h3>
+              <ul class="policies__list">
+                <li class="policies__list-item">{{ translate('policies.amenities.security.breaker')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.security.emergency')() }}</li>
+                <li class="policies__list-item">{{ translate('policies.amenities.security.bars')() }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="policies__section">
@@ -57,23 +100,39 @@
             <p class="policies__text" [innerHTML]="translateToHtml('policies.booking.discount')()"></p>
           </div>
         </div>
+        
+        <div class="policies__payment-section">
+          <h3 class="policies__payment-title" [innerHTML]="translateToHtml('policies.booking.payment.title')()"></h3>
+          <p class="policies__text">{{ translate('policies.booking.payment.desc')() }}</p>
+          <ul class="policies__list">
+            <li class="policies__list-item">{{ translate('policies.booking.payment.transfer')() }}</li>
+            <li class="policies__list-item">{{ translate('policies.booking.payment.card')() }}</li>
+            <li class="policies__list-item">{{ translate('policies.booking.payment.cash')() }}</li>
+          </ul>
+        </div>
       </section>
 
       <section class="policies__section">
         <h2 class="policies__section-title">{{ translate('policies.cancellation.title')() }}</h2>
-        <p class="policies__text" [innerHTML]="translateToHtml('policies.cancellation.desc')()"></p>
+        <p class="policies__text">{{ translate('policies.cancellation.desc')() }}</p>
+        <div class="policies__cancellation-details">
+          <ul class="policies__list">
+            <li class="policies__list-item" [innerHTML]="translateToHtml('policies.cancellation.reusable')()"></li>
+            <li class="policies__list-item" [innerHTML]="translateToHtml('policies.cancellation.validity')()"></li>
+          </ul>
+        </div>
       </section>
 
       <section class="policies__section">
         <h2 class="policies__section-title">{{ translate('policies.schedule.title')() }}</h2>
         <div class="policies__schedules-grid">
           <div class="policies__schedule-item">
-            <h3 class="policies__schedule-title">Check-in</h3>
+            <!-- <h3 class="policies__schedule-title">Check-in</h3> -->
             <p class="policies__schedule-time" [innerHTML]="translateToHtml('policies.schedule.checkin')()"></p>
           </div>
           
           <div class="policies__schedule-item">
-            <h3 class="policies__schedule-title">Check-out</h3>
+            <!-- <h3 class="policies__schedule-title">Check-out</h3> -->
             <p class="policies__schedule-time" [innerHTML]="translateToHtml('policies.schedule.checkout')()"></p>
           </div>
         </div>
@@ -82,6 +141,25 @@
       <section class="policies__section">
         <h2 class="policies__section-title">{{ translate('policies.rules.title')() }}</h2>
         <p class="policies__text">{{ translate('policies.rules.desc')() }}</p>
+        
+        <div class="policies__accommodation-rules">
+          <div class="policies__suitable-section">
+            <h3 class="policies__suitable-title">{{ translate('policies.rules.suitable.title')() }}</h3>
+            <ul class="policies__list">
+              <li class="policies__list-item">{{ translate('policies.rules.suitable.babies')() }}</li>
+              <li class="policies__list-item">{{ translate('policies.rules.suitable.children')() }}</li>
+              <li class="policies__list-item">{{ translate('policies.rules.suitable.families')() }}</li>
+              <li class="policies__list-item">{{ translate('policies.rules.suitable.couples')() }}</li>
+            </ul>
+          </div>
+          
+          <div class="policies__not-suitable-section">
+            <h3 class="policies__not-suitable-title">{{ translate('policies.rules.notSuitable.title')() }}</h3>
+            <ul class="policies__list">
+              <li class="policies__list-item">{{ translate('policies.rules.notSuitable.mobility')() }}</li>
+            </ul>
+          </div>
+        </div>
         
         <div class="policies__rules-list">
           <div class="policies__rule-item">
@@ -109,6 +187,16 @@
       <section class="policies__section">
         <h2 class="policies__section-title">{{ translate('policies.deposit.title')() }}</h2>
         <p class="policies__text">{{ translate('policies.deposit.desc')() }}</p>
+        
+        <div class="policies__deposit-details">
+          <ul class="policies__list">
+            <li class="policies__list-item" [innerHTML]="translateToHtml('policies.deposit.amount')()"></li>
+            <li class="policies__list-item" [innerHTML]="translateToHtml('policies.deposit.purpose')()"></li>
+            <li class="policies__list-item" [innerHTML]="translateToHtml('policies.deposit.payment')()"></li>
+            <li class="policies__list-item" [innerHTML]="translateToHtml('policies.deposit.refund')()"></li>
+            <li class="policies__list-item" [innerHTML]="translateToHtml('policies.deposit.damages')()"></li>
+          </ul>
+        </div>
       </section>
 
       <section class="policies__footer-section">

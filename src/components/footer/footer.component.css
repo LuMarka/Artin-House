@@ -101,6 +101,38 @@
   height: 20px;
 }
 
+/* Policies Button */
+.footer__policies {
+  margin-top: 1.5rem;
+}
+
+.footer__policies-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #059669;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  margin-top:3.2rem;
+}
+
+.footer__policies-button:hover {
+  background-color: #047857;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.footer__policies-icon {
+  width: 16px;
+  height: 16px;
+}
+
 /* Map Styles */
 .footer__map-container {
   border-radius: 8px;
@@ -177,52 +209,5 @@
 
   .footer__map-iframe {
     height: 160px;
-  }
-}
-
-/* Alternative Booking Button */
-.footer__alternative-booking {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.footer__booking-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #d1d5db;
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  padding: 0.5rem 0;
-}
-
-.footer__booking-button:hover {
-  color: #fbbf24;
-  text-decoration: underline;
-}
-
-.footer__booking-icon {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-}
-
-/* Responsive adjustments for booking button */
-@media (min-width: 768px) {
-  .footer__alternative-booking {
-    text-align: left;
-  }
-  
-  .footer__booking-button {
-    font-size: 0.9rem;
-    padding: 0.875rem 0rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .footer__booking-button {
-    font-size: 1rem;
   }
 }

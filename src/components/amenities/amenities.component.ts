@@ -20,11 +20,12 @@ export class AmenitiesComponent {
   private amenityDefs: Amenity[] = [
     { icon: 'wifi', key: 'amenities.wifi' },
     { icon: 'parking', key: 'amenities.parking' },
-    { icon: 'ac', key: 'amenities.ac' },
+    { icon: 'fan', key: 'amenities.fan' },
     { icon: 'heating', key: 'amenities.heating' },
     { icon: 'kitchen', key: 'amenities.kitchen' },
     { icon: 'tv', key: 'amenities.tv' },
-    { icon: 'garden', key: 'amenities.garden' }
+    { icon: 'garden', key: 'amenities.garden' },
+    {icon: 'microwave', key: 'amenities.microwave' }
   ];
 
   amenities = computed(() => {

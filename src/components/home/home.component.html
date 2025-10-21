@@ -6,8 +6,24 @@
     <app-apartments id="apartments"></app-apartments>
     <app-amenities id="amenities"></app-amenities>
     <app-gallery id="gallery"></app-gallery>
-    <app-reviews id="reviews"></app-reviews>
+    
+    <!-- Apartment Navigation Section -->
+    <section class="apartment-navigation">
+      <div class="apartment-navigation__container">
+        <div class="apartment-navigation__buttons">
+          <button class="apartment-navigation__btn apartment-navigation__btn--artin-i" (click)="goToArtinHouseI()">
+            {{ t.viewArtinHouseI() }}
+          </button>
+          <button class="apartment-navigation__btn apartment-navigation__btn--artin-ii" (click)="goToArtinHouseII()">
+            {{ t.viewArtinHouseII() }}
+          </button>
+        </div>
+      </div>
+    </section>
+    
     <app-booking id="booking"></app-booking>
+     <app-reviews id="reviews"></app-reviews>
+     <app-booking-platforms id="booking-platforms"></app-booking-platforms>
   </main>
   <app-footer></app-footer>
   <app-whatsapp-button></app-whatsapp-button>

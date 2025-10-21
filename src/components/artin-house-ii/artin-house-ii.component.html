@@ -9,16 +9,16 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m15 18-6-6 6-6"/>
           </svg>
-          Volver al Inicio
+          {{ translate('apartmentPage.backButton')() }}
         </button>
-        <h1 class="apartment-hero__title">{{ apartmentTitle }}</h1>
-        <p class="apartment-hero__description">{{ apartmentDescription }}</p>
+        <h1 class="apartment-hero__title">{{ apartmentTitle() }}</h1>
+        <p class="apartment-hero__description">{{ apartmentDescription() }}</p>
         <div class="apartment-hero__features">
           <div class="apartment-hero__feature">
-            <strong>Capacidad:</strong> 4 huéspedes
+            <strong>{{ translate('artinHouseII.capacity')() }}</strong> {{ translate('artinHouseII.guests')() }}
           </div>
           <div class="apartment-hero__feature">
-            <strong>Habitaciones:</strong> 2 Dormitorios, 1 Baño
+            <strong>{{ translate('artinHouseII.rooms')() }}</strong> {{ translate('artinHouseII.roomsDetail')() }}
           </div>
         </div>
       </div>
@@ -27,19 +27,88 @@
     <!-- Gallery Section -->
     <section class="apartment-gallery">
       <div class="apartment-gallery__container">
-        <h2 class="apartment-gallery__title">Galería de {{ apartmentTitle }}</h2>
-        <div class="apartment-gallery__grid">
-          @for (image of images(); track image.src; let i = $index) {
-            <div class="apartment-gallery__item" 
-                 [class]="'apartment-gallery__item apartment-gallery__item--' + image.size"
-                 (click)="openModal(image)">
-              <img 
-                [src]="image.src" 
-                [alt]="image.alt" 
-                class="apartment-gallery__image" 
-                loading="lazy" />
-            </div>
-          }
+        <h2 class="apartment-gallery__title">{{ translate('apartmentPage.galleryTitle')() }} {{ apartmentTitle() }}</h2>
+        
+        <!-- Mobile Gallery (Carousel) -->
+        <div class="apartment-gallery__mobile">
+          <div class="apartment-gallery__carousel" [style.transform]="'translateX(-' + (currentMobileIndex() * 100) + '%)'">
+            @for (image of images(); track image.src; let i = $index) {
+              <div class="apartment-gallery__slide" (click)="openModal(image, i)">
+                <img 
+                  [src]="image.src" 
+                  [alt]="image.alt" 
+                  class="apartment-gallery__slide-image" 
+                  loading="lazy" />
+              </div>
+            }
+          </div>
+          
+          <!-- Mobile Navigation -->
+          <button class="apartment-gallery__nav apartment-gallery__nav--prev" 
+                  (click)="previousMobileImage()" 
+                  [disabled]="currentMobileIndex() === 0"
+                  [attr.aria-label]="translate('apartmentPage.previousImage')()">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          
+          <button class="apartment-gallery__nav apartment-gallery__nav--next" 
+                  (click)="nextMobileImage()" 
+                  [disabled]="currentMobileIndex() === images().length - 1"
+                  [attr.aria-label]="translate('apartmentPage.nextImage')()">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <!-- Mobile Indicators -->
+          <div class="apartment-gallery__indicators">
+            @for (image of images(); track image.src; let i = $index) {
+              <button class="apartment-gallery__indicator" 
+                      [class.apartment-gallery__indicator--active]="i === currentMobileIndex()"
+                      (click)="goToMobileImage(i)">
+              </button>
+            }
+          </div>
+        </div>
+
+        <!-- Desktop/Tablet Gallery -->
+        <div class="apartment-gallery__desktop">
+          <!-- Main Image -->
+          <div class="apartment-gallery__main" (click)="openModal(images()[selectedImageIndex()], selectedImageIndex())">
+            <img 
+              [src]="images()[selectedImageIndex()].src" 
+              [alt]="images()[selectedImageIndex()].alt" 
+              class="apartment-gallery__main-image" />
+          </div>
+          
+          <!-- Thumbnail Grid -->
+          <div class="apartment-gallery__thumbnails">
+            @for (image of images(); track image.src; let i = $index) {
+              @if (i < 4) {
+                <button class="apartment-gallery__thumbnail" 
+                        [class.apartment-gallery__thumbnail--active]="i === selectedImageIndex()"
+                        (click)="openModal(image, i)">
+                  <img [src]="image.src" [alt]="image.alt" class="apartment-gallery__thumbnail-image" />
+                </button>
+              } @else if (i === 4 && remainingPhotosCount() > 0) {
+                <button class="apartment-gallery__thumbnail apartment-gallery__thumbnail--more" 
+                        (click)="openModal(image, i)">
+                  <img [src]="image.src" [alt]="image.alt" class="apartment-gallery__thumbnail-image" />
+                  <div class="apartment-gallery__more-overlay">
+                    <span class="apartment-gallery__more-text">+{{ remainingPhotosCount() }} {{ translate('apartmentPage.morePhotos')() }}</span>
+                  </div>
+                </button>
+              } @else if (i === 4 && remainingPhotosCount() === 0) {
+                <button class="apartment-gallery__thumbnail" 
+                        [class.apartment-gallery__thumbnail--active]="i === selectedImageIndex()"
+                        (click)="openModal(image, i)">
+                  <img [src]="image.src" [alt]="image.alt" class="apartment-gallery__thumbnail-image" />
+                </button>
+              }
+            }
+          </div>
         </div>
       </div>
     </section>
@@ -47,9 +116,9 @@
     <!-- Amenities Section -->
     <section class="apartment-amenities">
       <div class="apartment-amenities__container">
-        <h2 class="apartment-amenities__title">Comodidades y Servicios</h2>
+        <h2 class="apartment-amenities__title">{{ translate('apartmentPage.amenitiesTitle')() }}</h2>
         <div class="apartment-amenities__grid">
-          @for (amenity of amenities; track amenity.name) {
+          @for (amenity of amenities(); track amenity.name) {
             <div class="apartment-amenities__item">
               <div class="apartment-amenities__icon-wrapper">
                 <img [src]="amenity.icon" [alt]="amenity.name" class="apartment-amenities__icon" />
@@ -62,14 +131,14 @@
     </section>
 
     <!-- Booking Section -->
-    <app-booking></app-booking>
+    <app-booking [apartmentInput]="'Artin House II'"></app-booking>
 
     <!-- Contact Button -->
     <section class="apartment-contact">
       <div class="apartment-contact__container">
-        <h2 class="apartment-contact__title">¿Necesitas más información?</h2>
+        <h2 class="apartment-contact__title">{{ translate('apartmentPage.contactTitle')() }}</h2>
         <button class="apartment-contact__btn" (click)="goToContact()">
-          Contáctanos
+          {{ translate('apartmentPage.contactButton')() }}
         </button>
       </div>
     </section>
@@ -78,22 +147,55 @@
   <app-footer></app-footer>
   <app-whatsapp-button></app-whatsapp-button>
 
-  <!-- Modal -->
+  <!-- Enhanced Modal -->
   @if (isModalOpen()) {
-    <div class="apartment-gallery__modal" (click)="onBackdropClick($event)">
+    <div class="apartment-gallery__modal-backdrop" (click)="closeModal()"></div>
+    <div class="apartment-gallery__modal">
       <div class="apartment-gallery__modal-content">
-        <button class="apartment-gallery__modal-close" (click)="closeModal()" aria-label="Cerrar modal">
+        <button class="apartment-gallery__modal-close" (click)="closeModal()" [attr.aria-label]="translate('apartmentPage.closeModal')()">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-        @if (selectedImage()) {
-          <img 
-            [src]="selectedImage()!.src" 
-            [alt]="selectedImage()!.alt" 
-            class="apartment-gallery__modal-image" />
-        }
+        
+        <!-- Main Modal Image -->
+        <div class="apartment-gallery__modal-main">
+          @if (selectedImage()) {
+            <img 
+              [src]="selectedImage()!.src" 
+              [alt]="selectedImage()!.alt" 
+              class="apartment-gallery__modal-image" />
+          }
+          
+          <!-- Modal Navigation -->
+          <button class="apartment-gallery__modal-nav apartment-gallery__modal-nav--prev" 
+                  (click)="previousModalImage()"
+                  [attr.aria-label]="translate('apartmentPage.previousImage')()">
+            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          
+          <button class="apartment-gallery__modal-nav apartment-gallery__modal-nav--next" 
+                  (click)="nextModalImage()"
+                  [attr.aria-label]="translate('apartmentPage.nextImage')()">
+            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Modal Thumbnails -->
+        <div class="apartment-gallery__modal-thumbnails">
+          @for (image of images(); track image.src; let i = $index) {
+            <button class="apartment-gallery__modal-thumb" 
+                    [class.apartment-gallery__modal-thumb--active]="i === currentModalIndex()"
+                    (click)="setModalIndex(i)">
+              <img [src]="image.src" [alt]="image.alt" />
+            </button>
+          }
+        </div>
       </div>
     </div>
   }

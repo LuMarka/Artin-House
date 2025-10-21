@@ -15,6 +15,7 @@ export class HeroComponent {
   title = this.translationService.translate('hero.title');
   subtitle = this.translationService.translate('hero.subtitle');
   buttonText = this.translationService.translate('hero.button');
+  subtitle1 = this.translationService.translate('hero.subtitle1');
 
   scrollTo(elementId: string): void {
     document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth' });

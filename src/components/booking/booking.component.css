@@ -1,38 +1,38 @@
 /* Booking Component Styles - BEM & Mobile First */
 
 .booking {
-  padding: 5rem 0;
+  padding: 2rem 0;
   background-color: #f9fafb;
 }
 
 .booking__container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 0.75rem;
 }
 
 .booking__title {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: bold;
   text-align: center;
   color: #1f2937;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .booking__content {
   max-width: 64rem;
   margin: 0 auto;
   background-color: white;
-  border-radius: 0.75rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
 .booking__calendar {
-  width: 100%;
-  padding: 2rem;
+  width: 90%;
+  padding: 1rem;
 }
 
 .booking__calendar-header {
@@ -136,14 +136,14 @@
 }
 
 .booking__form {
-  width: 100%;
-  padding: 2rem;
+  width: 90%;
+  padding: 1rem;
   background-color: rgba(249, 250, 251, 0.7);
   border-top: 1px solid #e5e7eb;
 }
 
 .booking__form-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
   color: #1f2937;
   margin-bottom: 1rem;
@@ -243,22 +243,50 @@
 
 /* Tablet and Desktop */
 @media (min-width: 768px) {
+  .booking {
+    padding: 3rem 0;
+  }
+  
+  .booking__container {
+    padding: 0 1.5rem;
+  }
+  
   .booking__title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   .booking__content {
     flex-direction: row;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
 
   .booking__calendar {
     width: 50%;
+    padding: 2rem;
     border-right: 1px solid #e5e7eb;
   }
 
   .booking__form {
     width: 50%;
+    padding: 2rem;
     border-top: none;
+  }
+  
+  .booking__form-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .booking {
+    padding: 5rem 0;
+  }
+  
+  .booking__title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
   }
 }
 

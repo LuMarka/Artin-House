@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, inject, OnInit, computed } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, OnInit, computed, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -22,9 +22,11 @@ interface ContactForm {
   imports: [CommonModule, FormsModule, HeaderComponent, FooterComponent, WhatsappButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, AfterViewInit {
   private translationService = inject(TranslationService);
   private sanitizer = inject(DomSanitizer);
+
+  @ViewChild('contactVideo', { static: false }) videoElement!: ElementRef<HTMLVideoElement>;
 
   // Safe URL for map
   safeMapUrl!: SafeResourceUrl;
@@ -126,5 +128,19 @@ Enviado desde: Artin House Luján - Página de Contacto
   ngOnInit(): void {
     // Sanitize the map URL to make it safe for Angular
     this.safeMapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.mapUrl);
+  }
+
+  ngAfterViewInit(): void {
+    // Asegurar que el video esté muted
+    if (this.videoElement?.nativeElement) {
+      const video = this.videoElement.nativeElement;
+      video.muted = true;
+      video.defaultMuted = true;
+      
+      // Intentar reproducir el video
+      video.play().catch(error => {
+        console.log('Autoplay prevented:', error);
+      });
+    }
   }
 }
