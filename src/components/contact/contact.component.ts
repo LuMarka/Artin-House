@@ -32,7 +32,8 @@ export class ContactComponent implements OnInit, AfterViewInit {
   safeMapUrl!: SafeResourceUrl;
   
   // Raw map URL
-  mapUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.500918731006!2d-68.8796112!3d-33.037376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e808383e74889%3A0x6280436d713c77f0!2sBustamante%20482%2C%20M5507CMM%20Luj%C3%A1n%20de%20Cuyo%2C%20Mendoza%2C%20Argentina!5e0!3m2!1sen!2sar!4v1704067200000!5m2!1sen!2sar';
+  mapUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3344.7247428681703!2d-68.8770373!3d-33.037381599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e75466e905af1%3A0xfb1b276c6f7d2bf4!2sArtin%20House%20-%20Alojamiento%20temporario%20en%20Mendoza!5e0!3m2!1ses-419!2sar!4v1761344762447!5m2!1ses-419!2sar';
+
 
   // Form data
   contactForm: ContactForm = {
@@ -47,11 +48,11 @@ export class ContactComponent implements OnInit, AfterViewInit {
 
   // Company Info for map
   companyInfo = {
-    name: 'Artin House Luján',
+    name: 'Artin House - Alojamiento temporario en Mendoza',
     address: {
       street: 'Bustamante 482',
       city: 'Luján de Cuyo',
-      postalCode: 'C.P. 5507',
+      postalCode: ' M5507CMM',
       province: 'Mendoza',
       country: 'Argentina'
     },

@@ -2,9 +2,9 @@
   <div class="reviews__container">
     <h2 class="reviews__title">{{ t.title() }}</h2>
     
-    <!-- Resumen de calificaciones -->
+    <!-- Resumen de calificaciones - Layout horizontal -->
     <div class="reviews__summary">
-      <div class="reviews__rating-score">
+      <div class="reviews__rating-left">
         <span class="reviews__score">{{ averageRating }}</span>
         <div class="reviews__stars reviews__stars--large">
           <span class="reviews__star" 
@@ -13,42 +13,70 @@
             ★
           </span>
         </div>
-        <!-- <p class="reviews__total">{{ totalReviews }} {{ t.totalReviews() }}</p> -->
       </div>
-      
-      <div class="reviews__rating-breakdown">
-        <div class="reviews__rating-bar" *ngFor="let star of [5,4,3,2,1]">
-          <span class="reviews__rating-number">{{ star }}</span>
-          <div class="reviews__bar">
-            <div class="reviews__bar-fill" 
-                 [style.width.%]="getRatingPercentage(star)">
-            </div>
-          </div>
-        </div>
+      <div class="reviews__rating-right">
+        <p class="reviews__total">{{ totalReviews }} reseñas</p>
       </div>
     </div>
 
-    <!-- Lista de reseñas -->
-    <div class="reviews__list">
-      <article class="reviews__item" *ngFor="let review of reviews">
-        <div class="reviews__user">
-          <div class="reviews__avatar">
-            {{ review.initials }}
-          </div>
-          <div class="reviews__user-info">
-            <h3 class="reviews__user-name">{{ review.name }}</h3>
-            <p class="reviews__date">{{ review.date }}</p>
-            <div class="reviews__stars">
-              <span class="reviews__star" 
-                    *ngFor="let star of [1,2,3,4,5]; let i = index" 
-                    [class.reviews__star--filled]="i < review.rating">
-                ★
-              </span>
+    <!-- Lista de reseñas - Carrusel con controles -->
+    <div class="reviews__carousel">
+      <!-- Controles de navegación -->
+      <button class="reviews__nav reviews__nav--prev" (click)="scrollCarousel(-1)" [class.reviews__nav--hidden]="currentIndex === 0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <button class="reviews__nav reviews__nav--next" (click)="scrollCarousel(1)" [class.reviews__nav--hidden]="currentIndex >= maxIndex">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <div class="reviews__list" #reviewsList>
+        <article class="reviews__item" *ngFor="let review of reviews; let i = index">
+          <!-- Encabezado de la reseña -->
+          <div class="reviews__header">
+            <div class="reviews__user">
+              <div class="reviews__avatar">
+                {{ review.initials }}
+              </div>
+              <div class="reviews__user-info">
+                <h3 class="reviews__user-name">{{ review.name }}</h3>
+                <div class="reviews__meta">
+                  <span class="reviews__badge" *ngIf="review.badge">{{ review.badge }}</span>
+                  <span class="reviews__new-badge" *ngIf="review.isRecent">Nuevo</span>
+                </div>
+                <div class="reviews__rating-date">
+                  <div class="reviews__stars">
+                    <span class="reviews__star" 
+                          *ngFor="let star of [1,2,3,4,5]; let i = index" 
+                          [class.reviews__star--filled]="i < review.rating">
+                      ★
+                    </span>
+                  </div>
+                  <span class="reviews__date">{{ review.date }}</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <p class="reviews__comment">{{ review.comment }}</p>
-      </article>
+          
+          <!-- Contenido de la reseña -->
+          <div class="reviews__content">
+            <p class="reviews__comment">{{ review.comment }}</p>
+            
+            <!-- Respuesta del propietario -->
+            <div class="reviews__response" *ngIf="review.response">
+              <div class="reviews__response-header">
+                <strong>{{ review.response.from }}</strong>
+                <span class="reviews__response-badge">Propietario</span>
+              </div>
+              <p class="reviews__response-text">{{ review.response.text }}</p>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </section>

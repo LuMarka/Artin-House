@@ -19,7 +19,7 @@ const translations: Translations = {
   // Hero
 
     // Hero
-  'hero.title': { en: 'Your Oasis in Luján de Cuyo', es: 'Tu Oasis en Luján de Cuyo', pt: 'Seu Oásis em Luján de Cuyo' },
+  'hero.title': { en: 'Your Oasis in Mendoza', es: 'Tu Oasis en Mendoza', pt: 'Seu Oásis em Mendoza' },
   'hero.subtitle': { en: "Experience tranquility and comfort surrounded by Mendoza's stunning landscapes.", es: 'Experimenta la tranquilidad y el confort rodeado de los impresionantes paisajes de Mendoza.', pt: 'Experimente tranquilidade e conforto cercado pelas paisagens deslumbrantes de Mendoza.' },
   'hero.subtitle1': { en: "Temporary homestay", es: 'Alquiler temporario', pt: 'Aluguel temporário' },
   'hero.button': { en: 'Reserve Your Stay', es: 'Reserva Tu Estadía', pt: 'Reserve Sua Estadia' },
@@ -38,9 +38,9 @@ const translations: Translations = {
   
 
   // About
-  'about.title': { en: 'Welcome to Artin House', es: 'Bienvenidos a Artin House', pt: 'Bem-vindos à Artin House' },
+  'about.title': { en: 'Welcome to Artin House Mendoza', es: 'Bienvenidos a Artin House Mendoza', pt: 'Bem-vindos à Artin House Mendoza' },
   'about.location.title': { en: 'Prime Location in Luján de Cuyo', es: 'Ubicación Privilegiada en Luján de Cuyo', pt: 'Localização Privilegiada em Luján de Cuyo' },
-  'about.location.desc': { en: 'Located in the heart of Luján de Cuyo, in a vibrant and welcoming environment. You\'ll be just steps away from charming cafés, delicious restaurants, and the main square where the community gathers.', es: 'Ubicados en el corazón de Luján de Cuyo, en un ambiente vibrante y acogedor. Estarás a solo unos pasos de cafeterías encantadoras, restaurantes deliciosos y la plaza principal donde se reúne la comunidad.', pt: 'Localizados no coração de Luján de Cuyo, em um ambiente vibrante e acolhedor. Você estará a apenas alguns passos de cafés encantadores, restaurantes deliciosos e da praça principal onde a comunidade se reúne.' },
+  'about.location.desc': { en: 'Located in the heart of the famous Luján de Cuyo Wine Route, the "Land of Malbec." You will be surrounded by wineries and just 5 minutes from the renowned gastronomic neighborhood of Chacras de Coria. Enjoy a vibrant atmosphere, steps away from charming coffee shops, delicious restaurants, and the main square.', es: 'Ubicados en el corazón de la famosa Ruta del Vino de Luján de Cuyo, la "Tierra del Malbec". Estarás rodeado de bodegas y a solo 5 minutos del reconocido barrio gastronómico de Chacras de Coria. Disfruta de un ambiente vibrante, a pasos de cafeterías, restaurantes deliciosos y la plaza principal.', pt: 'Localizados no coração da famosa Rota do Vinho de Luján de Cuyo, a "Terra do Malbec". Você estará cercado por vinícolas e a apenas 5 minutos do renomado bairro gastronômico de Chacras de Coria. Desfrute de um ambiente vibrante, a poucos passos de charmosas cafeterias, deliciosos restaurantes e da praça principal.' },
   'about.experience.title': { en: 'Come and Enjoy the Best Quality of Life in Mendoza!', es: '¡Vení y Disfrutá la Mejor Calidad de Vida en Mendoza!', pt: 'Venha e Desfrute da Melhor Qualidade de Vida em Mendoza!' },
   'about.hosts.title': { en: 'Your Hosts in Mendoza', es: 'Tus Anfitriones en Mendoza', pt: 'Seus Anfitriões em Mendoza' },
   'about.hosts.desc': { en: 'I am Elizabeth, your host in Mendoza, and I want you to feel at home from the moment you arrive. As someone who loves sharing the beauty of Mendoza,I will offer you personalized recommendations for wineries, restaurants, and hidden gems that only locals know about.', es: 'Soy Elizabeth, tu anfitriona en Mendoza, y quiero que te sientas como en casa desde el momento en que llegues. Como alguien que ama compartir la belleza de Mendoza, te ofreceré recomendaciones personalizadas de bodegas, restaurantes y lugares escondidos que solo conocen los locales.', pt: 'Sou Elizabeth, sua anfitriã em Mendoza, e quero que você se sinta em casa desde o momento da chegada. Como alguém que adora compartilhar a beleza de Mendoza, darei recomendações personalizadas de vinícolas, restaurantes e preciosidades escondidas, conhecidas apenas pelos moradores locais.' },
@@ -136,6 +136,7 @@ const translations: Translations = {
   'amenities.microwave': { en: 'Microwave', es: 'Microondas', pt: 'Micro-ondas' },
   'amenities.heating': { en: 'Heating', es: 'Calefacción', pt: 'Aquecimento' },
   'amenities.kitchen': { en: 'Fully Equipped Kitchen', es: 'Cocina Equipada', pt: 'Cozinha Totalmente Equipada' },
+  'amenities.barbecue': { en: 'Barbecue', es: 'Parrilla', pt: 'Churrasqueira' },
   'amenities.tv': { en: 'Smart TV', es: 'Smart TV', pt: 'Smart TV' },
   'amenities.garden': { en: 'Private Garden', es: 'Jardín Privado', pt: 'Jardim Privado' },
 
@@ -222,7 +223,7 @@ const translations: Translations = {
   'booking.payment.checkoutTime': { en: 'Check-out:', es: 'Check-out:', pt: 'Check-out:' },
   'booking.payment.checkoutValue': { en: 'Until 11:00 AM', es: 'Hasta las 11:00 hs', pt: 'Até às 11:00h' },
   'booking.payment.discountInfo': { en: 'Discount:', es: 'Descuento:', pt: 'Desconto:' },
-  'booking.payment.discountValue': { en: '10% for stays of 4 nights or more', es: '10% en estadías de 4 noches o más', pt: '10% para estadias de 4 noites ou mais' },
+  'booking.payment.discountValue': { en: '10% for stays of more than 7 nights', es: '10% en estadías de más de 7 noches', pt: '10% para estadias de mais de 7 noites' },
   'booking.confirmationMessage': { en: 'Booking request sent successfully! We will contact you to confirm availability and payment details.', es: '¡Solicitud de reserva enviada correctamente! Nos pondremos en contacto contigo para confirmar disponibilidad y detalles de pago.', pt: 'Solicitação de reserva enviada com sucesso! Entraremos em contato para confirmar disponibilidade e detalhes de pagamento.' },
   
   // Reviews Section
@@ -289,7 +290,7 @@ const translations: Translations = {
   'amenity.garden': { en: 'Garden', es: 'Jardín', pt: 'Jardim' },
 
   // Image descriptions for Artin House I
-  'apartment.artin-house-i.iimage.masterBedroom': { en: 'Spacious master bedroom with king bed', es: 'Amplio dormitorio principal con cama king', pt: 'Quarto principal espaçoso com cama king' },
+  'apartment.artin-house-i.image.masterBedroom': { en: 'Spacious master bedroom with king bed', es: 'Amplio dormitorio principal con cama king', pt: 'Quarto principal espaçoso com cama king' },
   'apartment.artin-house-i.image.kitchen': { en: 'Fully equipped kitchen', es: 'Cocina completamente equipada', pt: 'Cozinha totalmente equipada' },
   'apartment.artin-house-i.image.kitchenView': { en: 'Complete kitchen view', es: 'Vista completa de la cocina', pt: 'Vista completa da cozinha' },
   'apartment.artin-house-i.image.bathroom': { en: 'Full bathroom with shower', es: 'Baño completo con ducha', pt: 'Banheiro completo com chuveiro' },

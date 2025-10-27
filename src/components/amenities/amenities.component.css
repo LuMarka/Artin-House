@@ -8,7 +8,7 @@
 .amenities__container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   text-align: center;
 }
 
@@ -21,31 +21,50 @@
 
 .amenities__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 0.5rem;
 }
 
 .amenities__item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+  min-width: 0; /* Previene desbordamiento */
+}
+
+.amenities__item:hover {
+  transform: translateY(-2px);
 }
 
 .amenities__icon-wrapper {
   background-color: white;
   border-radius: 50%;
-  padding: 1rem;
-  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.amenities__item:hover .amenities__icon-wrapper {
+  box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.15);
 }
 
 .amenities__icon {
-  width: 2rem;
-  height: 2rem;
+  width: 1.75rem;
+  height: 1.75rem;
   object-fit: contain;
   filter: opacity(0.8);
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.amenities__item:hover .amenities__icon {
+  filter: opacity(1);
+  transform: scale(1.1);
 }
 
 .amenities__item:hover .amenities__icon {
@@ -56,26 +75,123 @@
   color: #374151;
   font-weight: 500;
   text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
-/* Tablet */
+/* Tablet - 2 filas con más elementos por línea */
 @media (min-width: 768px) {
   .amenities__title {
     font-size: 2.5rem;
   }
 
   .amenities__grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    max-width: 900px;
   }
 
   .amenities__item {
-    padding: 1.5rem;
+    padding: 1rem;
+  }
+
+  .amenities__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .amenities__icon-wrapper {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .amenities__name {
+    font-size: 0.9rem;
   }
 }
 
-/* Desktop */
+/* Desktop - Layout optimizado para 2 filas */
 @media (min-width: 1024px) {
   .amenities__grid {
+    grid-template-columns: repeat(5, 1fr);
     gap: 2.5rem;
+    max-width: 1000px;
+  }
+
+  .amenities__item {
+    padding: 1.25rem;
+  }
+
+  .amenities__icon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .amenities__icon-wrapper {
+    padding: 1.25rem;
+  }
+
+  .amenities__name {
+    font-size: 1rem;
+  }
+}
+
+/* Móviles muy pequeños - Layout ultra compacto */
+@media (max-width: 374px) {
+  .amenities__container {
+    padding: 0 0.5rem;
+  }
+
+  .amenities__grid {
+    gap: 0.5rem;
+    padding: 0;
+    max-width: 95%;
+  }
+
+  .amenities__item {
+    padding: 0.25rem;
+  }
+
+  .amenities__icon-wrapper {
+    padding: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .amenities__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .amenities__name {
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+
+  .amenities__title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* iPhone SE y móviles pequeños */
+@media (max-width: 480px) and (min-width: 375px) {
+  .amenities__grid {
+    max-width: 90%;
+    gap: 0.75rem;
+  }
+
+  .amenities__name {
+    font-size: 0.7rem;
+  }
+}
+
+/* Pantallas muy grandes - Layout más espacioso */
+@media (min-width: 1280px) {
+  .amenities__grid {
+    max-width: 1100px;
+    gap: 3rem;
   }
 }

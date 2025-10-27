@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://artin-house.vercel.app/sitemap.xml
+
+# Específicamente permitir páginas importantes
+Allow: /apartment-artin-house-i.html
+Allow: /apartment-artin-house-ii.html
+
+# Denegar archivos temporales y de desarrollo
+Disallow: *.css.map
+Disallow: *.js.map
+Disallow: /src/
+Disallow: /node_modules/

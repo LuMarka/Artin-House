@@ -2,6 +2,11 @@
   <div class="header__container">
     <div class="header__brand">
       <a href="#" (click)="$event.preventDefault(); navigateToHome()" class="header__brand">{{headerBrand}}</a>
+      <!-- Admin access (discreto) -->
+      <span (click)="incrementAdminClicks()" class="header__admin-trigger">.</span>
+      @if (showAdminLink()) {
+        <a (click)="navigateToAdmin()" class="header__admin-link" title="Panel de Administración">⚙️</a>
+      }
     </div>
     
     <!-- Desktop Nav -->

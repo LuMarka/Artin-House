@@ -1,0 +1,315 @@
+<div class="admin-panel">
+  <h2 class="admin-panel__title">Panel de Administración - Artin House</h2>
+  
+  <!-- Gestión de Precios -->
+  <section class="admin-section">
+    <h3 class="admin-section__title">Gestión de Precios</h3>
+    
+    <!-- Configuración Artin House I (Lógica Especial) -->
+    <div class="price-controls special-pricing">
+      <h4>🏠 Artin House I - Configuración Especial</h4>
+      
+      <!-- Selector de modo de precios -->
+      <div class="pricing-mode-selector">
+        <label class="toggle-switch">
+          <input type="checkbox" [(ngModel)]="useCustomPricing" (change)="togglePricingMode()">
+          <span class="toggle-slider"></span>
+        </label>
+        <span>{{ useCustomPricing ? 'Precios Personalizados por Huésped' : 'Lógica Estándar (Base + Incremento)' }}</span>
+      </div>
+
+      <div class="pricing-content">
+        <div class="pricing-inputs">
+          <!-- Configuración Estándar -->
+          @if (!useCustomPricing) {
+            <div class="special-price-grid">
+              <div class="form-group">
+                <label for="artinI-base">Precio base (1-2 personas):</label>
+                <input type="number" 
+                       id="artinI-base"
+                       [(ngModel)]="artinIBasePrice" 
+                       placeholder="60000"
+                       class="form-control">
+              </div>
+              
+              <div class="form-group">
+                <label for="artinI-extra">Precio por persona adicional (3+):</label>
+                <input type="number" 
+                       id="artinI-extra"
+                       [(ngModel)]="artinIExtraPrice" 
+                       placeholder="8500"
+                       class="form-control">
+              </div>
+            </div>
+          }
+
+          <!-- Configuración Personalizada -->
+          @if (useCustomPricing) {
+            <div class="custom-pricing-grid">
+              <div class="form-group">
+                <label for="price-1">1 persona:</label>
+                <input type="number" id="price-1" [(ngModel)]="customPrices[1]" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="price-2">2 personas:</label>
+                <input type="number" id="price-2" [(ngModel)]="customPrices[2]" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="price-3">3 personas:</label>
+                <input type="number" id="price-3" [(ngModel)]="customPrices[3]" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="price-4">4 personas:</label>
+                <input type="number" id="price-4" [(ngModel)]="customPrices[4]" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="price-5">5 personas:</label>
+                <input type="number" id="price-5" [(ngModel)]="customPrices[5]" class="form-control">
+              </div>
+            </div>
+          }
+        </div>
+        
+        <div class="pricing-button">
+          <button (click)="updateArtinISpecialPricing()" class="btn btn-primary">Actualizar Artin House I</button>
+        </div>
+      </div>
+      
+      <!-- Vista previa precios Artin House I -->
+      <div class="pricing-preview">
+        <h5>Vista previa precios Artin House I:</h5>
+        <div class="preview-grid">
+          <span>1 persona: ${{ getArtinIPreview(2).toLocaleString() }} ARS</span>
+          <span>2 personas: ${{ getArtinIPreview(2).toLocaleString() }} ARS</span>
+          <span>3 personas: ${{ getArtinIPreview(3).toLocaleString() }} ARS</span>
+          <span>4 personas: ${{ getArtinIPreview(4).toLocaleString() }} ARS</span>
+          <span>5 personas: ${{ getArtinIPreview(5).toLocaleString() }} ARS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Configuración Estándar para Artin House II -->
+    <div class="price-controls standard-pricing">
+      <h4>🏢 Artin House II - Configuración Estándar</h4>
+      
+      <div class="standard-content">
+        <div class="standard-inputs">
+          <div class="form-group">
+            <label for="apartment">Apartamento:</label>
+            <select id="apartment" [(ngModel)]="selectedApartment" class="form-control">
+              <option value="Artin House II">Artin House II</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="basePrice">Precio base:</label>
+            <input type="number" 
+                   id="basePrice"
+                   [(ngModel)]="newBasePrice" 
+                   placeholder="Precio base"
+                   class="form-control">
+          </div>
+          
+          <div class="form-group">
+            <label for="pricePerGuest">Precio por huésped adicional:</label>
+            <input type="number" 
+                   id="pricePerGuest"
+                   [(ngModel)]="newPricePerGuest" 
+                   placeholder="Precio por huésped adicional"
+                   class="form-control">
+          </div>
+        </div>
+        
+        <div class="standard-button">
+          <button (click)="updatePricing()" class="btn btn-primary btn-compact">Actualizar Precios</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Precios Actuales -->
+    <div class="current-pricing">
+      <h4>Precios Actuales:</h4>
+      @for (pricing of apartmentPricing(); track pricing.apartment) {
+        <div class="pricing-item">
+          <strong>{{ pricing.apartment }}:</strong>
+          
+          @if (pricing.apartment === 'Artin House I' && hasCustomPricing(pricing)) {
+            <!-- Mostrar precios personalizados -->
+            <div class="custom-prices-display">
+              <span>Precios personalizados por huésped:</span>
+              <div class="custom-prices-grid">
+                <span>1p: ${{ getCustomPrice(pricing, 1) | number }} ARS</span>
+                <span>2p: ${{ getCustomPrice(pricing, 2) | number }} ARS</span>
+                <span>3p: ${{ getCustomPrice(pricing, 3) | number }} ARS</span>
+                <span>4p: ${{ getCustomPrice(pricing, 4) | number }} ARS</span>
+                <span>5p: ${{ getCustomPrice(pricing, 5) | number }} ARS</span>
+              </div>
+            </div>
+          } @else {
+            <!-- Mostrar precios estándar -->
+            <span>Base: ${{ pricing.basePrice | number }} ARS</span>
+            <span>Por huésped adicional: ${{ pricing.pricePerGuest | number }} ARS</span>
+          }
+          
+          <span>Máx. huéspedes: {{ pricing.maxGuests }}</span>
+        </div>
+      }
+      
+      <!-- Botones de gestión -->
+      <div class="pricing-controls">
+        <button (click)="resetPricing()" class="btn btn-warning">Resetear a Valores por Defecto</button>
+        <button (click)="clearAllData()" class="btn btn-danger-outline">Limpiar Todos los Datos</button>
+      </div>
+    </div>
+
+    <!-- Gestión de Temporadas -->
+    <div class="admin-section">
+      <h3 class="admin-section__title">🗓️ Gestión de Temporadas</h3>
+      
+      <!-- Formulario para agregar temporadas -->
+      <div class="seasonal-form">
+        <h4>Agregar Nueva Temporada</h4>
+        <div class="seasonal-inputs">
+          <div class="input-group">
+            <label for="seasonApartment">Apartamento:</label>
+            <select id="seasonApartment" [(ngModel)]="selectedSeasonApartment" class="form-control">
+              <option value="Artin House I">Artin House I</option>
+              <option value="Artin House II">Artin House II</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="seasonName">Nombre de la Temporada:</label>
+            <input type="text" id="seasonName" [(ngModel)]="seasonName" 
+                   placeholder="ej: Temporada Alta Verano 2025" class="form-control">
+          </div>
+
+          <div class="input-row">
+            <div class="input-group">
+              <label for="seasonStart">Fecha Inicio:</label>
+              <input type="date" id="seasonStart" [(ngModel)]="seasonStartDate" class="form-control">
+            </div>
+            
+            <div class="input-group">
+              <label for="seasonEnd">Fecha Fin:</label>
+              <input type="date" id="seasonEnd" [(ngModel)]="seasonEndDate" class="form-control">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="seasonMultiplier">Multiplicador de Precio:</label>
+            <div class="multiplier-input">
+              <input type="number" id="seasonMultiplier" [(ngModel)]="seasonMultiplier" 
+                     step="0.1" min="0.1" max="5" class="form-control">
+              <span class="multiplier-info">
+                ({{ seasonMultiplier }}x = {{ seasonMultiplier > 1 ? '+' : '' }}{{ ((seasonMultiplier - 1) * 100) | number:'1.0-1' }}%)
+              </span>
+            </div>
+          </div>
+
+          <button (click)="addSeasonalRate()" class="btn btn-primary">Agregar Temporada</button>
+          <button (click)="clearSeasonForm()" class="btn btn-secondary">Limpiar</button>
+        </div>
+      </div>
+
+      <!-- Lista de temporadas existentes -->
+      <div class="seasonal-rates">
+        <h4>Temporadas Configuradas</h4>
+        @for (pricing of apartmentPricing(); track pricing.apartment) {
+          @if (getSeasonalRates(pricing.apartment).length > 0) {
+            <div class="apartment-seasons">
+              <h5>{{ pricing.apartment }}</h5>
+              @for (rate of getSeasonalRates(pricing.apartment); track rate.startDate) {
+                <div class="season-item">
+                  <div class="season-info">
+                    <strong>{{ rate.name || 'Sin nombre' }}</strong>
+                    <span class="season-dates">
+                      {{ formatDate(rate.startDate) }} - {{ formatDate(rate.endDate) }}
+                    </span>
+                    <span class="season-multiplier" 
+                          [class.season-high]="rate.multiplier > 1"
+                          [class.season-low]="rate.multiplier < 1">
+                      {{ rate.multiplier }}x ({{ rate.multiplier > 1 ? '+' : '' }}{{ ((rate.multiplier - 1) * 100) | number:'1.0-1' }}%)
+                    </span>
+                  </div>
+                  <button (click)="removeSeasonalRate(pricing.apartment, rate.startDate)" 
+                          class="btn btn-danger btn-small">
+                    Eliminar
+                  </button>
+                </div>
+              }
+            </div>
+          } @else {
+            <div class="no-seasons">
+              <p>{{ pricing.apartment }}: Sin temporadas configuradas</p>
+            </div>
+          }
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista de Reservas -->
+  <section class="admin-section">
+    <h3 class="admin-section__title">Reservas Activas</h3>
+    
+    @if (bookings().length === 0) {
+      <p class="no-bookings">No hay reservas registradas</p>
+    } @else {
+      <div class="bookings-list">
+        @for (booking of bookings(); track booking.id) {
+          <div class="booking-item" [class.booking-item--cancelled]="booking.status === 'cancelled'">
+            <div class="booking-info">
+              <div class="booking-detail">
+                <strong>{{ booking.apartment }}</strong>
+                <span class="booking-id">ID: {{ booking.id }}</span>
+              </div>
+              <div class="booking-detail">
+                <span>📅 {{ booking.checkIn | date:'dd/MM/yyyy' }} - {{ booking.checkOut | date:'dd/MM/yyyy' }}</span>
+                <span>👥 {{ booking.guests }} huéspedes</span>
+              </div>
+              <div class="booking-detail">
+                <span class="status" [class]="'status--' + booking.status">{{ booking.status | titlecase }}</span>
+                <span class="created-date">Creada: {{ booking.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+                @if (booking.cancelledAt) {
+                  <span class="cancelled-date">Cancelada: {{ booking.cancelledAt | date:'dd/MM/yyyy HH:mm' }}</span>
+                }
+              </div>
+            </div>
+            <div class="booking-actions">
+              @if (booking.status === 'confirmed') {
+                <button (click)="cancelBooking(booking.id)" class="btn btn-danger">Cancelar</button>
+              } @else if (booking.status === 'cancelled') {
+                <button (click)="reactivateBooking(booking.id)" class="btn btn-success">Reactivar</button>
+                <button (click)="deleteBooking(booking.id)" class="btn btn-danger-outline">Eliminar</button>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </section>
+
+  <!-- Estadísticas -->
+  <section class="admin-section">
+    <h3 class="admin-section__title">Estadísticas</h3>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h4>Total Reservas</h4>
+        <span class="stat-number">{{ bookings().length }}</span>
+      </div>
+      <div class="stat-card">
+        <h4>Reservas Confirmadas</h4>
+        <span class="stat-number">{{ confirmedBookings().length }}</span>
+      </div>
+      <div class="stat-card">
+        <h4>Artin House I</h4>
+        <span class="stat-number">{{ getBookingsForApartment('Artin House I').length }}</span>
+      </div>
+      <div class="stat-card">
+        <h4>Artin House II</h4>
+        <span class="stat-number">{{ getBookingsForApartment('Artin House II').length }}</span>
+      </div>
+    </div>
+  </section>
+</div>

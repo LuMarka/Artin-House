@@ -92,17 +92,37 @@
           <!-- Price Display -->
           <div class="booking__price-display">
             <span class="booking__price-per-night">${{ pricePerNight().toLocaleString() }} ARS por noche</span>
+            
+            <!-- Desglose por temporadas -->
+            @if (priceBreakdown() && priceBreakdown()!.seasons.length > 1) {
+              <div class="booking__season-breakdown">
+                <h4 class="booking__breakdown-title">📅 Desglose por Temporadas:</h4>
+                @for (season of priceBreakdown()!.seasons; track season.name) {
+                  <div class="booking__season-item" [class.booking__season-item--high]="season.isHighSeason">
+                    <div class="booking__season-info">
+                      <span class="booking__season-name">{{ season.name }}</span>
+                      <span class="booking__season-nights">{{ season.nights }} noche{{ season.nights > 1 ? 's' : '' }}</span>
+                    </div>
+                    <div class="booking__season-price">
+                      <span class="booking__season-per-night">${{ (season.totalPrice / season.nights).toLocaleString() }} ARS/noche</span>
+                      <span class="booking__season-total">${{ season.totalPrice.toLocaleString() }} ARS</span>
+                    </div>
+                  </div>
+                }
+              </div>
+            }
+            
             @if (numberOfNights() > 0) {
               @if (hasDiscount()) {
                 <div class="booking__discount-info">
                   <span class="booking__original-price">Subtotal: ${{ totalPrice().toLocaleString() }} ARS</span>
-                  <span class="booking__discount-text">🎉 Descuento 10% (4+ noches): -${{ savings().toLocaleString() }} ARS</span>
+                  <span class="booking__discount-text">🎉 Descuento 10% (más de 7 noches): -${{ savings().toLocaleString() }} ARS</span>
                   <span class="booking__final-price">Total Final: ${{ discountedPrice().toLocaleString() }} ARS</span>
                 </div>
               } @else {
                 <span class="booking__total-price">Total: ${{ totalPrice().toLocaleString() }} ARS</span>
-                @if (numberOfNights() >= 2 && numberOfNights() < 4) {
-                  <span class="booking__discount-hint">💡 ¡Reserva 4+ noches y obtén 10% de descuento!</span>
+                @if (numberOfNights() >= 2 && numberOfNights() <= 7) {
+                  <span class="booking__discount-hint">💡 ¡Obtén un 10% de descuento reservando más de 7 noches!</span>
                 }
               }
             }
@@ -130,7 +150,7 @@
               {{ t.contactWhatsApp() }}
             </a>
             
-            <a href="mailto:info@artinhouse.com?subject=Consulta%20tarifas%20en%20dólares&body=Hola!%20Quiero%20consultar%20las%20tarifas%20en%20dólares%20para%20Artin%20House." 
+            <a href="mailto:artinhousemza@gmail.com?subject=Consulta%20tarifas%20en%20dólares&body=Hola!%20Quiero%20consultar%20las%20tarifas%20en%20dólares%20para%20Artin%20House." 
                class="booking__contact-btn booking__contact-btn--email">
               <svg class="booking__contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>

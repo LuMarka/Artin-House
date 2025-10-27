@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
@@ -35,7 +35,7 @@ import { ReviewsComponent } from '../reviews/reviews.component';
     WhatsappButtonComponent
   ],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, AfterViewInit {
   private router = inject(Router);
   private translationService = inject(TranslationService);
 
@@ -44,6 +44,29 @@ export class HomeComponent {
     viewArtinHouseI: this.translationService.translate('home.viewArtinHouseI'),
     viewArtinHouseII: this.translationService.translate('home.viewArtinHouseII')
   };
+
+  ngOnInit() {
+    // Verificar si hay preferencia de idioma guardada
+    const preferredLanguage = localStorage.getItem('preferredLanguage');
+    if (preferredLanguage && ['en', 'pt'].includes(preferredLanguage)) {
+      this.translationService.setLanguage(preferredLanguage as 'en' | 'pt' | 'es');
+    }
+  }
+
+  ngAfterViewInit() {
+    // Verificar si necesitamos hacer scroll a un apartamento específico
+    setTimeout(() => {
+      const scrollToApartment = localStorage.getItem('scrollToApartment');
+      if (scrollToApartment) {
+        const apartmentsSection = document.getElementById('apartments');
+        if (apartmentsSection) {
+          apartmentsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Limpiar el localStorage después del scroll
+        localStorage.removeItem('scrollToApartment');
+      }
+    }, 500);
+  }
 
   // Navegar a Artin House I
   goToArtinHouseI() {

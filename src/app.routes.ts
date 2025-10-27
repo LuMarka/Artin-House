@@ -4,6 +4,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ArtinHouseIComponent } from './components/artin-house-i/artin-house-i.component';
 import { ArtinHouseIIComponent } from './components/artin-house-ii/artin-house-ii.component';
 import { NuestrasPoliticasComponent } from './components/nuestras-politicas/nuestras-politicas.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,11 @@ export const routes: Routes = [
     path: 'nuestras-politicas',
     component: NuestrasPoliticasComponent,
     title: 'Nuestras Políticas - Artin House'
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    title: 'Panel de Administración - Artin House'
   },
   {
     path: '**',

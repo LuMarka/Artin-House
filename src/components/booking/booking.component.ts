@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, signal, computed, inject, input, ef
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslationService } from '../../services/translation.service';
+import { BookingService } from '../../services/booking.service';
 
 interface Day {
   date: Date;
@@ -19,6 +20,7 @@ interface Day {
 })
 export class BookingComponent {
   private translationService = inject(TranslationService);
+  private bookingService = inject(BookingService);
   
   // Input para preseleccionar apartamento
   apartmentInput = input<'Artin House I' | 'Artin House II'>();
@@ -28,11 +30,12 @@ export class BookingComponent {
   
   checkInDate = signal<Date | null>(null);
   checkOutDate = signal<Date | null>(null);
-  guests = signal(2); // Default 2 guests
+  guests = signal(1); // Default 1 guest para mostrar precio base
 
   // Maximum guests based on apartment
   maxGuests = computed(() => {
-    return this.selectedApartment() === 'Artin House I' ? 5 : 2;
+    const apartment = this.selectedApartment();
+    return this.bookingService.getMaxGuests(apartment);
   });
 
   bookingStatus = signal<'idle' | 'booked' | 'error'>('idle');
@@ -81,16 +84,18 @@ export class BookingComponent {
     }
   };
 
-  // Hardcoded booked dates for demonstration
-  private bookedDatesRaw = [
-    new Date(2025, 6, 20), new Date(2025, 6, 21), new Date(2025, 6, 22),
-    new Date(2025, 7, 5), new Date(2025, 7, 6)
-  ];
-
+  // Hardcoded booked dates for demonstration - REMOVIDO, ahora usa BookingService
+  
   calendarGrid = computed(() => this.generateCalendar(this.currentDate()));
   monthYearDisplay = computed(() => this.currentDate().toLocaleString(this.language(), { month: 'long', year: 'numeric' }));
 
   constructor() {
+    // Suscribirse a cambios en las reservas para actualizar calendario
+    this.bookingService.bookingsUpdated$.subscribe(() => {
+      // Forzar actualización del calendario regenerando las fechas
+      this.currentDate.set(new Date(this.currentDate()));
+    });
+
     // Effect para establecer el apartamento cuando se pasa como input
     effect(() => {
       const apartment = this.apartmentInput();
@@ -114,18 +119,30 @@ export class BookingComponent {
   });
 
   pricePerNight = computed(() => {
-    const guestCount = this.guests();
-    if (guestCount <= 2) return 65000;
-    if (guestCount === 3) return 70000;
-    return 75000; // 5+ guests
+    const apartment = this.selectedApartment();
+    const guests = this.guests();
+    const checkIn = this.checkInDate() || new Date(); // Usar fecha actual si no hay fecha seleccionada
+
+    return this.bookingService.calculatePricePerNight(apartment, guests, checkIn);
   });
 
   totalPrice = computed(() => {
-    return this.numberOfNights() * this.pricePerNight();
+    const checkIn = this.checkInDate();
+    const checkOut = this.checkOutDate();
+    const apartment = this.selectedApartment();
+    const guests = this.guests();
+    
+    // Si no hay fechas seleccionadas, usar el cálculo simple
+    if (!checkIn || !checkOut) {
+      return this.numberOfNights() * this.pricePerNight();
+    }
+    
+    // Calcular precio día por día para considerar temporadas diferentes
+    return this.bookingService.calculateTotalPriceForStay(apartment, guests, checkIn, checkOut);
   });
 
   // Agregar después de totalPrice computed
-  hasDiscount = computed(() => this.numberOfNights() >= 4);
+  hasDiscount = computed(() => this.numberOfNights() > 7);
 
   discountedPrice = computed(() => {
     const total = this.totalPrice();
@@ -134,6 +151,20 @@ export class BookingComponent {
 
   savings = computed(() => {
     return this.hasDiscount() ? this.totalPrice() - this.discountedPrice() : 0;
+  });
+
+  // Desglose de temporadas
+  priceBreakdown = computed(() => {
+    const checkIn = this.checkInDate();
+    const checkOut = this.checkOutDate();
+    const apartment = this.selectedApartment();
+    const guests = this.guests();
+    
+    if (!checkIn || !checkOut) {
+      return null;
+    }
+    
+    return this.bookingService.getPriceBreakdown(apartment, guests, checkIn, checkOut);
   });
 
   isDateInRange(date: Date): boolean {
@@ -151,7 +182,8 @@ export class BookingComponent {
   }
   
   isDateBooked(date: Date): boolean {
-    return this.bookedDatesRaw.some(d => d.toDateString() === date.toDateString());
+    const apartment = this.selectedApartment();
+    return this.bookingService.isDateBooked(date, apartment);
   }
 
   selectDate(day: Day): void {
@@ -203,27 +235,34 @@ export class BookingComponent {
     const nights = this.numberOfNights();
     const guests = this.guests();
     
-    // Usar el precio calculado correctamente
-    const totalPrice = this.hasDiscount() ? this.discountedPrice() : this.totalPrice();
-    const pricePerNight = this.pricePerNight();
-    
-    // Crear la reserva internamente (simulación de base de datos)
-    this.addBookingToSystem(checkIn, checkOut, apartment);
+    try {
+      // Verificar disponibilidad antes de crear la reserva
+      if (!this.bookingService.isRangeAvailable(checkIn, checkOut, apartment)) {
+        alert('Las fechas seleccionadas ya no están disponibles. Por favor, selecciona otras fechas.');
+        return;
+      }
 
-    // Preparar email de contacto con precios correctos
-    const subject = encodeURIComponent(`Solicitud de reserva - ${apartment}`);
-    
-    let priceDetails = `💰 Precio por noche: $${pricePerNight.toLocaleString('es-AR')} ARS
+      // Crear la reserva en el sistema
+      const bookingId = this.bookingService.createBooking(checkIn, checkOut, apartment, guests);
+      
+      // Usar el precio calculado correctamente
+      const totalPrice = this.hasDiscount() ? this.discountedPrice() : this.totalPrice();
+      const pricePerNight = this.pricePerNight();
+      
+      // Preparar email de contacto con precios correctos
+      const subject = encodeURIComponent(`Solicitud de reserva - ${apartment}`);
+      
+      let priceDetails = `💰 Precio por noche: $${pricePerNight.toLocaleString('es-AR')} ARS
 💰 Subtotal (${nights} noches): $${this.totalPrice().toLocaleString('es-AR')} ARS`;
 
-    // Agregar información de descuento si aplica
-    if (this.hasDiscount()) {
-      priceDetails += `
-🎉 Descuento 10% (4+ noches): -$${this.savings().toLocaleString('es-AR')} ARS
+      // Agregar información de descuento si aplica
+      if (this.hasDiscount()) {
+        priceDetails += `
+🎉 Descuento 10% (más de 7 noches): -$${this.savings().toLocaleString('es-AR')} ARS
 💰 Total Final: $${this.discountedPrice().toLocaleString('es-AR')} ARS`;
-    }
+      }
 
-    const body = encodeURIComponent(`
+      const body = encodeURIComponent(`
 ¡Hola!
 
 Deseo realizar una reserva con los siguientes detalles:
@@ -239,12 +278,19 @@ ${priceDetails}
 Por favor, confirmen disponibilidad y envíenme los detalles para proceder con el pago de la seña (20%).
 
 ¡Gracias!
-    `);
+      `);
 
-    // Abrir cliente de email
-    window.open(`mailto:artinhousemza@gmail.com?subject=${subject}&body=${body}`, '_blank');
+      // Abrir cliente de email
+      window.open(`mailto:artinhousemza@gmail.com?subject=${subject}&body=${body}`, '_blank');
 
-    this.bookingStatus.set('booked');
+      console.log(`Reserva creada con ID: ${bookingId}`);
+      this.bookingStatus.set('booked');
+      
+    } catch (error) {
+      console.error('Error al crear la reserva:', error);
+      alert('Error al procesar la reserva. Por favor, intenta nuevamente.');
+      this.bookingStatus.set('error');
+    }
   }
 
   incrementGuests(): void {
@@ -265,17 +311,9 @@ Por favor, confirmen disponibilidad y envíenme los detalles para proceder con e
     if (this.guests() > max) {
       this.guests.set(max);
     }
-  }
-
-  private addBookingToSystem(checkIn: Date, checkOut: Date, apartment: string): void {
-    // Agregar fechas reservadas al sistema
-    const currentDate = new Date(checkIn);
-    const endDate = new Date(checkOut);
-    
-    while (currentDate < endDate) {
-      this.bookedDatesRaw.push(new Date(currentDate));
-      currentDate.setDate(currentDate.getDate() + 1);
-    }
+    // Reset dates when changing apartment
+    this.checkInDate.set(null);
+    this.checkOutDate.set(null);
   }
 
   private formatDateForCalendar(date: Date): string {
@@ -290,6 +328,7 @@ Por favor, confirmen disponibilidad y envíenme los detalles para proceder con e
     const month = date.getMonth();
     const firstDayOfMonth = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const apartment = this.selectedApartment();
 
     const dates: Day[] = [];
     const today = new Date();
@@ -301,7 +340,7 @@ Por favor, confirmen disponibilidad y envíenme los detalles para proceder con e
       dates.push({ 
         date: prevMonthDate, 
         isCurrentMonth: false, 
-        isBooked: this.isDateBooked(prevMonthDate),
+        isBooked: this.bookingService.isDateBooked(prevMonthDate, apartment),
         isPast: prevMonthDate < today
       });
     }
@@ -312,7 +351,7 @@ Por favor, confirmen disponibilidad y envíenme los detalles para proceder con e
       dates.push({ 
         date: currentDate, 
         isCurrentMonth: true, 
-        isBooked: this.isDateBooked(currentDate),
+        isBooked: this.bookingService.isDateBooked(currentDate, apartment),
         isPast: currentDate < today
       });
     }
@@ -324,7 +363,7 @@ Por favor, confirmen disponibilidad y envíenme los detalles para proceder con e
       dates.push({ 
         date: nextMonthDate, 
         isCurrentMonth: false, 
-        isBooked: this.isDateBooked(nextMonthDate),
+        isBooked: this.bookingService.isDateBooked(nextMonthDate, apartment),
         isPast: nextMonthDate < today
       });
     }

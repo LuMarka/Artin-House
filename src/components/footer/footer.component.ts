@@ -25,9 +25,10 @@ interface CompanyInfo {
   address: {
     street: string;
     city: string;
-    postalCode: string;
     province: string;
+    postalCode: string;
     country: string;
+    hasSubtitle?: boolean;
   };
   contact: {
     email: string;
@@ -56,25 +57,29 @@ export class FooterComponent implements OnInit {
   safeMapUrl!: SafeResourceUrl;
   
   // Raw map URL
-  mapUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.500918731006!2d-68.8796112!3d-33.037376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e808383e74889%3A0x6280436d713c77f0!2sBustamante%20482%2C%20M5507CMM%20Luj%C3%A1n%20de%20Cuyo%2C%20Mendoza%2C%20Argentina!5e0!3m2!1sen!2sar!4v1704067200000!5m2!1sen!2sar';
+  mapUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d351.5703577046279!2d-68.8777258031258!3d-33.03751268130121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e75466e905af1%3A0xfb1b276c6f7d2bf4!2sArtin%20House%20Mendoza%20-%20Alojamiento%20temporario%20en%20Luj%C3%A1n%20de%20Cuyo!5e0!3m2!1sen!2sar!4v1761516503212!5m2!1sen!2sar';
 
   // Company Information
   companyInfo: CompanyInfo = {
-    name: 'Artin House Luján',
+    name: 'Artin House Mendoza',
     address: {
       street: 'Bustamante 482',
+      postalCode: 'M5507',
       city: 'Luján de Cuyo',
-      postalCode: '5507',
       province: 'Mendoza',
+      hasSubtitle: true,
       country: 'Argentina'
     },
+
+
     contact: {
       email: 'artinhousemza@gmail.com',
       phone: '+54 261 590 1250'
     },
     map: {
-      embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.500918731006!2d-68.8796112!3d-33.037376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e808383e74889%3A0x6280436d713c77f0!2sBustamante%20482%2C%20M5507CMM%20Luj%C3%A1n%20de%20Cuyo%2C%20Mendoza%2C%20Argentina!5e0!3m2!1sen!2sar!4v1704067200000!5m2!1sen!2sar',
-      title: 'Ubicación de Artin House Luján'
+      embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d351.5703577046279!2d-68.8777258031258!3d-33.03751268130121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e75466e905af1%3A0xfb1b276c6f7d2bf4!2sArtin%20House%20Mendoza%20-%20Alojamiento%20temporario%20en%20Luj%C3%A1n%20de%20Cuyo!5e0!3m2!1sen!2sar!4v1761514283772!5m2!1sen!2sar',
+
+      title: 'Ubicación de Artin House Mendoza',
     }
   };
 
@@ -95,9 +100,9 @@ export class FooterComponent implements OnInit {
     {
       type: 'address',
       icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
-      value: `${this.companyInfo.address.street}, ${this.companyInfo.address.city}`,
-      hasSubtext: true,
-      subtext: `${this.companyInfo.address.postalCode}, ${this.companyInfo.address.province}, ${this.companyInfo.address.country}`
+      value: `${this.companyInfo.address.street}, ${this.companyInfo.address.city}, ${this.companyInfo.address.postalCode}, ${this.companyInfo.address.province}, ${this. companyInfo.address.country}`,
+      /*hasSubtext: true,
+      subtext: `${this.companyInfo.address.postalCode}, ${this.companyInfo.address.province}, ${this.companyInfo.address.country}` */
     }
   ];
 

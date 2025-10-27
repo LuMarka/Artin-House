@@ -12,6 +12,10 @@ export class HeaderComponent {
   private translationService = inject(TranslationService);
   private router = inject(Router);
   isMenuOpen = signal(false);
+  
+  // Para acceso discreto al admin
+  private adminClickCount = signal(0);
+  showAdminLink = signal(false);
 
   language = this.translationService.language;
   nav = {
@@ -61,5 +65,25 @@ export class HeaderComponent {
   navigateToApartment(apartmentPath: string): void {
     this.router.navigate([apartmentPath]);
     this.isMenuOpen.set(false);
+  }
+
+  // Métodos para acceso discreto al admin
+  incrementAdminClicks(): void {
+    this.adminClickCount.update(count => count + 1);
+    if (this.adminClickCount() >= 5) {
+      this.showAdminLink.set(true);
+      // Ocultar el enlace después de 10 segundos
+      setTimeout(() => {
+        this.showAdminLink.set(false);
+        this.adminClickCount.set(0);
+      }, 10000);
+    }
+  }
+
+  navigateToAdmin(): void {
+    this.router.navigate(['/admin']);
+    this.isMenuOpen.set(false);
+    this.showAdminLink.set(false);
+    this.adminClickCount.set(0);
   }
 }

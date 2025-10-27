@@ -23,9 +23,11 @@ export class AmenitiesComponent {
     { icon: 'fan', key: 'amenities.fan' },
     { icon: 'heating', key: 'amenities.heating' },
     { icon: 'kitchen', key: 'amenities.kitchen' },
+    {icon: 'microwave', key: 'amenities.microwave' },
+    { icon: 'barbecue', key: 'amenities.barbecue' },
     { icon: 'tv', key: 'amenities.tv' },
     { icon: 'garden', key: 'amenities.garden' },
-    {icon: 'microwave', key: 'amenities.microwave' }
+    
   ];
 
   amenities = computed(() => {
