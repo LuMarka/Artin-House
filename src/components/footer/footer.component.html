@@ -1,11 +1,28 @@
 <footer class="footer">
   <div class="footer__container">
     <div class="footer__grid">
-      <div class="footer__info">
-        <h4 class="footer__title">{{ companyInfo.name }}</h4>
-        <p class="footer__subtitle">{{ t.subtitle() }}</p>
+      <!-- Columna 1: Información principal + Síguenos -->
+      <div class="footer__main-column">
+        <div class="footer__info">
+          <h4 class="footer__title">{{ companyInfo.name }}</h4>
+          <p class="footer__subtitle">{{ t.subtitle() }}</p>
+        </div>
+        
+        <div class="footer__social-section">
+          <h4 class="footer__title">{{ t.followTitle() }}</h4>
+          <div class="footer__social">
+            @for (social of socialLinks; track social.platform) {
+              <a [href]="social.url" class="footer__social-link" [attr.aria-label]="social.ariaLabel">
+                <svg class="footer__social-icon" fill="currentColor" viewBox="0 0 24 24">
+                  <path [attr.d]="social.icon"/>
+                </svg>
+              </a>
+            }
+          </div>
+        </div>
       </div>
       
+      <!-- Columna 2: Contacto -->
       <div class="footer__contact">
         <h4 class="footer__title">{{ t.contactTitle() }}</h4>
         <ul class="footer__list">
@@ -29,29 +46,39 @@
         </ul>
       </div>
 
-      <div class="footer__social-section">
-        <h4 class="footer__title">{{ t.followTitle() }}</h4>
-        <div class="footer__social">
-          @for (social of socialLinks; track social.platform) {
-            <a [href]="social.url" class="footer__social-link" [attr.aria-label]="social.ariaLabel">
-              <svg class="footer__social-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path [attr.d]="social.icon"/>
+      <!-- Columna 3: Enlaces rápidos -->
+      <div class="footer__navigation">
+        <h4 class="footer__title">{{ t.navigationTitle() }}</h4>
+        <ul class="footer__nav-list">
+          <li class="footer__nav-item">
+            <a routerLink="/contact" class="footer__nav-link">
+              <svg class="footer__nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
+              {{ t.contactLink() }}
             </a>
-          }
-        </div>
-        
-        <!-- Policies Button -->
-        <div class="footer__policies">
-          <a routerLink="/nuestras-politicas" class="footer__policies-button">
-            <svg class="footer__policies-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            {{ t.policies() }}
-          </a>
-        </div>
+          </li>
+          <li class="footer__nav-item">
+            <a routerLink="/que-hacer-en-mendoza" class="footer__nav-link">
+              <svg class="footer__nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              {{ t.mendozaGuideLink() }}
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a routerLink="/nuestras-politicas" class="footer__nav-link">
+              <svg class="footer__nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              {{ t.policies() }}
+            </a>
+          </li>
+        </ul>
       </div>
 
+      <!-- Columna 4: Ubicación -->
       <div class="footer__map">
         <h4 class="footer__title">{{ t.locationTitle() }}</h4>
         <div class="footer__map-container">

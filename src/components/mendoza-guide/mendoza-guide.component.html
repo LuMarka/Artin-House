@@ -1,0 +1,220 @@
+<app-header></app-header>
+
+<section class="mendoza-guide">
+  <div class="mendoza-guide__container">
+    <!-- Hero Section -->
+    <div class="mendoza-guide__hero" [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + backgroundImages.hero + ')'">
+      <h1 class="mendoza-guide__title">{{ getHeroTitle() }}</h1>
+      <p class="mendoza-guide__subtitle">{{ getHeroSubtitle() }}</p>
+    </div>
+
+    <!-- Wines Section -->
+    <section class="mendoza-guide__section mendoza-guide__section--with-bg" [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + backgroundImages.wines + ')'">
+      <h2 class="mendoza-guide__section-title">{{ getWinesTitle() }}</h2>
+      <p class="mendoza-guide__description">{{ getWinesDescription() }}</p>
+
+      <div class="mendoza-guide__table">
+        <div class="mendoza-guide__table-header">
+          <div class="mendoza-guide__table-cell">{{ getWineHeaderActivity() }}</div>
+          <div class="mendoza-guide__table-cell">{{ getWineHeaderRecommendation() }}</div>
+          <div class="mendoza-guide__table-cell">{{ getWineHeaderNotes() }}</div>
+        </div>
+
+        <!-- Wine tasting row -->
+        <div class="mendoza-guide__table-row">
+          <div class="mendoza-guide__table-cell">
+            <strong>{{ getWineTastingActivity() }}</strong>
+          </div>
+          <div class="mendoza-guide__table-cell">
+            {{ getWineCatenaRecommendation() }}
+          </div>
+          <div class="mendoza-guide__table-cell">
+            {{ getWineOnlineNote() }}
+          </div>
+        </div>
+
+        <!-- Tour with lunch row -->
+        <div class="mendoza-guide__table-row">
+          <div class="mendoza-guide__table-cell">
+            <strong>{{ getWineTourActivity() }}</strong>
+          </div>
+          <div class="mendoza-guide__table-cell">
+            {{ getWineGourmetRecommendation() }}
+          </div>
+          <div class="mendoza-guide__table-cell">
+            {{ getWineMariageNote() }}
+          </div>
+        </div>
+
+        <!-- Premium experience row -->
+        <div class="mendoza-guide__table-row">
+          <div class="mendoza-guide__table-cell">
+            <strong>{{ getWinePremiumActivity() }}</strong>
+          </div>
+          <div class="mendoza-guide__table-cell">
+            {{ getWineAchavalRecommendation() }}
+          </div>
+          <div class="mendoza-guide__table-cell">
+            {{ getWineConnoisseursNote() }}
+          </div>
+        </div>
+
+        <!-- Bike tour row -->
+        <div class="mendoza-guide__table-row">
+          <div class="mendoza-guide__table-cell">
+            <strong>{{ getWineBikeActivity() }}</strong>
+          </div>
+          <div class="mendoza-guide__table-cell">
+            {{ getWineMaipuRecommendation() }}
+          </div>
+          <div class="mendoza-guide__table-cell">
+            {{ getWineBikeNote() }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gastronomy Section -->
+    <section class="mendoza-guide__section mendoza-guide__section--with-bg" [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(' + backgroundImages.gastronomy + ')'">
+      <h2 class="mendoza-guide__section-title">{{ getGastronomyTitle() }}</h2>
+      <p class="mendoza-guide__description">{{ getGastronomyDescription() }}</p>
+
+      <div class="mendoza-guide__locations">
+        <!-- Chacras de Coria -->
+        <div class="mendoza-guide__location">
+          <h3 class="mendoza-guide__location-title">{{ getGastronomyChacrasTitle() }}</h3>
+          <p class="mendoza-guide__location-description">{{ getGastronomyChacrasDescription() }}</p>
+          <p class="mendoza-guide__location-note">
+            <em>{{ getGastronomyChacrasNote() }}</em>
+          </p>
+        </div>
+
+        <!-- Local Experience -->
+        <div class="mendoza-guide__location">
+          <h3 class="mendoza-guide__location-title">{{ getGastronomyLujanTitle() }}</h3>
+          <p class="mendoza-guide__location-description">{{ getGastronomyLujanDescription() }}</p>
+          <p class="mendoza-guide__location-link">
+            <a href="https://mendoza.tur.ar" target="_blank" rel="noopener noreferrer" class="mendoza-guide__external-link">
+              {{ getMoreInfoText() }} en mendoza.tur.ar
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Adventure Section -->
+    <section class="mendoza-guide__section">
+      <h2 class="mendoza-guide__section-title">{{ getAdventureTitle() }}</h2>
+      <p class="mendoza-guide__description">{{ getAdventureDescription() }}</p>
+
+      <div class="mendoza-guide__locations">
+        @for (location of content.adventure.locations; track location.title) {
+          <div class="mendoza-guide__location">
+            @if (location.image) {
+              <div class="mendoza-guide__location-image">
+                <img [src]="getAdventureImage(location.title)" [alt]="location.title" class="mendoza-guide__location-img" />
+              </div>
+            }
+            <h3 class="mendoza-guide__location-title">{{ getAdventureLocationTitle(location.title) }}</h3>
+            <p class="mendoza-guide__location-description">
+              {{ getAdventureLocationDescription(location.title) }}
+              @if (location.link) {
+                <a [href]="location.link" target="_blank" rel="noopener noreferrer" class="mendoza-guide__external-link">
+                  {{ getAdventureLocationLinkText(location.title) }}
+                </a>
+              }
+            </p>
+            @if (location.note) {
+              <p class="mendoza-guide__location-note">
+                <em>{{ getAdventureLocationNote(location.title) }}</em>
+              </p>
+            }
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- More Places Section -->
+    <section class="mendoza-guide__section">
+      <h2 class="mendoza-guide__section-title">{{ getMorePlacesTitle() }}</h2>
+      <p class="mendoza-guide__description">{{ getMorePlacesDescription() }}</p>
+
+      <div class="mendoza-guide__places-grid">
+        @for (place of content.morePlaces.places; track place.title) {
+          <div class="mendoza-guide__place-card">
+            @if (place.image) {
+              <div class="mendoza-guide__place-image">
+                <img [src]="getPlaceImage(place.title)" [alt]="place.title" class="mendoza-guide__place-img" />
+              </div>
+            }
+            <h4 class="mendoza-guide__place-title">{{ getPlaceTitle(place.title) }}</h4>
+            <p class="mendoza-guide__place-desc">
+              {{ getPlaceDescription(place.title) }}
+              @if (place.link) {
+                <a [href]="place.link" target="_blank" rel="noopener noreferrer" class="mendoza-guide__external-link">
+                  {{ getMoreInfoLinkText() }}
+                </a>
+              }
+            </p>
+            <span class="mendoza-guide__place-distance">{{ getPlaceDistance(place.title) }}</span>
+          </div>
+        }
+      </div>
+      <!-- Btn "mas informacion turistica" Section -->
+      <div class="mendoza-guide__more-info mendoza-guide__more-info--centered">
+        <a [href]="content.links.mendozaTur" target="_blank" rel="noopener noreferrer"
+          class="mendoza-guide__info-btn info-tur">
+          {{ getMoreInfoButton() }}
+        </a>
+      </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="mendoza-guide__section">
+      <div class="mendoza-guide__map-section">
+        <h3 class="mendoza-guide__map-title">{{ getMapTitle() }}</h3>
+        <div class="mendoza-guide__map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d433673.2423578076!2d-69.2668043!3d-32.8894587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e093ec45179dd%3A0x205a78f6d20efa3a!2sMendoza%2C%20Argentina!5e0!3m2!1sen!2sus!4v1635789012345!5m2!1sen!2sus"
+            class="mendoza-guide__interactive-map"
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <p class="mendoza-guide__map-note">
+          <em>{{ getMapAdvice() }}</em>
+        </p>
+      </div>
+    </section>
+
+
+
+    <!-- Contact CTA -->
+    <section class="mendoza-guide__contact-section">
+      <div class="mendoza-guide__contact-card">
+        <h3 class="mendoza-guide__contact-title">{{ getContactTitle() }}</h3>
+        <p class="mendoza-guide__contact-description">{{ getContactDescription() }}</p>
+        <div class="mendoza-guide__contact-buttons">
+          <a [href]="content.contact.whatsapp.url" 
+             target="_blank" 
+             class="mendoza-guide__contact-btn mendoza-guide__contact-btn--whatsapp">
+            <svg class="mendoza-guide__contact-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.515"/>
+            </svg>
+            {{ getContactWhatsApp() }}
+          </a>
+          
+          <a routerLink="/contact" class="mendoza-guide__contact-btn mendoza-guide__contact-btn--email">
+            <svg class="mendoza-guide__contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            {{ getContactEmail() }}
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<app-footer></app-footer>

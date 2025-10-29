@@ -104,7 +104,7 @@ const translations: Translations = {
   'policies.rules.desc': { en: 'Our rules are simple and essential to ensure harmonious coexistence and care for our facilities:', es: 'Nuestras normas son sencillas y esenciales para garantizar una convivencia armoniosa y el cuidado de nuestras instalaciones:', pt: 'Nossas regras são simples e essenciais para garantir uma convivência harmoniosa e cuidado com nossas instalações:' },
   'policies.rules.suitable.title': { en: 'Suitable for:', es: 'Apto para:', pt: 'Adequado para:' },
   'policies.rules.suitable.babies': { en: 'Babies (0 to 2 years)', es: 'Bebés (0 a 2 años)', pt: 'Bebês (0 a 2 anos)' },
-  'policies.rules.suitable.children': { en: 'Children (2 to 12 years)', es: 'Niños (2 a 12 años)', pt: 'Crianças (2 a 12 anos)' },
+  'policies.rules.suitable.children': { en: 'Children (+2 to 12 years)', es: 'Niños (+2 a 12 años)', pt: 'Crianças (+2 a 12 anos)' },
   'policies.rules.suitable.families': { en: 'Families', es: 'Familias', pt: 'Famílias' },
   'policies.rules.suitable.couples': { en: 'Couples', es: 'Parejas', pt: 'Casais' },
   'policies.rules.notSuitable.title': { en: 'Not suitable for:', es: 'No Apto para:', pt: 'Não adequado para:' },
@@ -123,7 +123,7 @@ const translations: Translations = {
   'policies.deposit.amount': { en: '**Deposit Amount:** The value will be equivalent to the cost of one (1) night of accommodation.', es: '**Monto del Depósito:** El valor será equivalente al costo de una (1) noche de alojamiento.', pt: '**Valor do Depósito:** O valor será equivalente ao custo de uma (1) noite de acomodação.' },
   'policies.deposit.purpose': { en: '**Purpose:** This deposit is retained as collateral to cover possible material damage, breakage, or missing items that may occur during the stay.', es: '**Finalidad:** Este depósito se retendrá como fianza para cubrir posibles daños materiales, roturas o faltantes que pudieran ocurrir durante la estadía.', pt: '**Finalidade:** Este depósito é retido como garantia para cobrir possíveis danos materiais, quebras ou itens em falta que possam ocorrer durante a estadia.' },
     'policies.deposit.payment': { en: '**Payment Methods:** The deposit can be paid by bank transfer, cash, or credit/debit card pre-authorization at check-in. Refund will be made by the same method, or by bank transfer if paid in cash.', es: '**Formas de Pago:** El depósito puede ser abonado mediante transferencia bancaria, en efectivo o mediante pre-autorización en tarjeta de crédito/débito al momento del Check-in. La devolución se realizará por el mismo medio, o por transferencia bancaria en caso de haber sido abonado en efectivo.', pt: '**Formas de Pagamento:** O depósito pode ser pago por transferência bancária, em dinheiro ou por pré-autorização no cartão de crédito/débito no check-in. O reembolso será feito pelo mesmo método, ou por transferência bancária se pago em dinheiro.' },
-  'policies.deposit.refund': { en: '**Refund:** The amount will be refunded in full (by the same payment method) on check-out day, once the property has been reviewed and verified that there is no damage.', es: '**Reintegro:** El importe será reintegrado em sua totalidade (por el mismo medio de pago) el día del Check-out, una vez que se haya revisado la propiedad y verificado que no existen daños.', pt: '**Reembolso:** O valor será reembolsado integralmente (pelo mesmo método de pagamento) no dia do check-out, uma vez que a propriedade tenha sido revisada e verificado que não há danos.' },
+  'policies.deposit.refund': { en: '**Refund:** The amount will be refunded in full (by the same payment method) on check-out day, once the property has been reviewed and verified that there is no damage.', es: '**Reintegro:** El importe será reintegrado en su totalidad (por el mismo medio de pago) el día del Check-out, una vez que se haya revisado la propiedad y verificado que no existen daños.', pt: '**Reembolso:** O valor será reembolsado integralmente (pelo mesmo método de pagamento) no dia do check-out, uma vez que a propriedade tenha sido revisada e verificado que não há danos.' },
   'policies.deposit.damages': { en: '**In case of damage:** If damage or theft is found, the cost of repair or replacement will be deducted from the deposit. If the damage exceeds the guarantee amount, the guest must cover the difference.', es: '**En caso de daños:** Si se constatan daños o hurtos, el costo de reparación o reposición se descontará del depósito. Si el daño supera el monto de la garantía, el huésped deberá cubrir a diferença.', pt: '**Em caso de danos:** Se forem constatados danos ou furtos, o custo de reparo ou substituição será deduzido do depósito. Se o dano exceder o valor da garantia, o hóspede deve cobrir a diferença.' },
   
   'policies.thankYou': { en: '**Thank you for choosing Artin House! We look forward to welcoming you soon in Luján de Cuyo.**', es: '**¡Gracias por elegir Artin House! Esperamos recibirlos pronto en Luján de Cuyo.**', pt: '**Obrigado por escolher a Artin House! Esperamos recebê-los em breve em Luján de Cuyo.**' },
@@ -237,6 +237,9 @@ const translations: Translations = {
   // Footer
   'footer.subtitle': { en: "Your home away from home in the heart of Argentina's wine country.", es: 'Tu hogar lejos de casa en el corazón de la tierra del vino de Argentina.', pt: 'Sua casa longe de casa no coração da região vinícola da Argentina.' },
   'footer.contactTitle': { en: 'Contact Us', es: 'Contáctanos', pt: 'Contate-nos' },
+  'footer.navigationTitle': { en: 'Quick Links', es: 'Enlaces Rápidos', pt: 'Links Rápidos' },
+  'footer.contactLink': { en: 'Contact', es: 'Contacto', pt: 'Contato' },
+  'footer.mendozaGuideLink': { en: 'What to do in Mendoza', es: 'Qué hacer en Mendoza', pt: 'O que fazer em Mendoza' },
   'footer.followTitle': { en: 'Follow Us', es: 'Síguenos', pt: 'Siga-nos' },
   'footer.locationTitle': { en: 'Location', es: 'Ubicación', pt: 'Localização' },
   'footer.copyright': { en: 'All rights reserved.', es: 'Todos los derechos reservados.', pt: 'Todos os direitos reservados.' },
@@ -332,6 +335,131 @@ const translations: Translations = {
   'artinHouseII.rooms': { en: 'Rooms:', es: 'Habitaciones:', pt: 'Quartos:' },
   'artinHouseII.roomsDetail': { en: '1 Bedrooms, 1 Bathroom', es: '1 Dormitorio, 1 Baño', pt: '1 Quarto, 1 Banheiro' },
 
+  // Mendoza Guide
+  'mendozaGuide.hero.title': { en: '🍇 What to do in Mendoza', es: '🍇 Qué hacer en Mendoza', pt: '🍇 O que fazer em Mendoza' },
+  'mendozaGuide.hero.subtitle': { en: 'Your complete guide to discover the best wines, gastronomy and adventures in the region', es: 'Tu guía completa para descubrir los mejores vinos, gastronomía y aventuras de la región', pt: 'Seu guia completo para descobrir os melhores vinhos, gastronomia e aventuras da região' },
+
+  // Wines Section
+  'mendozaGuide.wines.title': { en: '🍷 Winery Experiences', es: '🍷 Experiencias en Bodegas', pt: '🍷 Experiências em Vinícolas' },
+  'mendozaGuide.wines.description': { en: 'Mendoza is world renowned for its exceptional wines. Discover the best wineries and wine experiences the region has to offer.', es: 'Mendoza es mundialmente reconocida por sus vinos excepcionales. Descubrí las mejores bodegas y experiencias enológicas que la región tiene para ofrecer.', pt: 'Mendoza é mundialmente reconhecida por seus vinhos excepcionais. Descubra as melhores vinícolas e experiências enológicas que a região tem a oferecer.' },
+  
+  // Wine table translations
+  'mendozaGuide.wines.table.headers.activity': { en: '🍷 ACTIVITY', es: '🍷 ACTIVIDAD', pt: '🍷 ATIVIDADE' },
+  'mendozaGuide.wines.table.headers.recommendation': { en: '⭐ RECOMMENDATION', es: '⭐ RECOMENDACIÓN', pt: '⭐ RECOMENDAÇÃO' },
+  'mendozaGuide.wines.table.headers.notes': { en: '📍 NOTES', es: '📍 NOTAS', pt: '📍 NOTAS' },
+  
+  // Wine table rows - Tasting
+  'mendozaGuide.wines.table.rows.tasting.activity': { en: 'Wine tasting', es: 'Cata de vinos', pt: 'Degustação de vinhos' },
+  'mendozaGuide.wines.table.rows.tasting.recommendation': { en: 'Catena Zapata - Impressive architecture and exceptional wines', es: 'Catena Zapata - Arquitectura impresionante y vinos excepcionales', pt: 'Catena Zapata - Arquitetura impressionante e vinhos excepcionais' },
+  'mendozaGuide.wines.table.rows.tasting.note': { en: 'Online reservations with special discounts', es: 'Reservas online con descuentos especiales', pt: 'Reservas online com descontos especiais' },
+  
+  // Wine table rows - Tour
+  'mendozaGuide.wines.table.rows.tour.activity': { en: 'Tour with lunch', es: 'Tour con almuerzo', pt: 'Tour com almoço' },
+  'mendozaGuide.wines.table.rows.tour.recommendation': { en: 'Gourmet experience at Ruca Malen - Panoramic views', es: 'Experiencia gourmet en Ruca Malen - Vistas panorámicas', pt: 'Experiência gourmet na Ruca Malen - Vistas panorâmicas' },
+  'mendozaGuide.wines.table.rows.tour.note': { en: 'Includes complete pairing and transfer', es: 'Incluye maridaje completo y transfer', pt: 'Inclui harmonização completa e transfer' },
+  
+  // Wine table rows - Premium
+  'mendozaGuide.wines.table.rows.premium.activity': { en: 'Premium experience', es: 'Experiencia premium', pt: 'Experiência premium' },
+  'mendozaGuide.wines.table.rows.premium.recommendation': { en: 'Achaval Ferrer - Personalized attention and unique terroir', es: 'Achaval Ferrer - Atención personalizada y terroir único', pt: 'Achaval Ferrer - Atenção personalizada e terroir único' },
+  'mendozaGuide.wines.table.rows.premium.note': { en: 'Ideal for demanding connoisseurs', es: 'Ideal para conocedores exigentes', pt: 'Ideal para conhecedores exigentes' },
+  
+  // Wine table rows - Bike
+  'mendozaGuide.wines.table.rows.bike.activity': { en: 'Bike tour', es: 'Tour en bicicleta', pt: 'Tour de bicicleta' },
+  'mendozaGuide.wines.table.rows.bike.recommendation': { en: 'Maipú tour - Adventure among vineyards', es: 'Recorrido por Maipú - Aventura entre viñedos', pt: 'Percurso por Maipú - Aventura entre vinhedos' },
+  'mendozaGuide.wines.table.rows.bike.note': { en: 'Includes bike rental and tasting', es: 'Incluye alquiler de bicicletas y degustación', pt: 'Inclui aluguel de bicicletas e degustação' },
+  'mendozaGuide.wines.header.activity': { en: 'ACTIVITY', es: 'ACTIVIDAD', pt: 'ATIVIDADE' },
+  'mendozaGuide.wines.header.recommendation': { en: 'ARTIN HOUSE RECOMMENDATION', es: 'RECOMENDACIÓN DE ARTIN HOUSE', pt: 'RECOMENDAÇÃO ARTIN HOUSE' },
+  'mendozaGuide.wines.header.note': { en: 'KEEP IN MIND', es: 'PARA TENER EN CUENTA', pt: 'LEMBRE-SE' },
+  'mendozaGuide.wines.tasting.activity': { en: 'Tastings and Tours', es: 'Cata y Tours', pt: 'Degustações e Tours' },
+  'mendozaGuide.wines.tasting.recommendation': { en: 'Visit historic wineries like Catena Zapata, Norton or Achaval Ferrer.', es: 'Visitá bodegas históricas como Catena Zapata, Norton o Achaval Ferrer.', pt: 'Visite vinícolas históricas como Catena Zapata, Norton ou Achaval Ferrer.' },
+  'mendozaGuide.wines.tasting.note': { en: 'Essential to book! Premium wineries sell out days in advance.', es: '¡Imprescindible reservar! Las bodegas premium agotan sus cupos con días de anticipación.', pt: 'Essencial reservar! As vinícolas premium esgotam com dias de antecedência.' },
+  'mendozaGuide.wines.gourmet.activity': { en: 'Gourmet Lunches', es: 'Almuerzos Gourmet', pt: 'Almoços Gourmet' },
+  'mendozaGuide.wines.gourmet.recommendation': { en: 'Enjoy a pairing lunch with vineyard views. Check the menu at Bodega Séptima or El Enemigo (Chachingo).', es: 'Disfrutá de un almuerzo de pasos (maridaje) con vistas a los viñedos. Consultá el menú en Bodega Séptima o El Enemigo (Chachingo).', pt: 'Desfrute de um almoço harmonizado com vista para os vinhedos. Consulte o menu na Bodega Séptima ou El Enemigo (Chachingo).' },
+  'mendozaGuide.wines.gourmet.note': { en: 'Photo opportunity: Upload an image of a Malbec glass with vineyards in the background.', es: 'Busca la Foto: Sube una imagen de una copa de Malbec con los viñedos de fondo.', pt: 'Oportunidade de foto: Tire uma foto de uma taça de Malbec com vinhedos ao fundo.' },
+  'mendozaGuide.wines.tip.activity': { en: '🧭 Elizabeth\'s Tip', es: '🧭 Tip de Elizabeth', pt: '🧭 Dica da Elizabeth' },
+  'mendozaGuide.wines.tip.recommendation': { en: 'Ask me about lesser-known family tours. Perfect for an intimate experience! I also recommend El Manzano Histórico where San Martín planned the crossing of the Andes.', es: 'Preguntame por tours menos conocidos y familiares. ¡Ideales para una experiencia íntima! También te recomiendo El Manzano Histórico donde San Martín planificó el cruce de los Andes.', pt: 'Me pergunte sobre tours familiares menos conhecidos. Perfeitos para uma experiência íntima! Também recomendo El Manzano Histórico onde San Martín planejou a travessia dos Andes.' },
+  'mendozaGuide.wines.tip.note': { en: 'Secret routes and unique places', es: 'Rutas secretas y lugares únicos', pt: 'Rotas secretas e lugares únicos' },
+
+  // Gastronomy Section
+  'mendozaGuide.gastronomy.title': { en: '🍽️ Local Gastronomy', es: '🍽️ Gastronomía Local', pt: '🍽️ Gastronomia Local' },
+  'mendozaGuide.gastronomy.description': { en: 'Mendoza\'s gastronomy combines tradition and innovation. From traditional barbecues to haute cuisine, every meal is a unique experience.', es: 'La gastronomía mendocina combina tradición e innovación. Desde asados tradicionales hasta alta cocina, cada comida es una experiencia única.', pt: 'A gastronomia mendocina combina tradição e inovação. Desde churrascos tradicionais até alta gastronomia, cada refeição é uma experiência única.' },
+  'mendozaGuide.gastronomy.chacras.title': { en: '🍽️ Chacras de Coria', es: '🍽️ Chacras de Coria', pt: '🍽️ Chacras de Coria' },
+  'mendozaGuide.gastronomy.chacras.description': { en: 'The most exclusive gastronomic district of Mendoza. Gourmet restaurants with vineyard views and world-class culinary offerings.', es: 'El distrito gastronómico más exclusivo de Mendoza. Restaurantes gourmet con vista a los viñedos y una propuesta culinaria de primer nivel mundial.', pt: 'O distrito gastronômico mais exclusivo de Mendoza. Restaurantes gourmet com vista para as vinhas e ofertas culinárias de classe mundial.' },
+  'mendozaGuide.gastronomy.chacras.note': { en: 'Advice: Book in advance, especially in high season.', es: 'Consejo: Reservá con anticipación, especialmente en temporada alta.', pt: 'Conselho: Reserve com antecedência, especialmente na alta temporada.' },
+  'mendozaGuide.gastronomy.lujan.title': { en: 'Local Experience in Luján', es: 'Experiencia Local en Luján', pt: 'Experiência Local em Luján' },
+  'mendozaGuide.gastronomy.lujan.description': { en: 'Living like a local in Luján de Cuyo will allow you to discover authentic restaurants and traditional markets. Must-see: The weekend fair and family grills in the center.', es: 'Vivir como un local en Luján de Cuyo te permitirá descubrir restaurantes auténticos y mercados tradicionales. Imperdible: La feria del fin de semana y las parrillas familiares del centro.', pt: 'Viver como um local em Luján de Cuyo permitirá descobrir restaurantes autênticos e mercados tradicionais. Imperdível: A feira de fim de semana e as churrasqueiras familiares do centro.' },
+  'mendozaGuide.gastronomy.lujan.note': { en: 'Discover more about Luján de Cuyo at: mendoza.tur.ar/lujan-de-cuyo', es: 'Descubrí más sobre Luján de Cuyo en: mendoza.tur.ar/lujan-de-cuyo', pt: 'Descubra mais sobre Luján de Cuyo em: mendoza.tur.ar/lujan-de-cuyo' },
+
+  // Adventure Section
+  'mendozaGuide.adventure.title': { en: '⛰️ Adventure and Nature', es: '⛰️ Aventura y Naturaleza', pt: '⛰️ Aventura e Natureza' },
+  'mendozaGuide.adventure.description': { en: 'Mendoza landscapes offer endless possibilities for adventure lovers. From relaxing hot springs to extreme mountain sports.', es: 'Los paisajes mendocinos ofrecen infinitas posibilidades para los amantes de la aventura. Desde relajantes termas hasta deportes extremos en la montaña.', pt: 'As paisagens mendocinas oferecem infinitas possibilidades para os amantes da aventura. Desde termas relaxantes até esportes radicais na montanha.' },
+  'mendozaGuide.adventure.potrerillos.title': { en: '🏔️ Potrerillos', es: '🏔️ Potrerillos', pt: '🏔️ Potrerillos' },
+  'mendozaGuide.adventure.potrerillos.description': { en: 'Just 50km from Luján, Potrerillos is perfect for a day of adventure. Enjoy the lake, water sports, trekking and the best views of the foothills. Recommended: Lunch with a view of the dam.', es: 'A solo 50km de Luján, Potrerillos es perfecto para un día de aventura. Disfrutá del lago, deportes acuáticos, trekking y las mejores vistas de la precordillera. Recomendado: Almorzar con vista al dique.', pt: 'A apenas 50km de Luján, Potrerillos é perfeito para um dia de aventura. Desfrute do lago, esportes aquáticos, trekking e as melhores vistas da pré-cordilheira. Recomendado: Almoçar com vista para a represa.' },
+  'mendozaGuide.adventure.potrerillos.note': { en: 'Ideal for: Kayaking, stand up paddle, fishing and hiking.', es: 'Ideal para: Kayak, stand up paddle, pesca y caminatas.', pt: 'Ideal para: Caiaque, stand up paddle, pesca e caminhadas.' },
+  'mendozaGuide.adventure.cacheuta.title': { en: '♨️ Cacheuta Hot Springs', es: '♨️ Termas de Cacheuta', pt: '♨️ Termas de Cacheuta' },
+  'mendozaGuide.adventure.cacheuta.description': { en: 'Cacheuta offers the perfect relaxation experience in natural hot springs. Combine relaxation in the hot springs with activities like zip-lining and rafting on the Mendoza River.', es: 'Cacheuta ofrece la experiencia perfecta de relajación en aguas termales naturales. Combiná el relax en las termas con actividades como tirolesa y rafting en el río Mendoza.', pt: 'Cacheuta oferece a experiência perfeita de relaxamento em águas termais naturais. Combine o relaxamento nas termas com atividades como tirolesa e rafting no rio Mendoza.' },
+  'mendozaGuide.adventure.tunnel.title': { en: '🚇 Potrerillos-Cacheuta Tunnel', es: '🚇 Túnel Potrerillos-Cacheuta', pt: '🚇 Túnel Potrerillos-Cacheuta' },
+  'mendozaGuide.adventure.tunnel.description': { en: 'The historic tunnel connecting Potrerillos with Cacheuta is a fascinating engineering work. This passage allows you to enjoy both destinations in the same day, combining water adventure with thermal relaxation.', es: 'El túnel histórico que conecta Potrerillos con Cacheuta es una obra de ingeniería fascinante. Este paso te permite disfrutar de ambos destinos en un mismo día, combinando aventura acuática con relajación termal.', pt: 'O túnel histórico que conecta Potrerillos com Cacheuta é uma obra de engenharia fascinante. Esta passagem permite desfrutar de ambos os destinos no mesmo dia, combinando aventura aquática com relaxamento termal.' },
+  'mendozaGuide.adventure.tunnel.note': { en: 'Scenic route: The tunnel offers unique views of the Mendoza foothills.', es: 'Ruta escénica: El túnel ofrece vistas únicas de la precordillera mendocina.', pt: 'Rota cênica: O túnel oferece vistas únicas da pré-cordilheira mendocina.' },
+
+  // More Places Section
+  'mendozaGuide.morePlaces.title': { en: '🗺️ More Must-Visit Places', es: '🗺️ Más Lugares Imperdibles', pt: '🗺️ Mais Lugares Imperdíveis' },
+  'mendozaGuide.morePlaces.description': { en: 'Discover other Mendoza treasures that will complement your experience in the region.', es: 'Descubrí otros tesoros mendocinos que complementarán tu experiencia en la región.', pt: 'Descubra outros tesouros mendocinos que complementarão sua experiência na região.' },
+
+  // More Places - Individual Places
+  'mendozaGuide.places.manzano.title': { en: '📜 El Manzano Histórico', es: '📜 El Manzano Histórico', pt: '📜 El Manzano Histórico' },
+  'mendozaGuide.places.manzano.description': { en: 'Historic place where San Martín planned the crossing of the Andes. An emblematic site with a colonial estate and museum that tells the story of American independence.', es: 'Lugar histórico donde San Martín planificó el cruce de los Andes. Un sitio emblemático con una estancia colonial y museo que cuenta la historia de la independencia americana.', pt: 'Local histórico onde San Martín planejou a travessia dos Andes. Um sítio emblemático com uma estância colonial e museu que conta a história da independência americana.' },
+  'mendozaGuide.places.teatro.title': { en: '🎭 Independence Theater', es: '🎭 Teatro Independencia', pt: '🎭 Teatro Independencia' },
+  'mendozaGuide.places.teatro.description': { en: 'Beautiful historic theater in downtown Mendoza. Check the schedule to enjoy plays, concerts and tango shows.', es: 'Hermoso teatro histórico en el centro de Mendoza. Consultá la cartelera para disfrutar de obras, conciertos y espectáculos de tango.', pt: 'Belo teatro histórico no centro de Mendoza. Consulte a programação para desfrutar de peças, concertos e espetáculos de tango.' },
+  'mendozaGuide.places.parque.title': { en: '🌳 San Martín Park', es: '🌳 Parque San Martín', pt: '🌳 Parque San Martín' },
+  'mendozaGuide.places.parque.description': { en: 'One of the most beautiful urban parks in Argentina. Ideal for walks, visiting the Cerro de la Gloria and enjoying the artificial lakes.', es: 'Uno de los parques urbanos más bellos de Argentina. Ideal para caminatas, visitar el Cerro de la Gloria y disfrutar de los lagos artificiales.', pt: 'Um dos parques urbanos mais belos da Argentina. Ideal para caminhadas, visitar o Cerro de la Gloria e desfrutar dos lagos artificiais.' },
+  
+  // Distance and location texts
+  'mendozaGuide.places.manzano.distance': { en: '📍 45 min from Luján', es: '📍 A 45 min de Luján', pt: '📍 A 45 min de Luján' },
+  'mendozaGuide.places.teatro.location': { en: '📍 In Mendoza City', es: '📍 En Ciudad de Mendoza', pt: '📍 Na Cidade de Mendoza' },
+  'mendozaGuide.places.parque.location': { en: '📍 In Mendoza City', es: '📍 En Ciudad de Mendoza', pt: '📍 Na Cidade de Mendoza' },
+  
+  // Link texts
+  'mendozaGuide.adventure.cacheuta.linkText': { en: 'More info at termascacheuta.com', es: 'Más info en termascacheuta.com', pt: 'Mais info em termascacheuta.com' },
+  'mendozaGuide.gastronomy.lujan.moreInfoText': { en: 'More info', es: 'Más info', pt: 'Mais info' },
+  'mendozaGuide.places.aconcagua.title': { en: '🏔️ Aconcagua', es: '🏔️ Aconcagua', pt: '🏔️ Aconcagua' },
+  'mendozaGuide.places.aconcagua.description': { en: 'The highest mountain in America. Although the complete trekking requires preparation, you can visit the Provincial Park and enjoy the views.', es: 'La montaña más alta de América. Aunque el trekking completo requiere preparación, podés visitar el Parque Provincial y disfrutar de las vistas.', pt: 'A montanha mais alta da América. Embora o trekking completo exija preparação, você pode visitar o Parque Provincial e desfrutar das vistas.' },
+  'mendozaGuide.places.lasLenas.title': { en: '🎿 Las Leñas', es: '🎿 Las Leñas', pt: '🎿 Las Leñas' },
+  'mendozaGuide.places.lasLenas.description': { en: 'World-famous ski resort (winter season). In summer, perfect for high mountain trekking and spectacular views.', es: 'Centro de esquí de fama mundial (temporada invernal). En verano, perfecto para trekking de alta montaña y vistas espectaculares.', pt: 'Centro de esqui de fama mundial (temporada de inverno). No verão, perfeito para trekking de alta montanha e vistas espetaculares.' },
+  'mendozaGuide.places.villavicencio.title': { en: '🌿 Villavicencio Nature Reserve', es: '🌿 Reserva Natural Villavicencio', pt: '🌿 Reserva Natural Villavicencio' },
+  'mendozaGuide.places.villavicencio.description': { en: 'Protected nature reserve with unique landscapes and famous mineral water. The access road offers spectacular views of the foothills.', es: 'Reserva natural protegida con paisajes únicos y la famosa agua mineral. El camino de acceso ofrece vistas espectaculares de la precordillera.', pt: 'Reserva natural protegida com paisagens únicas e a famosa água mineral. A estrada de acesso oferece vistas espetaculares da pré-cordilheira.' },
+  'mendozaGuide.places.cristo.title': { en: '✝️ Las Cuevas and Christ the Redeemer', es: '✝️ Las Cuevas y Cristo Redentor', pt: '✝️ Las Cuevas e Cristo Redentor' },
+  'mendozaGuide.places.cristo.description': { en: 'Las Cuevas, the last town before crossing to Chile, invites you to experience the height of the Andes. Surrounded by imposing landscapes, from here you access the majestic Christ the Redeemer, at more than 3,800 m, a symbol of union and peace between Argentina and Chile.', es: 'Las Cuevas, el último pueblo antes de cruzar a Chile, te invita a vivir la altura de los Andes. Rodeado de imponentes paisajes, desde aquí se accede al majestuoso Cristo Redentor, a más de 3.800 m, símbolo de unión y paz entre Argentina y Chile.', pt: 'Las Cuevas, a última cidade antes de cruzar para o Chile, convida você a viver a altitude dos Andes. Cercado por paisagens imponentes, daqui se acessa o majestoso Cristo Redentor, a mais de 3.800 m, símbolo de união e paz entre Argentina e Chile.' },
+  'mendozaGuide.places.puente.title': { en: '🌉 Puente del Inca', es: '🌉 Puente del Inca', pt: '🌉 Puente del Inca' },
+  'mendozaGuide.places.puente.description': { en: 'Natural wonder that dazzles with its vibrant mineral tones and ancestral history. Part of the Qhapaq Ñan, World Heritage Site, it invites you to discover its unique formations, the ruins of ancient thermal baths and a chapel that keeps the spirit of the mountain range.', es: 'Maravilla natural que deslumbra con sus vibrantes tonos minerales y su historia ancestral. Parte del Qhapaq Ñan, Patrimonio de la Humanidad, invita a descubrir sus formaciones únicas, las ruinas de antiguos baños termales y una capilla que guarda el espíritu de la cordillera.', pt: 'Maravilha natural que deslumbra com seus tons minerais vibrantes e sua história ancestral. Parte do Qhapaq Ñan, Patrimônio da Humanidade, convida a descobrir suas formações únicas, as ruínas de antigos banhos termais e uma capela que guarda o espírito da cordilheira.' },
+  'mendozaGuide.places.minas.title': { en: '⛏️ Jesuit Mines of Paramillos', es: '⛏️ Minas Jesuitas de Paramillos', pt: '⛏️ Minas Jesuítas de Paramillos' },
+  'mendozaGuide.places.minas.description': { en: 'Between mountains and legends, the Ruins of the Jesuit Mines of Paramillos reveal the oldest history of Argentine mining. At 2,800 masl, this mysterious site combines heritage, faith and mystery, where the echoes of those who searched for gold among the Andes still seem to resonate.', es: 'Entre montañas y leyendas, las Ruinas de las Minas Jesuitas de Paramillos revelan la historia más antigua de la minería argentina. A 2.800 msnm, este misterioso sitio combina patrimonio, fe y misterio, donde aún parecen resonar los ecos de quienes buscaron oro entre los Andes.', pt: 'Entre montanhas e lendas, as Ruínas das Minas Jesuítas de Paramillos revelam a história mais antiga da mineração argentina. A 2.800 m de altitude, este sítio misterioso combina patrimônio, fé e mistério, onde ainda parecem ressoar os ecos daqueles que procuravam ouro entre os Andes.' },
+
+  // Interactive Map Section
+  'mendozaGuide.map.title': { en: '🗺️ Interactive Map', es: '🗺️ Mapa Interactivo', pt: '🗺️ Mapa Interativo' },
+  'mendozaGuide.map.advice': { en: 'Click on the locations to discover more', es: 'Hace clic en las ubicaciones para descubrir más', pt: 'Clique nos locais para descobrir mais' },
+  
+  // More Info Button
+  'mendozaGuide.moreInfo.button': { en: 'More Tourist Information', es: 'Más Información Turística', pt: 'Mais Informação Turística' },
+  
+  // Places Card General Texts
+  'mendozaGuide.places.more.info': { en: 'More info', es: 'Más info', pt: 'Mais info' },
+  'mendozaGuide.places.distance.from.lujan': { en: 'from Luján', es: 'de Luján', pt: 'de Luján' },
+  'mendozaGuide.places.in.mendoza.city': { en: 'In Mendoza City', es: 'En Ciudad de Mendoza', pt: 'Na Cidade de Mendoza' },
+  
+  // Distance variations for different places  
+  'mendozaGuide.places.aconcagua.distance': { en: '📍 2.5 hours from Luján', es: '📍 A 2.5 horas de Luján', pt: '📍 A 2.5 horas de Luján' },
+  'mendozaGuide.places.lasLenas.distance': { en: '📍 4 hours from Luján', es: '📍 A 4 horas de Luján', pt: '📍 A 4 horas de Luján' },
+  'mendozaGuide.places.villavicencio.distance': { en: '📍 1.5 hours from Luján', es: '📍 A 1.5 horas de Luján', pt: '📍 A 1.5 horas de Luján' },
+  'mendozaGuide.places.cristo.distance': { en: '📍 2.40 hours from Luján', es: '📍 A 2.40 horas de Luján', pt: '📍 A 2.40 horas de Luján' },
+  'mendozaGuide.places.puente.distance': { en: '📍 2.15 hours from Luján', es: '📍 A 2.15 horas de Luján', pt: '📍 A 2.15 horas de Luján' },
+  'mendozaGuide.places.minas.distance': { en: '📍 1.5 hours from Luján', es: '📍 A 1.5 horas de Luján', pt: '📍 A 1.5 horas de Luján' },
+
+  // Contact Section
+  'mendozaGuide.contact.title': { en: 'Ready for your Mendoza adventure?', es: '¿Listo para tu aventura mendocina?', pt: 'Pronto para sua aventura mendocina?' },
+  'mendozaGuide.contact.description': { en: 'Contact us for more personalized information', es: 'Contáctanos para más información personalizada', pt: 'Entre em contato conosco para informações mais personalizadas' },
+  'mendozaGuide.contact.whatsapp': { en: 'WhatsApp', es: 'WhatsApp', pt: 'WhatsApp' },
+  'mendozaGuide.contact.email': { en: 'Contact', es: 'Contacto', pt: 'Contato' },
 
 };
 

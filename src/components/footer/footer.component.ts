@@ -126,6 +126,9 @@ export class FooterComponent implements OnInit {
   t = {
     subtitle: this.translationService.translate('footer.subtitle'),
     contactTitle: this.translationService.translate('footer.contactTitle'),
+    navigationTitle: this.translationService.translate('footer.navigationTitle'),
+    contactLink: this.translationService.translate('footer.contactLink'),
+    mendozaGuideLink: this.translationService.translate('footer.mendozaGuideLink'),
     followTitle: this.translationService.translate('footer.followTitle'),
     locationTitle: this.translationService.translate('footer.locationTitle'),
     copyright: this.translationService.translate('footer.copyright'),
