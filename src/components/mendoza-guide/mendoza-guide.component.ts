@@ -361,15 +361,12 @@ export class MendozaGuideComponent {
   }
 
 
-
-
-
   // Helper methods to get correct images from backgroundImages object
   getAdventureImage(title: string): string {
-    const normalizedTitle = title.toLowerCase();
-    if (normalizedTitle.includes('potrerillos')) return this.backgroundImages.potrerillos;
-    if (normalizedTitle.includes('cacheuta')) return this.backgroundImages.cacheuta;
-    if (normalizedTitle.includes('túnel') || normalizedTitle.includes('tunnel')) return this.backgroundImages.tunnel;
+    // Verificar túnel PRIMERO para evitar que Potrerillos en el título interfiera
+    if (title.includes('Túnel')) return this.backgroundImages.tunnel;
+    if (title.includes('Potrerillos')) return this.backgroundImages.potrerillos;
+    if (title.includes('Cacheuta')) return this.backgroundImages.cacheuta;
     return 'src/assets/paisajes/default.jpg';
   }
 
