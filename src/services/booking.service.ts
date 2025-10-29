@@ -293,39 +293,70 @@ export class BookingService {
       }));
       
       const dataToSave = {
-        version: '1.0', // Versión para manejar migraciones futuras
+        version: '2.0', // Versión actualizada para nuevos precios por defecto
         timestamp: new Date().toISOString(),
+        checksum: this.generateChecksum(pricing), // Checksum para detectar corrupción
         data: pricing
       };
       
       localStorage.setItem('artin-house-pricing', JSON.stringify(dataToSave));
+      localStorage.setItem('artin-house-pricing-backup', JSON.stringify(dataToSave)); // Backup
       
       // Verificar que se guardó correctamente
       const verification = localStorage.getItem('artin-house-pricing');
       if (!verification) {
-        console.error('Error: No se pudo guardar en localStorage');
+        throw new Error('No se pudo guardar en localStorage');
       }
+      
+      // Verificar integridad
+      const parsed = JSON.parse(verification);
+      if (parsed.checksum !== this.generateChecksum(pricing)) {
+        throw new Error('Error de integridad al guardar datos');
+      }
+      
+      console.log('✅ Precios guardados correctamente con integridad verificada');
+      
     } catch (error) {
-      console.error('Error saving pricing to localStorage:', error);
-      alert('Error al guardar los precios. Revisa que tu navegador permita localStorage.');
+      console.error('❌ Error saving pricing to localStorage:', error);
+      alert('⚠️ Error crítico al guardar los precios. Los cambios pueden perderse al recargar la página.');
+      
+      // Intentar guardar en sessionStorage como fallback
+      try {
+        sessionStorage.setItem('artin-house-pricing-emergency', JSON.stringify(this.apartmentPricing()));
+        console.log('💾 Datos guardados en sessionStorage como respaldo de emergencia');
+      } catch (sessionError) {
+        console.error('❌ También falló sessionStorage:', sessionError);
+      }
     }
   }
 
   private loadPricingFromStorage(): void {
     const stored = localStorage.getItem('artin-house-pricing');
+    const backup = localStorage.getItem('artin-house-pricing-backup');
+    
     if (stored) {
       try {
         const storedData = JSON.parse(stored);
+        
+        // Verificar integridad si hay checksum
+        if (storedData.checksum && storedData.data) {
+          const currentChecksum = this.generateChecksum(storedData.data);
+          if (currentChecksum !== storedData.checksum) {
+            console.warn('⚠️ Detectada corrupción en datos principales, intentando backup...');
+            throw new Error('Checksum mismatch - datos corruptos');
+          }
+        }
         
         // Manejar formato antiguo y nuevo
         let pricingData;
         if (Array.isArray(storedData)) {
           // Formato antiguo - array directo
           pricingData = storedData;
+          console.log('📦 Cargando formato antiguo, migrando...');
         } else if (storedData.data) {
           // Formato nuevo - con metadata
           pricingData = storedData.data;
-          console.log('Precios cargados desde:', storedData.timestamp);
+          console.log(`✅ Precios v${storedData.version} cargados desde:`, storedData.timestamp);
         } else {
           throw new Error('Formato de datos no reconocido');
         }
@@ -339,19 +370,83 @@ export class BookingService {
           }))
         }));
         
+        // Validar que los precios tienen sentido
+        this.validatePricingData(pricing);
+        
         this.apartmentPricing.set(pricing);
-        console.log('✅ Precios cargados correctamente desde localStorage');
+        console.log('✅ Precios validados y cargados correctamente');
+        
+        // Si era formato antiguo, guardar en nuevo formato
+        if (Array.isArray(storedData)) {
+          console.log('🔄 Migrando a nuevo formato...');
+          this.savePricingToStorage();
+        }
         
       } catch (error) {
-        console.error('❌ Error loading pricing from storage:', error);
+        console.error('❌ Error loading pricing from main storage:', error);
+        
+        // Intentar cargar desde backup
+        if (backup && backup !== stored) {
+          console.log('🔄 Intentando cargar desde backup...');
+          try {
+            const backupData = JSON.parse(backup);
+            if (backupData.data) {
+              const pricing = backupData.data.map((p: any) => ({
+                ...p,
+                seasonalRates: p.seasonalRates?.map((rate: any) => ({
+                  ...rate,
+                  startDate: new Date(rate.startDate),
+                  endDate: new Date(rate.endDate)
+                }))
+              }));
+              
+              this.validatePricingData(pricing);
+              this.apartmentPricing.set(pricing);
+              console.log('✅ Datos restaurados desde backup exitosamente');
+              
+              // Restaurar datos principales desde backup
+              this.savePricingToStorage();
+              return;
+            }
+          } catch (backupError) {
+            console.error('❌ También falló el backup:', backupError);
+          }
+        }
+        
         console.log('🔄 Inicializando precios por defecto...');
-        // Si hay error, usar precios por defecto
         this.initializeDefaultPricing();
       }
     } else {
       console.log('📝 No hay precios guardados, usando valores por defecto');
-      // Si no hay datos guardados, usar precios por defecto
       this.initializeDefaultPricing();
+    }
+  }
+  
+  private generateChecksum(data: any): string {
+    // Simple checksum basado en JSON.stringify
+    const str = JSON.stringify(data);
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32-bit integer
+    }
+    return hash.toString();
+  }
+  
+  private validatePricingData(pricing: any[]): void {
+    for (const p of pricing) {
+      if (!p.apartment || typeof p.basePrice !== 'number' || p.basePrice < 0) {
+        throw new Error(`Datos inválidos para apartamento: ${p.apartment}`);
+      }
+      
+      if (p.seasonalRates) {
+        for (const rate of p.seasonalRates) {
+          if (!rate.startDate || !rate.endDate || isNaN(Date.parse(rate.startDate))) {
+            throw new Error(`Fecha inválida en temporada: ${JSON.stringify(rate)}`);
+          }
+        }
+      }
     }
   }
 
@@ -359,28 +454,28 @@ export class BookingService {
     const defaultPricing: ApartmentPricing[] = [
       {
         apartment: 'Artin House I',
-        basePrice: 75000, // Para 1-2 personas
-        pricePerGuest: 0, // A partir de la 3ra persona
+        basePrice: 75000, // Precio fijo para cualquier cantidad de huéspedes (1-5)
+        pricePerGuest: 0, // Sin costo adicional por huésped adicional
         maxGuests: 5,
         seasonalRates: [
           {
             startDate: new Date('2025-12-01'),
             endDate: new Date('2026-03-31'),
-            multiplier: 1.3,
+            multiplier: 1.2667, // 95000/75000 = 1.2667 (para llegar a $95,000)
             name: 'Temporada Alta Verano 2025-2026'
           }
         ]
       },
       {
         apartment: 'Artin House II',
-        basePrice: 45000,
-        pricePerGuest: 5000,
+        basePrice: 45000, // Para 1-2 huéspedes (máximo permitido)
+        pricePerGuest: 0, // Sin costo adicional (máx 2 personas)
         maxGuests: 2,
         seasonalRates: [
           {
             startDate: new Date('2025-12-01'),
             endDate: new Date('2026-03-31'),
-            multiplier: 1.2,
+            multiplier: 1.3333, // 60000/45000 = 1.3333 (para llegar a $60,000)
             name: 'Temporada Alta Verano 2025-2026'
           }
         ]

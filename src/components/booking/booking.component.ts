@@ -102,7 +102,7 @@ export class BookingComponent {
       if (apartment) {
         this.selectedApartment.set(apartment);
         // Reset guests when apartment changes
-        this.guests.set(apartment === 'Artin House I' ? 2 : 2);
+        this.guests.set(apartment === 'Artin House I' ? 2 : 1);
       }
     });
   }
@@ -247,17 +247,37 @@ export class BookingComponent {
       
       // Usar el precio calculado correctamente
       const totalPrice = this.hasDiscount() ? this.discountedPrice() : this.totalPrice();
-      const pricePerNight = this.pricePerNight();
+      const breakdown = this.priceBreakdown();
       
       // Preparar email de contacto con precios correctos
       const subject = encodeURIComponent(`Solicitud de reserva - ${apartment}`);
       
-      let priceDetails = `💰 Precio por noche: $${pricePerNight.toLocaleString('es-AR')} ARS
+      let priceDetails = '';
+      
+      // Si hay desglose por temporadas, mostrarlo detalladamente
+      if (breakdown && breakdown.seasons && breakdown.seasons.length > 1) {
+        priceDetails += `📋 Desglose por Temporadas:
+
+`;
+        breakdown.seasons.forEach(season => {
+          priceDetails += `📅 ${season.name} (${season.nights} noche${season.nights > 1 ? 's' : ''}): $${season.pricePerNight.toLocaleString('es-AR')} ARS/noche
+   Subtotal: $${season.totalPrice.toLocaleString('es-AR')} ARS
+
+`;
+        });
+        
+        priceDetails += `💰 Subtotal Total (${nights} noches): $${this.totalPrice().toLocaleString('es-AR')} ARS`;
+      } else {
+        // Si es una sola temporada, usar el formato simple
+        const pricePerNight = this.pricePerNight();
+        priceDetails = `💰 Precio por noche: $${pricePerNight.toLocaleString('es-AR')} ARS
 💰 Subtotal (${nights} noches): $${this.totalPrice().toLocaleString('es-AR')} ARS`;
+      }
 
       // Agregar información de descuento si aplica
       if (this.hasDiscount()) {
         priceDetails += `
+
 🎉 Descuento 10% (más de 7 noches): -$${this.savings().toLocaleString('es-AR')} ARS
 💰 Total Final: $${this.discountedPrice().toLocaleString('es-AR')} ARS`;
       }

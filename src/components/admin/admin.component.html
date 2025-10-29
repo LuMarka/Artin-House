@@ -47,24 +47,24 @@
           @if (useCustomPricing) {
             <div class="custom-pricing-grid">
               <div class="form-group">
-                <label for="price-1">1 persona:</label>
-                <input type="number" id="price-1" [(ngModel)]="customPrices[1]" class="form-control">
+                <label for="price-1">1 persona</label>
+                <input type="number" id="price-1" [(ngModel)]="customPrices[1]" class="form-control" placeholder="75000">
               </div>
               <div class="form-group">
-                <label for="price-2">2 personas:</label>
-                <input type="number" id="price-2" [(ngModel)]="customPrices[2]" class="form-control">
+                <label for="price-2">2 personas</label>
+                <input type="number" id="price-2" [(ngModel)]="customPrices[2]" class="form-control" placeholder="75000">
               </div>
               <div class="form-group">
-                <label for="price-3">3 personas:</label>
-                <input type="number" id="price-3" [(ngModel)]="customPrices[3]" class="form-control">
+                <label for="price-3">3 personas</label>
+                <input type="number" id="price-3" [(ngModel)]="customPrices[3]" class="form-control" placeholder="75000">
               </div>
               <div class="form-group">
-                <label for="price-4">4 personas:</label>
-                <input type="number" id="price-4" [(ngModel)]="customPrices[4]" class="form-control">
+                <label for="price-4">4 personas</label>
+                <input type="number" id="price-4" [(ngModel)]="customPrices[4]" class="form-control" placeholder="75000">
               </div>
               <div class="form-group">
-                <label for="price-5">5 personas:</label>
-                <input type="number" id="price-5" [(ngModel)]="customPrices[5]" class="form-control">
+                <label for="price-5">5 personas</label>
+                <input type="number" id="price-5" [(ngModel)]="customPrices[5]" class="form-control" placeholder="75000">
               </div>
             </div>
           }
@@ -232,10 +232,16 @@
                       {{ rate.multiplier }}x ({{ rate.multiplier > 1 ? '+' : '' }}{{ ((rate.multiplier - 1) * 100) | number:'1.0-1' }}%)
                     </span>
                   </div>
-                  <button (click)="removeSeasonalRate(pricing.apartment, rate.startDate)" 
-                          class="btn btn-danger btn-small">
-                    Eliminar
-                  </button>
+                  <div class="season-actions">
+                    <button (click)="editSeasonalRate(pricing.apartment, rate.startDate)" 
+                            class="btn btn-info btn-small">
+                      📝 Editar
+                    </button>
+                    <button (click)="removeSeasonalRate(pricing.apartment, rate.startDate)" 
+                            class="btn btn-danger btn-small">
+                      🗑️ Eliminar
+                    </button>
+                  </div>
                 </div>
               }
             </div>
@@ -292,7 +298,7 @@
 
   <!-- Estadísticas -->
   <section class="admin-section">
-    <h3 class="admin-section__title">Estadísticas</h3>
+    <h3 class="admin-section__title">📊 Estadísticas</h3>
     <div class="stats-grid">
       <div class="stat-card">
         <h4>Total Reservas</h4>
@@ -309,6 +315,122 @@
       <div class="stat-card">
         <h4>Artin House II</h4>
         <span class="stat-number">{{ getBookingsForApartment('Artin House II').length }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔧 NUEVA SECCIÓN: Diagnóstico y Mantenimiento -->
+  <section class="admin-section maintenance-section">
+    <h3 class="admin-section__title">🔧 Diagnóstico y Mantenimiento</h3>
+    
+    <div class="maintenance-grid">
+      <!-- Backup y Restauración -->
+      <div class="maintenance-card">
+        <h4>💾 Backup de Datos</h4>
+        <p>Exporta todas las reservas y configuraciones como archivo de respaldo.</p>
+        <div class="button-group">
+          <button (click)="exportDataBackup()" class="btn btn-info">
+            📤 Exportar como Archivo
+          </button>
+          <button (click)="copyDataAsText()" class="btn btn-secondary">
+            📋 Copiar como Texto
+          </button>
+        </div>
+      </div>
+
+      <div class="maintenance-card">
+        <h4>📥 Restaurar Backup</h4>
+        <p>Importa datos desde archivo o Google Sheets.</p>
+        <div class="button-group">
+          <div class="file-input-wrapper">
+            <input type="file" 
+                   id="backup-file" 
+                   accept=".json" 
+                   (change)="importDataBackup($event)"
+                   class="file-input">
+            <label for="backup-file" class="btn btn-warning">
+              � Desde Archivo
+            </label>
+          </div>
+          <button (click)="pasteDataFromText()" class="btn btn-secondary">
+            📋 Desde Texto
+          </button>
+        </div>
+      </div>
+
+      <!-- Diagnóstico de Integridad -->
+      <div class="maintenance-card">
+        <h4>🔍 Verificar Integridad</h4>
+        <p>Revisa la consistencia y validez de todos los datos almacenados.</p>
+        <button (click)="checkDataIntegrity()" class="btn btn-success">
+          🔍 Ejecutar Diagnóstico
+        </button>
+      </div>
+
+      <!-- Google Sheets como Base de Datos -->
+      <div class="maintenance-card google-sheets">
+        <h4>🌐 Google Sheets como "Base de Datos"</h4>
+        <p>Usa Google Sheets para acceder desde cualquier PC sin backend.</p>
+        <button (click)="openGoogleSheetsGuide()" class="btn btn-success">
+          🚀 Configurar Google Sheets
+        </button>
+      </div>
+
+      <!-- Información del Sistema -->
+      <div class="maintenance-card system-info">
+        <h4>ℹ️ Información del Sistema</h4>
+        <div class="system-details">
+          <p><strong>Versión de Datos:</strong> 2.0</p>
+          <p><strong>Apartamentos Configurados:</strong> {{ apartmentPricing().length }}</p>
+          <p><strong>Total Reservas:</strong> {{ bookings().length }}</p>
+          <p><strong>Última Actualización:</strong> {{ currentDateTime }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⚠️ Sección de Advertencias -->
+    <div class="maintenance-warnings">
+      <h4>⚠️ Recordatorios Importantes</h4>
+      <div class="warning-list">
+        <div class="warning-item">
+          <span class="warning-icon">🔒</span>
+          <div class="warning-text">
+            <strong>Persistencia de Datos:</strong> Esta aplicación usa localStorage del navegador. 
+            Los datos se pueden perder si se limpia el caché del navegador.
+          </div>
+        </div>
+        
+        <div class="warning-item">
+          <span class="warning-icon">💾</span>
+          <div class="warning-text">
+            <strong>Backups Regulares:</strong> Se recomienda exportar un backup semanalmente 
+            y guardarlo en lugar seguro (Google Drive, Dropbox, etc.).
+          </div>
+        </div>
+        
+        <div class="warning-item">
+          <span class="warning-icon">🌐</span>
+          <div class="warning-text">
+            <strong>Solución para Múltiples PCs:</strong> Usa Google Sheets como "base de datos" 
+            gratuita. Permite acceso desde cualquier dispositivo sin programar backend.
+          </div>
+        </div>
+        
+        <div class="warning-item">
+          <span class="warning-icon">🔄</span>
+          <div class="warning-text">
+            <strong>Antes de Limpiar Caché:</strong> SIEMPRE exporta un backup antes de limpiar 
+            datos del navegador o cambiar de PC. ¡Los datos se pueden perder!
+          </div>
+        </div>
+        
+        <div class="warning-item">
+          <span class="warning-icon">📅</span>
+          <div class="warning-text">
+            <strong>Fechas de Temporada:</strong> Verifica siempre que las fechas se guarden correctamente. 
+            Usa mediodía para evitar problemas de zona horaria.
+          </div>
+        </div>
       </div>
     </div>
   </section>
