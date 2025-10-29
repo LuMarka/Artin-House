@@ -447,13 +447,51 @@ const translations: Translations = {
   'mendozaGuide.places.distance.from.lujan': { en: 'from Luján', es: 'de Luján', pt: 'de Luján' },
   'mendozaGuide.places.in.mendoza.city': { en: 'In Mendoza City', es: 'En Ciudad de Mendoza', pt: 'Na Cidade de Mendoza' },
   
-  // Distance variations for different places  
-  'mendozaGuide.places.aconcagua.distance': { en: '📍 2.5 hours from Luján', es: '📍 A 2.5 horas de Luján', pt: '📍 A 2.5 horas de Luján' },
-  'mendozaGuide.places.lasLenas.distance': { en: '📍 4 hours from Luján', es: '📍 A 4 horas de Luján', pt: '📍 A 4 horas de Luján' },
-  'mendozaGuide.places.villavicencio.distance': { en: '📍 1.5 hours from Luján', es: '📍 A 1.5 horas de Luján', pt: '📍 A 1.5 horas de Luján' },
-  'mendozaGuide.places.cristo.distance': { en: '📍 2.40 hours from Luján', es: '📍 A 2.40 horas de Luján', pt: '📍 A 2.40 horas de Luján' },
-  'mendozaGuide.places.puente.distance': { en: '📍 2.15 hours from Luján', es: '📍 A 2.15 horas de Luján', pt: '📍 A 2.15 horas de Luján' },
-  'mendozaGuide.places.minas.distance': { en: '📍 1.5 hours from Luján', es: '📍 A 1.5 horas de Luján', pt: '📍 A 1.5 horas de Luján' },
+  // More Places - Individual Places Translations
+  // El Manzano Histórico
+  'mendozaGuide.morePlaces.manzano.title': { en: '📜 El Manzano Histórico', es: '📜 El Manzano Histórico', pt: '📜 El Manzano Histórico' },
+  'mendozaGuide.morePlaces.manzano.description': { en: 'Historic place where San Martín planned the crossing of the Andes. An emblematic site with a colonial estate and museum that tells the story of American independence.', es: 'Lugar histórico donde San Martín planificó el cruce de los Andes. Un sitio emblemático con una estancia colonial y museo que cuenta la historia de la independencia americana.', pt: 'Local histórico onde San Martín planejou a travessia dos Andes. Um sítio emblemático com uma estância colonial e museu que conta a história da independência americana.' },
+  'mendozaGuide.morePlaces.manzano.distance': { en: '📍 45 min from Luján', es: '📍 A 45 min de Luján', pt: '📍 A 45 min de Luján' },
+
+  // Teatro Independencia
+  'mendozaGuide.morePlaces.teatro.title': { en: '🎭 Independence Theater', es: '🎭 Teatro Independencia', pt: '🎭 Teatro Independência' },
+  'mendozaGuide.morePlaces.teatro.description': { en: 'Beautiful historic theater in downtown Mendoza. Check the schedule to enjoy plays, concerts and tango shows.', es: 'Hermoso teatro histórico en el centro de Mendoza. Consultá la cartelera para disfrutar de obras, conciertos y espectáculos de tango.', pt: 'Belo teatro histórico no centro de Mendoza. Consulte a programação para desfrutar de peças, concertos e espetáculos de tango.' },
+  'mendozaGuide.morePlaces.teatro.distance': { en: '📍 In Mendoza City', es: '📍 En Ciudad de Mendoza', pt: '📍 Na Cidade de Mendoza' },
+
+  // Parque San Martín
+  'mendozaGuide.morePlaces.parque.title': { en: '🌳 San Martín Park', es: '🌳 Parque San Martín', pt: '🌳 Parque San Martín' },
+  'mendozaGuide.morePlaces.parque.description': { en: 'One of the most beautiful urban parks in Argentina. Ideal for walks, visiting the Cerro de la Gloria and enjoying the artificial lakes.', es: 'Uno de los parques urbanos más bellos de Argentina. Ideal para caminatas, visitar el Cerro de la Gloria y disfrutar de los lagos artificiales.', pt: 'Um dos parques urbanos mais belos da Argentina. Ideal para caminhadas, visitar o Cerro de la Gloria e desfrutar dos lagos artificiais.' },
+  'mendozaGuide.morePlaces.parque.distance': { en: '📍 In Mendoza City', es: '📍 En Ciudad de Mendoza', pt: '📍 Na Cidade de Mendoza' },
+
+  // Aconcagua
+  'mendozaGuide.morePlaces.aconcagua.title': { en: '🏔️ Aconcagua', es: '🏔️ Aconcagua', pt: '🏔️ Aconcagua' },
+  'mendozaGuide.morePlaces.aconcagua.description': { en: 'The highest mountain in America. Although the complete trekking requires preparation, you can visit the Provincial Park and enjoy the views.', es: 'La montaña más alta de América. Aunque el trekking completo requiere preparación, podés visitar el Parque Provincial y disfrutar de las vistas.', pt: 'A montanha mais alta da América. Embora o trekking completo exija preparação, você pode visitar o Parque Provincial e desfrutar das vistas.' },
+  'mendozaGuide.morePlaces.aconcagua.distance': { en: '📍 2.5 hours from Luján', es: '📍 A 2.5 horas de Luján', pt: '📍 A 2.5 horas de Luján' },
+
+  // Las Leñas
+  'mendozaGuide.morePlaces.lasLenas.title': { en: '🎿 Las Leñas', es: '🎿 Las Leñas', pt: '🎿 Las Leñas' },
+  'mendozaGuide.morePlaces.lasLenas.description': { en: 'World-famous ski resort (winter season). In summer, perfect for high mountain trekking and spectacular views.', es: 'Centro de esquí de fama mundial (temporada invernal). En verano, perfecto para trekking de alta montaña y vistas espectaculares.', pt: 'Centro de esqui de fama mundial (temporada de inverno). No verão, perfeito para trekking de alta montanha e vistas espetaculares.' },
+  'mendozaGuide.morePlaces.lasLenas.distance': { en: '📍 4 hours from Luján', es: '📍 A 4 horas de Luján', pt: '📍 A 4 horas de Luján' },
+
+  // Reserva Natural Villavicencio
+  'mendozaGuide.morePlaces.villavicencio.title': { en: '🌿 Villavicencio Nature Reserve', es: '🌿 Reserva Natural Villavicencio', pt: '🌿 Reserva Natural Villavicencio' },
+  'mendozaGuide.morePlaces.villavicencio.description': { en: 'Protected nature reserve with unique landscapes and famous mineral water. The access road offers spectacular views of the foothills.', es: 'Reserva natural protegida con paisajes únicos y la famosa agua mineral. El camino de acceso ofrece vistas espectaculares de la precordillera.', pt: 'Reserva natural protegida com paisagens únicas e a famosa água mineral. A estrada de acesso oferece vistas espetaculares da pré-cordilheira.' },
+  'mendozaGuide.morePlaces.villavicencio.distance': { en: '📍 1.5 hours from Luján', es: '📍 A 1.5 horas de Luján', pt: '📍 A 1.5 horas de Luján' },
+
+  // Las Cuevas y Cristo Redentor
+  'mendozaGuide.morePlaces.cristoRedentor.title': { en: '✝️ Las Cuevas and Christ the Redeemer', es: '✝️ Las Cuevas y Cristo Redentor', pt: '✝️ Las Cuevas e Cristo Redentor' },
+  'mendozaGuide.morePlaces.cristoRedentor.description': { en: 'Las Cuevas, the last town before crossing to Chile, invites you to experience the height of the Andes. Surrounded by imposing landscapes, from here you access the majestic Christ the Redeemer, at more than 3,800 m, a symbol of union and peace between Argentina and Chile.', es: 'Las Cuevas, el último pueblo antes de cruzar a Chile, te invita a vivir la altura de los Andes. Rodeado de imponentes paisajes, desde aquí se accede al majestuoso Cristo Redentor, a más de 3.800 m, símbolo de unión y paz entre Argentina y Chile. Un destino ideal para sentir la cordillera en su máxima expresión.', pt: 'Las Cuevas, a última cidade antes de cruzar para o Chile, convida você a viver a altitude dos Andes. Cercado por paisagens imponentes, daqui se acessa o majestoso Cristo Redentor, a mais de 3.800 m, símbolo de união e paz entre Argentina e Chile.' },
+  'mendozaGuide.morePlaces.cristoRedentor.distance': { en: '📍 2.40 hours from Luján', es: '📍 A 2.40 horas de Luján', pt: '📍 A 2.40 horas de Luján' },
+
+  // Puente del Inca
+  'mendozaGuide.morePlaces.puenteDelInca.title': { en: '🌉 Puente del Inca', es: '🌉 Puente del Inca', pt: '🌉 Puente del Inca' },
+  'mendozaGuide.morePlaces.puenteDelInca.description': { en: 'Natural wonder that dazzles with its vibrant mineral tones and ancestral history. Part of the Qhapaq Ñan, World Heritage Site, it invites you to discover its unique formations, the ruins of ancient thermal baths and a chapel that keeps the spirit of the mountain range.', es: 'Maravilla natural que deslumbra con sus vibrantes tonos minerales y su historia ancestral. Parte del Qhapaq Ñan, Patrimonio de la Humanidad, invita a descubrir sus formaciones únicas, las ruinas de antiguos baños termales y una capilla que guarda el espíritu de la cordillera.', pt: 'Maravilha natural que deslumbra com seus tons minerais vibrantes e sua história ancestral. Parte do Qhapaq Ñan, Patrimônio da Humanidade, convida a descobrir suas formações únicas, as ruínas de antigos banhos termais e uma capela que guarda o espírito da cordilheira.' },
+  'mendozaGuide.morePlaces.puenteDelInca.distance': { en: '📍 2.15 hours from Luján', es: '📍 A 2.15 horas de Luján', pt: '📍 A 2.15 horas de Luján' },
+
+  // Minas Jesuitas de Paramillos
+  'mendozaGuide.morePlaces.minasParamillos.title': { en: '⛏️ Jesuit Mines of Paramillos', es: '⛏️ Minas Jesuitas de Paramillos', pt: '⛏️ Minas Jesuítas de Paramillos' },
+  'mendozaGuide.morePlaces.minasParamillos.description': { en: 'Between mountains and legends, the Ruins of the Jesuit Mines of Paramillos reveal the oldest history of Argentine mining. At 2,800 masl, this mysterious site combines heritage, faith and mystery, where the echoes of those who searched for gold among the Andes still seem to resonate.', es: 'Entre montañas y leyendas, las Ruinas de las Minas Jesuitas de Paramillos revelan la historia más antigua de la minería argentina. A 2.800 msnm, este misterioso sitio combina patrimonio, fe y misterio, donde aún parecen resonar los ecos de quienes buscaron oro entre los Andes.', pt: 'Entre montanhas e lendas, as Ruínas das Minas Jesuítas de Paramillos revelam a história mais antiga da mineração argentina. A 2.800 m de altitude, este sítio misterioso combina patrimônio, fé e mistério, onde ainda parecem ressoar os ecos daqueles que procuravam ouro entre os Andes.' },
+  'mendozaGuide.morePlaces.minasParamillos.distance': { en: '📍 1.5 hours from Luján', es: '📍 A 1.5 horas de Luján', pt: '📍 A 1.5 horas de Luján' },
 
   // Contact Section
   'mendozaGuide.contact.title': { en: 'Ready for your Mendoza adventure?', es: '¿Listo para tu aventura mendocina?', pt: 'Pronto para sua aventura mendocina?' },

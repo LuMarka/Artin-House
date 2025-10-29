@@ -521,14 +521,14 @@ export class MendozaGuideComponent {
 
   private getPlaceKey(title: string, field: string): string {
     if (title.includes('Manzano')) return `mendozaGuide.morePlaces.manzano.${field}`;
-    if (title.includes('Teatro')) return `mendozaGuide.morePlaces.teatro.${field}`;
-    if (title.includes('Parque')) return `mendozaGuide.morePlaces.parque.${field}`;
+    if (title.includes('Teatro') || title.includes('Independencia')) return `mendozaGuide.morePlaces.teatro.${field}`;
+    if (title.includes('Parque') || title.includes('San Martín')) return `mendozaGuide.morePlaces.parque.${field}`;
     if (title.includes('Aconcagua')) return `mendozaGuide.morePlaces.aconcagua.${field}`;
-    if (title.includes('Las Leñas')) return `mendozaGuide.morePlaces.lasLenas.${field}`;
+    if (title.includes('Las Leñas') || title.includes('Leñas')) return `mendozaGuide.morePlaces.lasLenas.${field}`;
     if (title.includes('Villavicencio')) return `mendozaGuide.morePlaces.villavicencio.${field}`;
-    if (title.includes('Cristo')) return `mendozaGuide.morePlaces.cristoRedentor.${field}`;
-    if (title.includes('Puente')) return `mendozaGuide.morePlaces.puenteDelInca.${field}`;
-    if (title.includes('Minas')) return `mendozaGuide.morePlaces.minasParamillos.${field}`;
+    if (title.includes('Cristo') || title.includes('Las Cuevas')) return `mendozaGuide.morePlaces.cristoRedentor.${field}`;
+    if (title.includes('Puente') || title.includes('Inca')) return `mendozaGuide.morePlaces.puenteDelInca.${field}`;
+    if (title.includes('Minas') || title.includes('Paramillos') || title.includes('Jesuitas')) return `mendozaGuide.morePlaces.minasParamillos.${field}`;
     return `mendozaGuide.morePlaces.unknown.${field}`;
   }
 
