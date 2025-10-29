@@ -86,9 +86,9 @@ export class BookingService {
       if (apartment === 'Artin House I') {
         return this.calculateArtinHouseIPrice(guests);
       } else if (apartment === 'Artin House II') {
-        return 45000 + (10000 * Math.max(0, guests - 1));
+        return 45000 + (0 * Math.max(0, guests - 1));
       }
-      return 60000;
+      return 45000;
     }
 
     let totalPrice: number;
@@ -210,8 +210,8 @@ export class BookingService {
     }
     
     // Fallback a lógica por defecto si no hay precios personalizados
-    const basePrice = pricing?.basePrice || 60000;
-    const extraPrice = pricing?.pricePerGuest || 5000;
+    const basePrice = pricing?.basePrice || 75000;
+    const extraPrice = pricing?.pricePerGuest || 0;
     
     if (guests <= 2) {
       return basePrice;
@@ -359,8 +359,8 @@ export class BookingService {
     const defaultPricing: ApartmentPricing[] = [
       {
         apartment: 'Artin House I',
-        basePrice: 60000, // Para 1-2 personas
-        pricePerGuest: 5000, // A partir de la 3ra persona
+        basePrice: 75000, // Para 1-2 personas
+        pricePerGuest: 0, // A partir de la 3ra persona
         maxGuests: 5,
         seasonalRates: [
           {

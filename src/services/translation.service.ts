@@ -84,7 +84,7 @@ const translations: Translations = {
   'policies.booking.minimumTitle': { en: 'Minimum Stay', es: 'Estadía Mínima', pt: 'Estadia Mínima' },
   'policies.booking.minimum': { en: 'The minimum required stay is **2 Nights**.', es: 'La estadía mínima requerida es de **2 Noches**.', pt: 'A estadia mínima requerida é de **2 Noites**.' },
   'policies.booking.discountTitle': { en: 'Discount', es: 'Descuento', pt: 'Desconto' },
-  'policies.booking.discount': { en: 'From **4 nights or more**, you get a **10% discount** on your total reservation.', es: 'A partir de **4 noches o más**, contás con un **10% de descuento** en el total de tu reserva.', pt: 'A partir de **4 noites ou mais**, você recebe um **desconto de 10%** no total da sua reserva.' },
+  'policies.booking.discount': { en: 'From **8 nights or more**, you get a **10% discount** on your total reservation.', es: 'A partir de **8 noches o más**, contás con un **10% de descuento** en el total de tu reserva.', pt: 'A partir de **8 noites ou mais**, você recebe um **desconto de 10%** no total da sua reserva.' },
   'policies.booking.payment.title': { en: '**Payment Methods**', es: '**Formas de Pago**', pt: '**Formas de Pagamento**' },
   'policies.booking.payment.desc': { en: 'We accept the following payment methods:', es: 'Aceptamos los siguientes medios de pago:', pt: 'Aceitamos as seguintes formas de pagamento:' },
   'policies.booking.payment.transfer': { en: 'Bank Transfer', es: 'Transferencia Bancaria', pt: 'Transferência Bancária' },
@@ -406,46 +406,13 @@ const translations: Translations = {
   'mendozaGuide.morePlaces.title': { en: '🗺️ More Must-Visit Places', es: '🗺️ Más Lugares Imperdibles', pt: '🗺️ Mais Lugares Imperdíveis' },
   'mendozaGuide.morePlaces.description': { en: 'Discover other Mendoza treasures that will complement your experience in the region.', es: 'Descubrí otros tesoros mendocinos que complementarán tu experiencia en la región.', pt: 'Descubra outros tesouros mendocinos que complementarão sua experiência na região.' },
 
-  // More Places - Individual Places
-  'mendozaGuide.places.manzano.title': { en: '📜 El Manzano Histórico', es: '📜 El Manzano Histórico', pt: '📜 El Manzano Histórico' },
-  'mendozaGuide.places.manzano.description': { en: 'Historic place where San Martín planned the crossing of the Andes. An emblematic site with a colonial estate and museum that tells the story of American independence.', es: 'Lugar histórico donde San Martín planificó el cruce de los Andes. Un sitio emblemático con una estancia colonial y museo que cuenta la historia de la independencia americana.', pt: 'Local histórico onde San Martín planejou a travessia dos Andes. Um sítio emblemático com uma estância colonial e museu que conta a história da independência americana.' },
-  'mendozaGuide.places.teatro.title': { en: '🎭 Independence Theater', es: '🎭 Teatro Independencia', pt: '🎭 Teatro Independencia' },
-  'mendozaGuide.places.teatro.description': { en: 'Beautiful historic theater in downtown Mendoza. Check the schedule to enjoy plays, concerts and tango shows.', es: 'Hermoso teatro histórico en el centro de Mendoza. Consultá la cartelera para disfrutar de obras, conciertos y espectáculos de tango.', pt: 'Belo teatro histórico no centro de Mendoza. Consulte a programação para desfrutar de peças, concertos e espetáculos de tango.' },
-  'mendozaGuide.places.parque.title': { en: '🌳 San Martín Park', es: '🌳 Parque San Martín', pt: '🌳 Parque San Martín' },
-  'mendozaGuide.places.parque.description': { en: 'One of the most beautiful urban parks in Argentina. Ideal for walks, visiting the Cerro de la Gloria and enjoying the artificial lakes.', es: 'Uno de los parques urbanos más bellos de Argentina. Ideal para caminatas, visitar el Cerro de la Gloria y disfrutar de los lagos artificiales.', pt: 'Um dos parques urbanos mais belos da Argentina. Ideal para caminhadas, visitar o Cerro de la Gloria e desfrutar dos lagos artificiais.' },
-  
-  // Distance and location texts
-  'mendozaGuide.places.manzano.distance': { en: '📍 45 min from Luján', es: '📍 A 45 min de Luján', pt: '📍 A 45 min de Luján' },
-  'mendozaGuide.places.teatro.location': { en: '📍 In Mendoza City', es: '📍 En Ciudad de Mendoza', pt: '📍 Na Cidade de Mendoza' },
-  'mendozaGuide.places.parque.location': { en: '📍 In Mendoza City', es: '📍 En Ciudad de Mendoza', pt: '📍 Na Cidade de Mendoza' },
-  
   // Link texts
   'mendozaGuide.adventure.cacheuta.linkText': { en: 'More info at termascacheuta.com', es: 'Más info en termascacheuta.com', pt: 'Mais info em termascacheuta.com' },
   'mendozaGuide.gastronomy.lujan.moreInfoText': { en: 'More info', es: 'Más info', pt: 'Mais info' },
-  'mendozaGuide.places.aconcagua.title': { en: '🏔️ Aconcagua', es: '🏔️ Aconcagua', pt: '🏔️ Aconcagua' },
-  'mendozaGuide.places.aconcagua.description': { en: 'The highest mountain in America. Although the complete trekking requires preparation, you can visit the Provincial Park and enjoy the views.', es: 'La montaña más alta de América. Aunque el trekking completo requiere preparación, podés visitar el Parque Provincial y disfrutar de las vistas.', pt: 'A montanha mais alta da América. Embora o trekking completo exija preparação, você pode visitar o Parque Provincial e desfrutar das vistas.' },
-  'mendozaGuide.places.lasLenas.title': { en: '🎿 Las Leñas', es: '🎿 Las Leñas', pt: '🎿 Las Leñas' },
-  'mendozaGuide.places.lasLenas.description': { en: 'World-famous ski resort (winter season). In summer, perfect for high mountain trekking and spectacular views.', es: 'Centro de esquí de fama mundial (temporada invernal). En verano, perfecto para trekking de alta montaña y vistas espectaculares.', pt: 'Centro de esqui de fama mundial (temporada de inverno). No verão, perfeito para trekking de alta montanha e vistas espetaculares.' },
-  'mendozaGuide.places.villavicencio.title': { en: '🌿 Villavicencio Nature Reserve', es: '🌿 Reserva Natural Villavicencio', pt: '🌿 Reserva Natural Villavicencio' },
-  'mendozaGuide.places.villavicencio.description': { en: 'Protected nature reserve with unique landscapes and famous mineral water. The access road offers spectacular views of the foothills.', es: 'Reserva natural protegida con paisajes únicos y la famosa agua mineral. El camino de acceso ofrece vistas espectaculares de la precordillera.', pt: 'Reserva natural protegida com paisagens únicas e a famosa água mineral. A estrada de acesso oferece vistas espetaculares da pré-cordilheira.' },
-  'mendozaGuide.places.cristo.title': { en: '✝️ Las Cuevas and Christ the Redeemer', es: '✝️ Las Cuevas y Cristo Redentor', pt: '✝️ Las Cuevas e Cristo Redentor' },
-  'mendozaGuide.places.cristo.description': { en: 'Las Cuevas, the last town before crossing to Chile, invites you to experience the height of the Andes. Surrounded by imposing landscapes, from here you access the majestic Christ the Redeemer, at more than 3,800 m, a symbol of union and peace between Argentina and Chile.', es: 'Las Cuevas, el último pueblo antes de cruzar a Chile, te invita a vivir la altura de los Andes. Rodeado de imponentes paisajes, desde aquí se accede al majestuoso Cristo Redentor, a más de 3.800 m, símbolo de unión y paz entre Argentina y Chile.', pt: 'Las Cuevas, a última cidade antes de cruzar para o Chile, convida você a viver a altitude dos Andes. Cercado por paisagens imponentes, daqui se acessa o majestoso Cristo Redentor, a mais de 3.800 m, símbolo de união e paz entre Argentina e Chile.' },
-  'mendozaGuide.places.puente.title': { en: '🌉 Puente del Inca', es: '🌉 Puente del Inca', pt: '🌉 Puente del Inca' },
-  'mendozaGuide.places.puente.description': { en: 'Natural wonder that dazzles with its vibrant mineral tones and ancestral history. Part of the Qhapaq Ñan, World Heritage Site, it invites you to discover its unique formations, the ruins of ancient thermal baths and a chapel that keeps the spirit of the mountain range.', es: 'Maravilla natural que deslumbra con sus vibrantes tonos minerales y su historia ancestral. Parte del Qhapaq Ñan, Patrimonio de la Humanidad, invita a descubrir sus formaciones únicas, las ruinas de antiguos baños termales y una capilla que guarda el espíritu de la cordillera.', pt: 'Maravilha natural que deslumbra com seus tons minerais vibrantes e sua história ancestral. Parte do Qhapaq Ñan, Patrimônio da Humanidade, convida a descobrir suas formações únicas, as ruínas de antigos banhos termais e uma capela que guarda o espírito da cordilheira.' },
-  'mendozaGuide.places.minas.title': { en: '⛏️ Jesuit Mines of Paramillos', es: '⛏️ Minas Jesuitas de Paramillos', pt: '⛏️ Minas Jesuítas de Paramillos' },
-  'mendozaGuide.places.minas.description': { en: 'Between mountains and legends, the Ruins of the Jesuit Mines of Paramillos reveal the oldest history of Argentine mining. At 2,800 masl, this mysterious site combines heritage, faith and mystery, where the echoes of those who searched for gold among the Andes still seem to resonate.', es: 'Entre montañas y leyendas, las Ruinas de las Minas Jesuitas de Paramillos revelan la historia más antigua de la minería argentina. A 2.800 msnm, este misterioso sitio combina patrimonio, fe y misterio, donde aún parecen resonar los ecos de quienes buscaron oro entre los Andes.', pt: 'Entre montanhas e lendas, as Ruínas das Minas Jesuítas de Paramillos revelam a história mais antiga da mineração argentina. A 2.800 m de altitude, este sítio misterioso combina patrimônio, fé e mistério, onde ainda parecem ressoar os ecos daqueles que procuravam ouro entre os Andes.' },
 
-  // Interactive Map Section
-  'mendozaGuide.map.title': { en: '🗺️ Interactive Map', es: '🗺️ Mapa Interactivo', pt: '🗺️ Mapa Interativo' },
-  'mendozaGuide.map.advice': { en: 'Click on the locations to discover more', es: 'Hace clic en las ubicaciones para descubrir más', pt: 'Clique nos locais para descobrir mais' },
-  
-  // More Info Button
-  'mendozaGuide.moreInfo.button': { en: 'More Tourist Information', es: 'Más Información Turística', pt: 'Mais Informação Turística' },
-  
+
   // Places Card General Texts
   'mendozaGuide.places.more.info': { en: 'More info', es: 'Más info', pt: 'Mais info' },
-  'mendozaGuide.places.distance.from.lujan': { en: 'from Luján', es: 'de Luján', pt: 'de Luján' },
-  'mendozaGuide.places.in.mendoza.city': { en: 'In Mendoza City', es: 'En Ciudad de Mendoza', pt: 'Na Cidade de Mendoza' },
   
   // More Places - Individual Places Translations
   // El Manzano Histórico
@@ -456,12 +423,12 @@ const translations: Translations = {
   // Teatro Independencia
   'mendozaGuide.morePlaces.teatro.title': { en: '🎭 Independence Theater', es: '🎭 Teatro Independencia', pt: '🎭 Teatro Independência' },
   'mendozaGuide.morePlaces.teatro.description': { en: 'Beautiful historic theater in downtown Mendoza. Check the schedule to enjoy plays, concerts and tango shows.', es: 'Hermoso teatro histórico en el centro de Mendoza. Consultá la cartelera para disfrutar de obras, conciertos y espectáculos de tango.', pt: 'Belo teatro histórico no centro de Mendoza. Consulte a programação para desfrutar de peças, concertos e espetáculos de tango.' },
-  'mendozaGuide.morePlaces.teatro.distance': { en: '📍 In Mendoza City', es: '📍 En Ciudad de Mendoza', pt: '📍 Na Cidade de Mendoza' },
+  'mendozaGuide.morePlaces.teatro.distance': { en: '📍 In Mendoza City. 15 min from Luján', es: '📍 En Ciudad de Mendoza. A 15 min', pt: '📍 Na Cidade de Mendoza. A 15 min' },
 
   // Parque San Martín
   'mendozaGuide.morePlaces.parque.title': { en: '🌳 San Martín Park', es: '🌳 Parque San Martín', pt: '🌳 Parque San Martín' },
   'mendozaGuide.morePlaces.parque.description': { en: 'One of the most beautiful urban parks in Argentina. Ideal for walks, visiting the Cerro de la Gloria and enjoying the artificial lakes.', es: 'Uno de los parques urbanos más bellos de Argentina. Ideal para caminatas, visitar el Cerro de la Gloria y disfrutar de los lagos artificiales.', pt: 'Um dos parques urbanos mais belos da Argentina. Ideal para caminhadas, visitar o Cerro de la Gloria e desfrutar dos lagos artificiais.' },
-  'mendozaGuide.morePlaces.parque.distance': { en: '📍 In Mendoza City', es: '📍 En Ciudad de Mendoza', pt: '📍 Na Cidade de Mendoza' },
+  'mendozaGuide.morePlaces.parque.distance': { en: '📍 In Mendoza City. 20 min from Luján', es: '📍 En Ciudad de Mendoza. A 20 min', pt: '📍 Na Cidade de Mendoza. A 20 min' },
 
   // Aconcagua
   'mendozaGuide.morePlaces.aconcagua.title': { en: '🏔️ Aconcagua', es: '🏔️ Aconcagua', pt: '🏔️ Aconcagua' },
@@ -492,6 +459,14 @@ const translations: Translations = {
   'mendozaGuide.morePlaces.minasParamillos.title': { en: '⛏️ Jesuit Mines of Paramillos', es: '⛏️ Minas Jesuitas de Paramillos', pt: '⛏️ Minas Jesuítas de Paramillos' },
   'mendozaGuide.morePlaces.minasParamillos.description': { en: 'Between mountains and legends, the Ruins of the Jesuit Mines of Paramillos reveal the oldest history of Argentine mining. At 2,800 masl, this mysterious site combines heritage, faith and mystery, where the echoes of those who searched for gold among the Andes still seem to resonate.', es: 'Entre montañas y leyendas, las Ruinas de las Minas Jesuitas de Paramillos revelan la historia más antigua de la minería argentina. A 2.800 msnm, este misterioso sitio combina patrimonio, fe y misterio, donde aún parecen resonar los ecos de quienes buscaron oro entre los Andes.', pt: 'Entre montanhas e lendas, as Ruínas das Minas Jesuítas de Paramillos revelam a história mais antiga da mineração argentina. A 2.800 m de altitude, este sítio misterioso combina patrimônio, fé e mistério, onde ainda parecem ressoar os ecos daqueles que procuravam ouro entre os Andes.' },
   'mendozaGuide.morePlaces.minasParamillos.distance': { en: '📍 1.5 hours from Luján', es: '📍 A 1.5 horas de Luján', pt: '📍 A 1.5 horas de Luján' },
+
+  // Interactive Map Section
+  'mendozaGuide.map.title': { en: '🗺️ Interactive Map', es: '🗺️ Mapa Interactivo', pt: '🗺️ Mapa Interativo' },
+  'mendozaGuide.map.advice': { en: 'Click on the locations to discover more', es: 'Hace clic en las ubicaciones para descubrir más', pt: 'Clique nos locais para descobrir mais' },
+  
+  // More Info Button
+  'mendozaGuide.moreInfo.button': { en: 'More Tourist Information', es: 'Más Información Turística', pt: 'Mais Informação Turística' },
+
 
   // Contact Section
   'mendozaGuide.contact.title': { en: 'Ready for your Mendoza adventure?', es: '¿Listo para tu aventura mendocina?', pt: 'Pronto para sua aventura mendocina?' },

@@ -23,10 +23,10 @@ export class AdminComponent {
   
   // Precios personalizados por huésped - Se cargan desde el servicio pero tienen valores por defecto para mostrar
   customPrices: { [guests: number]: number } = {
-    1: 60000,
-    2: 60000,
-    3: 65000,
-    4: 70000,
+    1: 75000,
+    2: 75000,
+    3: 75000,
+    4: 75000,
     5: 75000
   };
   useCustomPricing = true; // Por defecto mostrar los inputs individuales
@@ -35,7 +35,7 @@ export class AdminComponent {
   selectedSeasonApartment = 'Artin House I';
   seasonStartDate = '';
   seasonEndDate = '';
-  seasonMultiplier = 1.2; // 20% más caro por defecto
+  seasonMultiplier = 1.276; // 27.6% más caro por defecto
   seasonName = '';
 
   // Get the signals
@@ -199,12 +199,12 @@ export class AdminComponent {
 
   private getServiceBasePrice(): number {
     const pricing = this.apartmentPricing().find(p => p.apartment === 'Artin House I');
-    return pricing?.basePrice || 60000;
+    return pricing?.basePrice || 75000;
   }
 
   private getServiceExtraPrice(): number {
     const pricing = this.apartmentPricing().find(p => p.apartment === 'Artin House I');
-    return pricing?.pricePerGuest || 5000;
+    return pricing?.pricePerGuest || 0;
   }
 
   togglePricingMode(): void {
@@ -257,7 +257,7 @@ export class AdminComponent {
   clearSeasonForm(): void {
     this.seasonStartDate = '';
     this.seasonEndDate = '';
-    this.seasonMultiplier = 1.2;
+    this.seasonMultiplier = 1.276;
     this.seasonName = '';
   }
 

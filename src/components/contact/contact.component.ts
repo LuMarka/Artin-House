@@ -48,7 +48,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
 
   // Company Info for map
   companyInfo = {
-    name: 'Artin House - Alojamiento temporario en Mendoza',
+    name: 'Artin House Mendoza - Alojamiento temporario en Luján de Cuyo',
     address: {
       street: 'Bustamante 482',
       city: 'Luján de Cuyo',

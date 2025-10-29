@@ -282,13 +282,13 @@ export class MendozaGuideComponent {
         {
           title: '🎭 Teatro Independencia',
           description: 'Hermoso teatro histórico en el centro de Mendoza. Consultá la cartelera para disfrutar de obras, conciertos y espectáculos de tango.',
-          distance: '📍 En Ciudad de Mendoza',
+          distance: '📍 En Ciudad de Mendoza. A 15 min de Luján',
           image: 'src/assets/paisajes/teatro-independencia.jpg'
         },
         {
           title: '🌳 Parque San Martín',
           description: 'Uno de los parques urbanos más bellos de Argentina. Ideal para caminatas, visitar el Cerro de la Gloria y disfrutar de los lagos artificiales.',
-          distance: '📍 En Ciudad de Mendoza',
+          distance: '📍 En Ciudad de Mendoza. A 20 min de Luján',
           image: 'src/assets/paisajes/parqueSanMartin.jpg'
         },
         {
@@ -360,94 +360,17 @@ export class MendozaGuideComponent {
     return this.t('mendozaGuide.gastronomy.chacras.description') || 'El distrito gastronómico más exclusivo de Mendoza. Restaurantes gourmet con vista a los viñedos y una propuesta culinaria de primer nivel mundial.';
   }
 
-  // Adventure cards
-  getAdventurePotrerillosTitle(): string {
-    return this.t('mendozaGuide.adventure.potrerillos.title') || '🏔️ Potrerillos';
-  }
 
-  getAdventurePotrerillosDescription(): string {
-    return this.t('mendozaGuide.adventure.potrerillos.description') || 'A solo 50km de Luján, Potrerillos es perfecto para un día de aventura. Disfrutá del lago, deportes acuáticos, trekking y las mejores vistas de la precordillera.';
-  }
-
-  getAdventurePotrerillosNote(): string {
-    return this.t('mendozaGuide.adventure.potrerillos.note') || 'Ideal para: Kayak, stand up paddle, pesca y caminatas.';
-  }
-
-  getAdventureCacheutaTitle(): string {
-    return this.t('mendozaGuide.adventure.cacheuta.title') || '♨️ Termas de Cacheuta';
-  }
-
-  getAdventureCacheutaDescription(): string {
-    return this.t('mendozaGuide.adventure.cacheuta.description') || 'Cacheuta ofrece la experiencia perfecta de relajación en aguas termales naturales. Combiná el relax en las termas con actividades como tirolesa y rafting en el río Mendoza.';
-  }
-
-  getAdventureTunnelTitle(): string {
-    return this.t('mendozaGuide.adventure.tunnel.title') || '🚇 Túnel Potrerillos-Cacheuta';
-  }
-
-  getAdventureTunnelDescription(): string {
-    return this.t('mendozaGuide.adventure.tunnel.description') || 'El túnel histórico que conecta Potrerillos con Cacheuta es una obra de ingeniería fascinante. Este paso te permite disfrutar de ambos destinos en un mismo día.';
-  }
-
-  getAdventureTunnelNote(): string {
-    return this.t('mendozaGuide.adventure.tunnel.note') || 'Ruta escénica: El túnel ofrece vistas únicas de la precordillera mendocina.';
-  }
-
-  // More places cards
-  getPlacesManzanoTitle(): string {
-    return this.t('mendozaGuide.places.manzano.title') || '📜 El Manzano Histórico';
-  }
-
-  getPlacesManzanoDescription(): string {
-    return this.t('mendozaGuide.places.manzano.description') || 'Lugar histórico donde San Martín planificó el cruce de los Andes. Un sitio emblemático con una estancia colonial y museo que cuenta la historia de la independencia americana.';
-  }
-
-  getPlacesTeatroTitle(): string {
-    return this.t('mendozaGuide.places.teatro.title') || '🎭 Teatro Independencia';
-  }
-
-  getPlacesTeatroDescription(): string {
-    return this.t('mendozaGuide.places.teatro.description') || 'Hermoso teatro histórico en el centro de Mendoza. Consultá la cartelera para disfrutar de obras, conciertos y espectáculos de tango.';
-  }
-
-  getPlacesParqueTitle(): string {
-    return this.t('mendozaGuide.places.parque.title') || '🌳 Parque San Martín';
-  }
-
-  getPlacesParqueDescription(): string {
-    return this.t('mendozaGuide.places.parque.description') || 'Uno de los parques urbanos más bellos de Argentina. Ideal para caminatas, visitar el Cerro de la Gloria y disfrutar de los lagos artificiales.';
-  }
-
-  // Distance and location texts
-  getManzanoDistance(): string {
-    return this.t('mendozaGuide.places.manzano.distance') || '📍 A 45 min de Luján';
-  }
-
-  getTeatroLocation(): string {
-    return this.t('mendozaGuide.places.teatro.location') || '📍 En Ciudad de Mendoza';
-  }
-
-  getParqueLocation(): string {
-    return this.t('mendozaGuide.places.parque.location') || '📍 En Ciudad de Mendoza';
-  }
-
-  // Link texts
-  getCacheutaLinkText(): string {
-    return this.t('mendozaGuide.adventure.cacheuta.linkText') || 'Más info en termascacheuta.com';
-  }
-
-  getMoreInfoText(): string {
-    return this.t('mendozaGuide.gastronomy.lujan.moreInfoText') || 'Más info';
-  }
 
 
 
   // Helper methods to get correct images from backgroundImages object
   getAdventureImage(title: string): string {
-    if (title.includes('Potrerillos')) return this.backgroundImages.potrerillos;
-    if (title.includes('Cacheuta')) return this.backgroundImages.cacheuta;
-    if (title.includes('Túnel')) return this.backgroundImages.tunel;
-    return 'assets/paisajes/default.jpg';
+    const normalizedTitle = title.toLowerCase();
+    if (normalizedTitle.includes('potrerillos')) return this.backgroundImages.potrerillos;
+    if (normalizedTitle.includes('cacheuta')) return this.backgroundImages.cacheuta;
+    if (normalizedTitle.includes('túnel') || normalizedTitle.includes('tunnel')) return this.backgroundImages.tunnel;
+    return 'src/assets/paisajes/default.jpg';
   }
 
   getPlaceImage(title: string): string {
@@ -460,7 +383,7 @@ export class MendozaGuideComponent {
     if (title.includes('Cristo')) return this.backgroundImages.cristoRedentor;
     if (title.includes('Puente')) return this.backgroundImages.puenteDelInca;
     if (title.includes('Minas')) return this.backgroundImages.minasParamillos;
-    return 'assets/lugares/default.jpg';
+    return 'src/assets/paisajes/default.jpg';
   }
 
   // Background images for sections - using local authentic Mendoza images
@@ -471,7 +394,7 @@ export class MendozaGuideComponent {
     // Adventure images
     potrerillos: 'src/assets/paisajes/potrerillos-turismo.webp',
     cacheuta: 'src/assets/paisajes/TermasCacheuta.jpg',
-    tunel: 'src/assets/paisajes/tunelPotrerillosCacheuta.jpg',
+    tunnel: 'src/assets/paisajes/tunelPotrerillosCacheuta.jpg',
     // More places images
     manzano: 'src/assets/paisajes/manzano-historico.webp',
     teatro: 'src/assets/paisajes/teatro-independencia.jpg',
@@ -505,10 +428,16 @@ export class MendozaGuideComponent {
     return this.t(linkKey) || this.getOriginalAdventureLinkText(originalTitle);
   }
 
+  // Link texts for gastronomy section
+  getMoreInfoText(): string {
+    return this.t('mendozaGuide.gastronomy.lujan.moreInfoText') || 'Más info';
+  }
+
   private getAdventureLocationKey(title: string, field: string): string {
-    if (title.includes('Potrerillos')) return `mendozaGuide.adventure.potrerillos.${field}`;
-    if (title.includes('Cacheuta')) return `mendozaGuide.adventure.cacheuta.${field}`;
-    if (title.includes('Túnel')) return `mendozaGuide.adventure.tunel.${field}`;
+    // Verificar túnel PRIMERO para evitar conflicto con Potrerillos
+    if (title.includes('Túnel') || title.includes('🚇')) return `mendozaGuide.adventure.tunnel.${field}`;
+    if (title.includes('Potrerillos') && !title.includes('Túnel')) return `mendozaGuide.adventure.potrerillos.${field}`;
+    if (title.includes('Cacheuta') && !title.includes('Túnel')) return `mendozaGuide.adventure.cacheuta.${field}`;
     return `mendozaGuide.adventure.unknown.${field}`;
   }
 
