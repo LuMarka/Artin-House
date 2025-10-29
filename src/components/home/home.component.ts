@@ -39,10 +39,54 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private router = inject(Router);
   private translationService = inject(TranslationService);
 
+  // Surroundings accordion state
+  surroundingsAccordion = {
+    plazas: false,
+    restaurants: false,
+    attractions: false,
+    transport: false
+  };
+
   // Traducciones
   t = {
     viewArtinHouseI: this.translationService.translate('home.viewArtinHouseI'),
-    viewArtinHouseII: this.translationService.translate('home.viewArtinHouseII')
+    viewArtinHouseII: this.translationService.translate('home.viewArtinHouseII'),
+    // Surroundings translations
+    surroundingsTitle: this.translationService.translate('surroundings.title'),
+    surroundingsSubtitle: this.translationService.translate('surroundings.subtitle'),
+    plazasTitle: this.translationService.translate('surroundings.plazas.title'),
+    restaurantsTitle: this.translationService.translate('surroundings.restaurants.title'),
+    attractionsTitle: this.translationService.translate('surroundings.attractions.title'),
+    transportTitle: this.translationService.translate('surroundings.transport.title')
+  };
+
+  // Datos de los alrededores
+  surroundingsData = {
+    plazas: [
+      { name: this.translationService.translate('surroundings.plazas.sabat'), distance: '150 m' },
+      { name: this.translationService.translate('surroundings.plazas.lujan'), distance: '450 m' },
+      { name: this.translationService.translate('surroundings.plazas.mosconi'), distance: '900 m' },
+      { name: this.translationService.translate('surroundings.plazas.francia'), distance: '4,8 km' },
+      { name: this.translationService.translate('surroundings.plazas.integracion'), distance: '10 km' },
+      { name: this.translationService.translate('surroundings.plazas.sarmiento'), distance: '13 km' },
+      { name: this.translationService.translate('surroundings.plazas.perla'), distance: '13 km' },
+      { name: this.translationService.translate('surroundings.plazas.leones'), distance: '14 km' },
+      { name: this.translationService.translate('surroundings.plazas.coquimbito'), distance: '16 km' },
+      { name: this.translationService.translate('surroundings.plazas.ferroviario'), distance: '16 km' }
+    ],
+    restaurants: [
+      { name: this.translationService.translate('surroundings.restaurants.tripancho'), distance: '200 m' },
+      { name: this.translationService.translate('surroundings.restaurants.havanna'), distance: '350 m' },
+      { name: this.translationService.translate('surroundings.restaurants.liliana'), distance: '400 m' }
+    ],
+    attractions: [
+      { name: this.translationService.translate('surroundings.attractions.museo'), distance: '19 km' },
+      { name: this.translationService.translate('surroundings.attractions.civico'), distance: '19 km' }
+    ],
+    transport: [
+      { name: this.translationService.translate('surroundings.transport.terminal'), distance: '19 km' },
+      { name: this.translationService.translate('surroundings.transport.airport'), distance: '25 km' }
+    ]
   };
 
   ngOnInit() {
@@ -76,5 +120,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // Navegar a Artin House II
   goToArtinHouseII() {
     this.router.navigate(['/artin-house-ii']);
+  }
+
+  // Toggle accordion for surroundings
+  toggleSurroundingsAccordion(category: keyof typeof this.surroundingsAccordion) {
+    this.surroundingsAccordion[category] = !this.surroundingsAccordion[category];
   }
 }

@@ -22,6 +22,131 @@
     </section>
     
     <app-booking id="booking"></app-booking>
+    
+    <!-- Surroundings Section -->
+    <section class="surroundings" id="surroundings">
+      <div class="surroundings__container">
+        <div class="surroundings__header">
+          <h2 class="surroundings__title">{{ t.surroundingsTitle() }}</h2>
+          <p class="surroundings__subtitle">{{ t.surroundingsSubtitle() }}</p>
+        </div>
+        
+        <div class="surroundings__accordion">
+          <!-- Plazas y Parques -->
+          <div class="surroundings__accordion-item">
+            <button 
+              class="surroundings__toggle"
+              [class.surroundings__toggle--active]="surroundingsAccordion.plazas"
+              (click)="toggleSurroundingsAccordion('plazas')">
+              <span class="surroundings__toggle-content">
+                <span class="surroundings__icon">🏞️</span>
+                <span class="surroundings__title-text">{{ t.plazasTitle() }}</span>
+              </span>
+              <span class="surroundings__chevron" [class.surroundings__chevron--rotate]="surroundingsAccordion.plazas">
+                ▼
+              </span>
+            </button>
+            @if (surroundingsAccordion.plazas) {
+              <div class="surroundings__content">
+                <ul class="surroundings__list">
+                  @for (plaza of surroundingsData.plazas; track plaza.name) {
+                    <li class="surroundings__list-item">
+                      <span class="surroundings__name">{{ plaza.name() }}</span>
+                      <span class="surroundings__distance">{{ plaza.distance }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+
+          <!-- Restaurantes y Cafeterías -->
+          <div class="surroundings__accordion-item">
+            <button 
+              class="surroundings__toggle"
+              [class.surroundings__toggle--active]="surroundingsAccordion.restaurants"
+              (click)="toggleSurroundingsAccordion('restaurants')">
+              <span class="surroundings__toggle-content">
+                <span class="surroundings__icon">🍽️</span>
+                <span class="surroundings__title-text">{{ t.restaurantsTitle() }}</span>
+              </span>
+              <span class="surroundings__chevron" [class.surroundings__chevron--rotate]="surroundingsAccordion.restaurants">
+                ▼
+              </span>
+            </button>
+            @if (surroundingsAccordion.restaurants) {
+              <div class="surroundings__content">
+                <ul class="surroundings__list">
+                  @for (restaurant of surroundingsData.restaurants; track restaurant.name) {
+                    <li class="surroundings__list-item">
+                      <span class="surroundings__name">{{ restaurant.name() }}</span>
+                      <span class="surroundings__distance">{{ restaurant.distance }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+
+          <!-- Atracciones Turísticas -->
+          <div class="surroundings__accordion-item">
+            <button 
+              class="surroundings__toggle"
+              [class.surroundings__toggle--active]="surroundingsAccordion.attractions"
+              (click)="toggleSurroundingsAccordion('attractions')">
+              <span class="surroundings__toggle-content">
+                <span class="surroundings__icon">🏛️</span>
+                <span class="surroundings__title-text">{{ t.attractionsTitle() }}</span>
+              </span>
+              <span class="surroundings__chevron" [class.surroundings__chevron--rotate]="surroundingsAccordion.attractions">
+                ▼
+              </span>
+            </button>
+            @if (surroundingsAccordion.attractions) {
+              <div class="surroundings__content">
+                <ul class="surroundings__list">
+                  @for (attraction of surroundingsData.attractions; track attraction.name) {
+                    <li class="surroundings__list-item">
+                      <span class="surroundings__name">{{ attraction.name() }}</span>
+                      <span class="surroundings__distance">{{ attraction.distance }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+
+          <!-- Transporte -->
+          <div class="surroundings__accordion-item">
+            <button 
+              class="surroundings__toggle"
+              [class.surroundings__toggle--active]="surroundingsAccordion.transport"
+              (click)="toggleSurroundingsAccordion('transport')">
+              <span class="surroundings__toggle-content">
+                <span class="surroundings__icon">🚌</span>
+                <span class="surroundings__title-text">{{ t.transportTitle() }}</span>
+              </span>
+              <span class="surroundings__chevron" [class.surroundings__chevron--rotate]="surroundingsAccordion.transport">
+                ▼
+              </span>
+            </button>
+            @if (surroundingsAccordion.transport) {
+              <div class="surroundings__content">
+                <ul class="surroundings__list">
+                  @for (transport of surroundingsData.transport; track transport.name) {
+                    <li class="surroundings__list-item">
+                      <span class="surroundings__name">{{ transport.name() }}</span>
+                      <span class="surroundings__distance">{{ transport.distance }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+    
      <app-reviews id="reviews"></app-reviews>
      <app-booking-platforms id="booking-platforms"></app-booking-platforms>
   </main>

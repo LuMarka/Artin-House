@@ -15,11 +15,24 @@ import { FooterComponent } from '../footer/footer.component';
 export class MendozaGuideComponent {
   private translationService = inject(TranslationService);
 
+  // Accordion state for mobile wine table
+  accordionState: { [key: string]: boolean } = {
+    tasting: false,
+    tour: false,
+    premium: false,
+    bike: false
+  };
+
   // Translation method - directly returning the signal value
   t(key: string): string {
     const signal = this.translationService.translate(key);
     const value = signal();
     return value !== key ? value : '';
+  }
+
+  // Toggle accordion section
+  toggleAccordion(section: string) {
+    this.accordionState[section] = !this.accordionState[section];
   }
 
   // Translation methods for each section

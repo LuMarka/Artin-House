@@ -13,7 +13,7 @@
 }
 
 .amenities__title {
-  font-size: 2.25rem;
+  font-size: 30px;
   font-weight: bold;
   color: #1f2937;
   margin-bottom: 3rem;
@@ -85,7 +85,7 @@
 /* Tablet - 2 filas con más elementos por línea */
 @media (min-width: 768px) {
   .amenities__title {
-    font-size: 2.5rem;
+    font-size: 40px;
   }
 
   .amenities__grid {

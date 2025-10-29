@@ -107,7 +107,7 @@
 /* Tablet */
 @media (min-width: 768px) {
   .hero__title {
-    font-size: 4.5rem;
+    font-size: 40px;
   }
 
   .hero__subtitle {
@@ -121,7 +121,7 @@
 /* Desktop */
 @media (min-width: 1024px) {
   .hero__title {
-    font-size: 5rem;
+    font-size: 40px;
   }
 
   .hero__content {

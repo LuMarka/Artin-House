@@ -495,9 +495,42 @@ const translations: Translations = {
 
   // Contact Section
   'mendozaGuide.contact.title': { en: 'Ready for your Mendoza adventure?', es: '¿Listo para tu aventura mendocina?', pt: 'Pronto para sua aventura mendocina?' },
-  'mendozaGuide.contact.description': { en: 'Contact us for more personalized information', es: 'Contáctanos para más información personalizada', pt: 'Entre em contato conosco para informações mais personalizadas' },
+  'mendozaGuide.contact.description': { en: 'Contact us for more personalized information', es: 'Contáctanos para más información personalizada', pt: 'Entre em contato conosco para informações más personalizadas' },
   'mendozaGuide.contact.whatsapp': { en: 'WhatsApp', es: 'WhatsApp', pt: 'WhatsApp' },
   'mendozaGuide.contact.email': { en: 'Contact', es: 'Contacto', pt: 'Contato' },
+
+  // Surroundings Section
+  'surroundings.title': { en: 'Accommodation Surroundings', es: 'Alrededores del alojamiento', pt: 'Arredores da acomodação' },
+  'surroundings.subtitle': { en: 'What\'s nearby?', es: '¿Qué hay cerca?', pt: 'O que há por perto?' },
+  'surroundings.plazas.title': { en: 'Squares & Parks', es: 'Plazas y Parques', pt: 'Praças e Parques' },
+  'surroundings.restaurants.title': { en: 'Restaurants & Cafés', es: 'Restaurantes y Cafeterías', pt: 'Restaurantes e Cafés' },
+  'surroundings.attractions.title': { en: 'Tourist Attractions', es: 'Atracciones Turísticas', pt: 'Atrações Turísticas' },
+  'surroundings.transport.title': { en: 'Transportation', es: 'Transporte', pt: 'Transporte' },
+  
+  // Plazas
+  'surroundings.plazas.sabat': { en: 'Sabat Hernández Square', es: 'Plazoleta Sabat Hernández o del Bombero', pt: 'Praça Sabat Hernández' },
+  'surroundings.plazas.lujan': { en: 'Luján de Cuyo Square', es: 'Plaza Luján de Cuyo', pt: 'Praça Luján de Cuyo' },
+  'surroundings.plazas.mosconi': { en: 'Mosconi Square', es: 'Plaza Mosconi', pt: 'Praça Mosconi' },
+  'surroundings.plazas.francia': { en: 'Francia Square', es: 'Plaza Francia', pt: 'Praça França' },
+  'surroundings.plazas.integracion': { en: 'Integration Square', es: 'Plaza de la Integración', pt: 'Praça da Integração' },
+  'surroundings.plazas.sarmiento': { en: 'Sarmiento Square', es: 'Plaza Sarmiento', pt: 'Praça Sarmiento' },
+  'surroundings.plazas.perla': { en: 'La Perla Square', es: 'Plaza La Perla', pt: 'Praça La Perla' },
+  'surroundings.plazas.leones': { en: 'Lions Walk Maipú', es: 'Paseo de los Leones Maipú', pt: 'Passeio dos Leões Maipú' },
+  'surroundings.plazas.coquimbito': { en: 'Coquimbito Square', es: 'Plaza Coquimbito', pt: 'Praça Coquimbito' },
+  'surroundings.plazas.ferroviario': { en: 'Canota Railway Park', es: 'Parque Ferroviario Canota', pt: 'Parque Ferroviário Canota' },
+  
+  // Restaurants
+  'surroundings.restaurants.tripancho': { en: 'Sr. Tri-Pancho Restaurant', es: 'Restaurante Sr. Tri-Pancho', pt: 'Restaurante Sr. Tri-Pancho' },
+  'surroundings.restaurants.havanna': { en: 'Havanna Café', es: 'Cafetería/Havanna', pt: 'Café/Havanna' },
+  'surroundings.restaurants.liliana': { en: 'Liliana Bakery/Café', es: 'Cafetería/Panaderia Liliana', pt: 'Café/Padaria Liliana' },
+  
+  // Attractions
+  'surroundings.attractions.museo': { en: 'Museum of Cuyo Past', es: 'Museo del Pasado Cuyano', pt: 'Museu do Passado Cuyano' },
+  'surroundings.attractions.civico': { en: 'Civic District', es: 'Barrio Cívico', pt: 'Bairro Cívico' },
+  
+  // Transport
+  'surroundings.transport.terminal': { en: 'Mendoza Bus Terminal', es: 'Terminal de ómnibus de Mendoza', pt: 'Terminal de ônibus de Mendoza' },
+  'surroundings.transport.airport': { en: 'Gobernador Francisco Gabrielli International Airport', es: 'Aeropuerto Internacional Gobernador Francisco Gabrielli', pt: 'Aeroporto Internacional Gobernador Francisco Gabrielli' },
 
 };
 

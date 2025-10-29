@@ -541,19 +541,99 @@ em {
     font-size: 1.8rem;
   }
   
-  .mendoza-guide__table-header,
+  /* Hide table headers on mobile */
+  .mendoza-guide__table-header {
+    display: none;
+  }
+  
+  /* Convert table rows to cards on mobile */
   .mendoza-guide__table-row {
-    grid-template-columns: 1fr;
+    display: block;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    padding: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border: none;
+  }
+  
+  .mendoza-guide__table-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   }
   
   .mendoza-guide__table-cell {
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    display: block;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid rgba(241, 245, 249, 0.5);
+    position: relative;
   }
   
-  .mendoza-guide__table-header .mendoza-guide__table-cell:last-child,
-  .mendoza-guide__table-row .mendoza-guide__table-cell:last-child {
+  .mendoza-guide__table-cell:last-child {
     border-bottom: none;
+    border-radius: 0 0 12px 12px;
+  }
+  
+  .mendoza-guide__table-cell:first-child {
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(135deg, #06372927 0%, #023c2c 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  
+  /* Accordion styles for mobile */
+  .mendoza-guide__accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    user-select: none;
+  }
+  
+  .mendoza-guide__accordion-header:hover {
+    background: rgba(6, 78, 59, 0.1);
+  }
+  
+  .mendoza-guide__accordion-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .mendoza-guide__accordion-icon.expanded {
+    transform: rotate(180deg);
+  }
+  
+  .mendoza-guide__accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .mendoza-guide__accordion-content.expanded {
+    max-height: 500px;
+    opacity: 1;
+  }
+  
+  .mendoza-guide__accordion-content .mendoza-guide__table-cell {
+    padding: 0.75rem 1.25rem;
+  }
+
+  /* Add labels for each cell on mobile using data-label attribute */
+  .mendoza-guide__accordion-content .mendoza-guide__table-cell[data-label]:before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 700;
+    color: #064e3b;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
   }
   
   .mendoza-guide__locations {
@@ -589,6 +669,125 @@ em {
   
   .mendoza-guide__interactive-map {
     height: 300px;
+  }
+}
+
+/* Desktop styles - disable accordion and restore table */
+@media (min-width: 769px) {
+  /* Show table header again */
+  .mendoza-guide__table-header {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr 1.5fr;
+    background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+    color: white;
+  }
+  
+  .mendoza-guide__accordion-content {
+    max-height: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+  }
+  
+  .mendoza-guide__accordion-header {
+    cursor: default;
+    pointer-events: none;
+  }
+  
+  .mendoza-guide__accordion-icon {
+    display: none;
+  }
+  
+  /* Restore normal table layout on desktop */
+  .mendoza-guide__table-row {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr 1.5fr;
+    background: rgba(255, 255, 255, 0) !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.2s ease;
+  }
+  
+  .mendoza-guide__table-row:hover {
+    background: #f0f9ff3a !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+  }
+  
+  .mendoza-guide__table-row:nth-child(even) {
+    background: #f8fffe02 !important;
+  }
+  
+  .mendoza-guide__table-row:nth-child(even):hover {
+    background: #f0f9ff3a !important;
+  }
+  
+  .mendoza-guide__table-cell {
+    display: block !important;
+    padding: 2rem 1.5rem !important;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    font-size: 1rem;
+    color: #2d3748;
+    line-height: 1.7;
+  }
+  
+  .mendoza-guide__table-cell:last-child {
+    border-right: none;
+  }
+  
+  .mendoza-guide__table-cell:first-child {
+    font-weight: 600;
+    color: #064e3b;
+    background: transparent !important;
+    border-radius: 0 !important;
+    font-size: 1rem !important;
+  }
+  
+  .mendoza-guide__table-header .mendoza-guide__table-cell {
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    color: white;
+    padding: 2rem 1.5rem;
+  }
+  
+  /* Hide mobile labels on desktop */
+  .mendoza-guide__accordion-content .mendoza-guide__table-cell[data-label]:before {
+    display: none !important;
+  }
+  
+  /* Hide all mobile labels on desktop */
+  .mendoza-guide__table-cell[data-label]:before {
+    display: none !important;
+  }
+  
+  /* Restructure accordion to work as normal table on desktop */
+  .mendoza-guide__accordion-item {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr 1.5fr !important;
+  }
+  
+  .mendoza-guide__accordion-header {
+    display: block !important;
+    cursor: default !important;
+    pointer-events: none !important;
+  }
+  
+  .mendoza-guide__accordion-content {
+    display: contents !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+  }
+  
+  .mendoza-guide__accordion-icon {
+    display: none !important;
   }
 }
 

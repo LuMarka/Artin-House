@@ -23,54 +23,66 @@
         </div>
 
         <!-- Wine tasting row -->
-        <div class="mendoza-guide__table-row">
-          <div class="mendoza-guide__table-cell">
+        <div class="mendoza-guide__table-row mendoza-guide__accordion-item">
+          <div class="mendoza-guide__table-cell mendoza-guide__accordion-header" (click)="toggleAccordion('tasting')">
             <strong>{{ getWineTastingActivity() }}</strong>
+            <span class="mendoza-guide__accordion-icon" [class.expanded]="accordionState['tasting']">▼</span>
           </div>
-          <div class="mendoza-guide__table-cell">
-            {{ getWineCatenaRecommendation() }}
-          </div>
-          <div class="mendoza-guide__table-cell">
-            {{ getWineOnlineNote() }}
+          <div class="mendoza-guide__accordion-content" [class.expanded]="accordionState['tasting']">
+            <div class="mendoza-guide__table-cell" [attr.data-label]="getWineHeaderRecommendation()">
+              {{ getWineCatenaRecommendation() }}
+            </div>
+            <div class="mendoza-guide__table-cell" [attr.data-label]="getWineHeaderNotes()">
+              {{ getWineOnlineNote() }}
+            </div>
           </div>
         </div>
 
         <!-- Tour with lunch row -->
-        <div class="mendoza-guide__table-row">
-          <div class="mendoza-guide__table-cell">
+        <div class="mendoza-guide__table-row mendoza-guide__accordion-item">
+          <div class="mendoza-guide__table-cell mendoza-guide__accordion-header" (click)="toggleAccordion('tour')">
             <strong>{{ getWineTourActivity() }}</strong>
+            <span class="mendoza-guide__accordion-icon" [class.expanded]="accordionState['tour']">▼</span>
           </div>
-          <div class="mendoza-guide__table-cell">
-            {{ getWineGourmetRecommendation() }}
-          </div>
-          <div class="mendoza-guide__table-cell">
-            {{ getWineMariageNote() }}
+          <div class="mendoza-guide__accordion-content" [class.expanded]="accordionState['tour']">
+            <div class="mendoza-guide__table-cell" [attr.data-label]="getWineHeaderRecommendation()">
+              {{ getWineGourmetRecommendation() }}
+            </div>
+            <div class="mendoza-guide__table-cell" [attr.data-label]="getWineHeaderNotes()">
+              {{ getWineMariageNote() }}
+            </div>
           </div>
         </div>
 
         <!-- Premium experience row -->
-        <div class="mendoza-guide__table-row">
-          <div class="mendoza-guide__table-cell">
+        <div class="mendoza-guide__table-row mendoza-guide__accordion-item">
+          <div class="mendoza-guide__table-cell mendoza-guide__accordion-header" (click)="toggleAccordion('premium')">
             <strong>{{ getWinePremiumActivity() }}</strong>
+            <span class="mendoza-guide__accordion-icon" [class.expanded]="accordionState['premium']">▼</span>
           </div>
-          <div class="mendoza-guide__table-cell">
-            {{ getWineAchavalRecommendation() }}
-          </div>
-          <div class="mendoza-guide__table-cell">
-            {{ getWineConnoisseursNote() }}
+          <div class="mendoza-guide__accordion-content" [class.expanded]="accordionState['premium']">
+            <div class="mendoza-guide__table-cell" [attr.data-label]="getWineHeaderRecommendation()">
+              {{ getWineAchavalRecommendation() }}
+            </div>
+            <div class="mendoza-guide__table-cell" [attr.data-label]="getWineHeaderNotes()">
+              {{ getWineConnoisseursNote() }}
+            </div>
           </div>
         </div>
 
         <!-- Bike tour row -->
-        <div class="mendoza-guide__table-row">
-          <div class="mendoza-guide__table-cell">
+        <div class="mendoza-guide__table-row mendoza-guide__accordion-item">
+          <div class="mendoza-guide__table-cell mendoza-guide__accordion-header" (click)="toggleAccordion('bike')">
             <strong>{{ getWineBikeActivity() }}</strong>
+            <span class="mendoza-guide__accordion-icon" [class.expanded]="accordionState['bike']">▼</span>
           </div>
-          <div class="mendoza-guide__table-cell">
-            {{ getWineMaipuRecommendation() }}
-          </div>
-          <div class="mendoza-guide__table-cell">
-            {{ getWineBikeNote() }}
+          <div class="mendoza-guide__accordion-content" [class.expanded]="accordionState['bike']">
+            <div class="mendoza-guide__table-cell" [attr.data-label]="getWineHeaderRecommendation()">
+              {{ getWineMaipuRecommendation() }}
+            </div>
+            <div class="mendoza-guide__table-cell" [attr.data-label]="getWineHeaderNotes()">
+              {{ getWineBikeNote() }}
+            </div>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@
 }
 
 .gallery__title {
-  font-size: 2rem;
+  font-size: 1.875rem; /* 30px */
   font-weight: bold;
   text-align: center;
   color: #1f2937;
@@ -154,6 +154,10 @@
 
 /* Tablet styles */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .gallery__title {
+    font-size: 2.5rem;
+  }
+
   .gallery__grid {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(120px, auto);
@@ -162,5 +166,12 @@
   .gallery__item--large {
     grid-column: span 1;
     grid-row: span 2;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+  .gallery__title {
+    font-size: 2.5rem;
   }
 }
