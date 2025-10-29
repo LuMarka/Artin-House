@@ -12,7 +12,11 @@
           <h4 class="footer__title">{{ t.followTitle() }}</h4>
           <div class="footer__social">
             @for (social of socialLinks; track social.platform) {
-              <a [href]="social.url" class="footer__social-link" [attr.aria-label]="social.ariaLabel">
+              <a [href]="social.url" 
+                 class="footer__social-link" 
+                 [attr.aria-label]="social.ariaLabel"
+                 target="_blank"
+                 rel="noopener noreferrer">
                 <svg class="footer__social-icon" fill="currentColor" viewBox="0 0 24 24">
                   <path [attr.d]="social.icon"/>
                 </svg>
