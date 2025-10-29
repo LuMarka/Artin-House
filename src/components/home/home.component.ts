@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, inject, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
 import { HeaderComponent } from '../header/header.component';
 import { HeroComponent } from '../hero/hero.component';
@@ -22,6 +22,7 @@ import { ReviewsComponent } from '../reviews/reviews.component';
   standalone: true,
   imports: [
      CommonModule,
+     RouterModule,
     HeaderComponent,
     HeroComponent,
     AboutComponent,
@@ -125,5 +126,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // Toggle accordion for surroundings
   toggleSurroundingsAccordion(category: keyof typeof this.surroundingsAccordion) {
     this.surroundingsAccordion[category] = !this.surroundingsAccordion[category];
+  }
+
+  // Mendoza Guide CTA methods
+  getMendozaGuideTitle(): string {
+    const translation = this.translationService.translate('home.mendozaGuide.title')();
+    return translation !== 'home.mendozaGuide.title' ? translation : '¡Qué hacer en Mendoza!';
+  }
+
+  getMendozaGuideDescription(): string {
+    const translation = this.translationService.translate('home.mendozaGuide.description')();
+    return translation !== 'home.mendozaGuide.description' ? translation : 'Descubrí los mejores lugares, experiencias gastronómicas y aventuras que Mendoza tiene para ofrecerte';
+  }
+
+  getMendozaGuideButtonText(): string {
+    const translation = this.translationService.translate('home.mendozaGuide.button')();
+    return translation !== 'home.mendozaGuide.button' ? translation : 'Explorar Mendoza';
   }
 }

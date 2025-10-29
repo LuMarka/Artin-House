@@ -146,6 +146,22 @@
         </div>
       </div>
     </section>
+
+    <!-- Mendoza Guide CTA Section -->
+    <section class="mendoza-guide-cta">
+      <div class="mendoza-guide-cta__container">
+        <div class="mendoza-guide-cta__content">
+          <h3 class="mendoza-guide-cta__title">🍇 {{ getMendozaGuideTitle() }}</h3>
+          <p class="mendoza-guide-cta__description">{{ getMendozaGuideDescription() }}</p>
+          <a routerLink="/que-hacer-en-mendoza" class="mendoza-guide-cta__button">
+            <span>{{ getMendozaGuideButtonText() }}</span>
+            <svg class="mendoza-guide-cta__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
     
      <app-reviews id="reviews"></app-reviews>
      <app-booking-platforms id="booking-platforms"></app-booking-platforms>

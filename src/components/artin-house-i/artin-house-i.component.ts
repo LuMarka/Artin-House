@@ -24,71 +24,153 @@ interface Amenity {
 }
 
 @Component({
-  selector: 'app-artin-house-i',
+  selector: "app-artin-house-i",
   standalone: true,
-  templateUrl: './artin-house-i.component.html',
-  styleUrls: ['./artin-house-i.component.css'],
+  templateUrl: "./artin-house-i.component.html",
+  styleUrls: ["./artin-house-i.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     HeaderComponent,
     FooterComponent,
     WhatsappButtonComponent,
-    BookingComponent
+    BookingComponent,
   ],
 })
 export class ArtinHouseIComponent {
   private router = inject(Router);
   private translationService = inject(TranslationService);
-  
+
   // Estado del modal y galería
   isModalOpen = signal(false);
   selectedImage = signal<ProcessedImage | null>(null);
   selectedImageIndex = signal(0);
   currentMobileIndex = signal(0);
   currentModalIndex = signal(0);
-  
+
   // Translation helpers
   translate = (key: string) => this.translationService.translate(key);
-  
+
   // Información del departamento
-  apartmentTitle = computed(() => this.translate('artinHouseI.title')());
-  apartmentDescription = computed(() => this.translate('artinHouseI.description')());
-  
+  apartmentTitle = computed(() => this.translate("artinHouseI.title")());
+  apartmentDescription = computed(() =>
+    this.translate("artinHouseI.description")()
+  );
+
   // Amenidades específicas
   amenities = computed(() => [
-    { icon: 'src/assets/apartments/iconos/wifi-router_3068649.png', name: this.translate('amenities.wifi')() },
-    { icon: 'src/assets/apartments/iconos/smart-tv_2912080.png', name: this.translate('amenities.tv')() },
-    { icon: 'src/assets/apartments/iconos/parking_659660.png', name: this.translate('amenities.parking')() },
-    { icon: 'src/assets/apartments/iconos/store_4343738.png', name: this.translate('amenities.heating')() },
-    { icon: 'src/assets/apartments/iconos/ventilator.png', name: this.translate('amenities.fan')() },
-    { icon: 'src/assets/apartments/iconos/kitchen_2176529.png', name: this.translate('amenities.kitchen')() },
-    { icon: 'src/assets/apartments/iconos/parasol_10946249.png', name: this.translate('amenities.garden')() },
-    { icon: 'src/assets/apartments/iconos/barbecue.png', name: this.translate('amenities.barbecue')() }
+    {
+      icon: "src/assets/apartments/iconos/wifi-router_3068649.png",
+      name: this.translate("amenities.wifi")(),
+    },
+    {
+      icon: "src/assets/apartments/iconos/smart-tv_2912080.png",
+      name: this.translate("amenities.tv")(),
+    },
+    {
+      icon: "src/assets/apartments/iconos/parking_659660.png",
+      name: this.translate("amenities.parking")(),
+    },
+    {
+      icon: "src/assets/apartments/iconos/store_4343738.png",
+      name: this.translate("amenities.heating")(),
+    },
+    {
+      icon: "src/assets/apartments/iconos/ventilator.png",
+      name: this.translate("amenities.fan")(),
+    },
+    {
+      icon: "src/assets/apartments/iconos/kitchen_2176529.png",
+      name: this.translate("amenities.kitchen")(),
+    },
+    {
+      icon: "src/assets/apartments/iconos/parasol_10946249.png",
+      name: this.translate("amenities.garden")(),
+    },
+    {
+      icon: "src/assets/apartments/iconos/barbecue.png",
+      name: this.translate("amenities.barbecue")(),
+    },
   ]);
-  
+
   // Imágenes específicas de Artin House I
   private imageDefs: Image[] = [
-    { src: 'src/assets/apartments/artin-house-i/dormitoriogrande5.jpg', altKey: 'gallery.alt.dormitorioPrincipal' },
-    { src: 'src/assets/apartments/artin-house-i/cocina6.jpg', altKey: 'gallery.alt.kitchen' },
-    { src: 'src/assets/apartments/artin-house-i/cocina3.jpg', altKey: 'gallery.alt.kitchen1' },
-    { src: 'src/assets/apartments/artin-house-i/dormitoriochico.jpg', altKey: 'gallery.alt.bedroom' },
-    { src: 'src/assets/apartments/artin-house-i/dormitorioGrande2.jpg', altKey: 'gallery.alt.bedroom' },
-    { src: 'src/assets/apartments/artin-house-i/baño.jpg', altKey: 'gallery.alt.bathroom1' },
-    { src: 'src/assets/apartments/artin-house-i/cocina1.jpg', altKey: 'gallery.alt.kitchen' },
-    { src: 'src/assets/apartments/artin-house-i/cocina4.jpg', altKey: 'gallery.alt.kitchen' },
-    { src: 'src/assets/apartments/artin-house-i/baño1.jpg', altKey: 'gallery.alt.bathroom' },
-    { src: 'src/assets/apartments/artin-house-i/dormitoriochico1.jpg', altKey: 'gallery.alt.bedroom' },
-    { src: 'src/assets/apartments/artin-house-i/cocina5.jpg', altKey: 'gallery.alt.kitchen' },
-    { src: 'src/assets/apartments/artin-house-i/baño2.jpg', altKey: 'gallery.alt.bathroom' }
-    
+    {
+      src: "src/assets/apartments/artin-house-i/dormitoriogrande5.jpg",
+      altKey: "gallery.alt.dormitorioPrincipal",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/cocina6.jpg",
+      altKey: "gallery.alt.kitchen",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/cocina3.jpg",
+      altKey: "gallery.alt.kitchen1",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/dormitoriochico.jpg",
+      altKey: "gallery.alt.bedroom",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/dormitorioGrande2.jpg",
+      altKey: "gallery.alt.bedroom",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/baño.jpg",
+      altKey: "gallery.alt.bathroom1",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/cocina1.jpg",
+      altKey: "gallery.alt.kitchen",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/cocina4.jpg",
+      altKey: "gallery.alt.kitchen",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/baño1.jpg",
+      altKey: "gallery.alt.bathroom",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/dormitoriochico1.jpg",
+      altKey: "gallery.alt.bedroom",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/cocina5.jpg",
+      altKey: "gallery.alt.kitchen",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/baño2.jpg",
+      altKey: "gallery.alt.bathroom",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/dormitoriochico2.jpg",
+      altKey: "gallery.alt.bedroom",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/ah1_dormitorioChico.jpg",
+      altKey: "gallery.alt.bedroom",
+    },
+    {
+      src: "src/assets/apartments/artin-house-i/ah1_dormitorioGrande2.jpg",
+      altKey: "gallery.alt.bedroom",
+    },
+
+    {
+      src: "src/assets/apartments/artin-house-i/cocina9.jpg",
+      altKey: "gallery.alt.kitchen",
+    },
+    {
+      src: "src/assets/apartments/complejo/jardin.jpg",
+      altKey: "gallery.alt.patioArea",
+    },
   ];
 
   images = computed(() => {
     return this.imageDefs.map((img, index) => ({
       src: img.src,
       alt: this.translationService.translate(img.altKey)(),
-      size: this.getImageSize(index)
+      size: this.getImageSize(index),
     }));
   });
 
@@ -99,9 +181,25 @@ export class ArtinHouseIComponent {
   });
 
   // Determina el tamaño de cada imagen basado en su índice
-  private getImageSize(index: number): 'small' | 'medium' | 'large' {
-    const sizePattern = ['large', 'medium', 'small', 'medium', 'small', 'small', 'medium', 'small', 'large', 'small', 'medium', 'small'];
-    return sizePattern[index % sizePattern.length] as 'small' | 'medium' | 'large';
+  private getImageSize(index: number): "small" | "medium" | "large" {
+    const sizePattern = [
+      "large",
+      "medium",
+      "small",
+      "medium",
+      "small",
+      "small",
+      "medium",
+      "small",
+      "large",
+      "small",
+      "medium",
+      "small",
+    ];
+    return sizePattern[index % sizePattern.length] as
+      | "small"
+      | "medium"
+      | "large";
   }
 
   // Abre el modal con la imagen seleccionada
@@ -109,7 +207,7 @@ export class ArtinHouseIComponent {
     this.selectedImage.set(image);
     this.currentModalIndex.set(index ?? 0);
     this.isModalOpen.set(true);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   }
 
   // Selecciona imagen en la galería desktop
@@ -158,7 +256,7 @@ export class ArtinHouseIComponent {
   closeModal() {
     this.isModalOpen.set(false);
     this.selectedImage.set(null);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   }
 
   // Cambia el índice de la imagen en el modal sin cerrarlo
@@ -176,11 +274,11 @@ export class ArtinHouseIComponent {
 
   // Navegar al inicio
   goToHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(["/"]);
   }
 
   // Navegar a contacto
   goToContact() {
-    this.router.navigate(['/contact']);
+    this.router.navigate(["/contact"]);
   }
 }

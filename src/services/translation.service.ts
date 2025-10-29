@@ -156,6 +156,9 @@ const translations: Translations = {
   'gallery.alt.dormitorio': { en: 'Comfortable bedroom', es: 'Habitación cómoda', pt: 'Quarto confortável' },
   'gallery.alt.cocina': { en: 'Kitchen with dining area', es: 'Cocina con área de comedor', pt: 'Cozinha com área de jantar' },
   'gallery.alt.livingRoom': { en: 'Spacious living room with natural light', es: 'Sala de estar espaciosa con luz natural', pt: 'Sala de estar espaçosa com luz natural' },
+ 'gallery.alt.patioArea': { en: 'Patio area with garden view', es: 'Área de patio con vista al jardín', pt: 'Área do pátio com vista para o jardim' }, 
+/*   'gallery.alt.barbecueArea': { en: 'Barbecue area for outdoor dining', es: 'Área de parrilla para comer al aire libre', pt: 'Área de churrasqueira para refeições ao ar livre' }, */
+  'gallery.alt.garden': { en: 'Lush garden surrounding the apartment', es: 'Jardín frondoso que rodea el departamento', pt: 'Jardim exuberante ao redor do apartamento' },
   
   
   
@@ -200,6 +203,11 @@ const translations: Translations = {
   // Home apartment navigation
   'home.viewArtinHouseI': { en: 'View Artin House I', es: 'Ver Artin House I', pt: 'Ver Artin House I' },
   'home.viewArtinHouseII': { en: 'View Artin House II', es: 'Ver Artin House II', pt: 'Ver Artin House II' },
+  
+  // Home Mendoza Guide CTA
+  'home.mendozaGuide.title': { en: 'What to do in Mendoza!', es: '¡Qué hacer en Mendoza!', pt: 'O que fazer em Mendoza!' },
+  'home.mendozaGuide.description': { en: 'Discover the best places, gastronomic experiences and adventures that Mendoza has to offer', es: 'Descubrí los mejores lugares, experiencias gastronómicas y aventuras que Mendoza tiene para ofrecerte', pt: 'Descubra os melhores lugares, experiências gastronômicas e aventuras que Mendoza tem para oferecer' },
+  'home.mendozaGuide.button': { en: 'Explore Mendoza', es: 'Explorar Mendoza', pt: 'Explorar Mendoza' },
   'booking.errorMsg': { en: 'Please select valid check-in and check-out dates.', es: 'Por favor, selecciona fechas de entrada y salida válidas.', pt: 'Por favor, selecione datas válidas de check-in e check-out.' },
   'booking.weekdays.sun': { en: 'Sun', es: 'Dom', pt: 'Dom' },
   'booking.weekdays.mon': { en: 'Mon', es: 'Lun', pt: 'Seg' },

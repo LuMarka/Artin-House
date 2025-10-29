@@ -32,12 +32,13 @@ export class GalleryComponent {
   
   private imageDefs: Image[] = [
     { src: 'src/assets/apartments/complejo/imagen-complejo-exterior.jpg', altKey: 'gallery.alt.exterior' },
-    { src: 'src/assets/apartments/artin-house-i/cocina6.jpg', altKey: 'gallery.alt.kitchen' },
-    { src: 'src/assets/apartments/artin-house-i/cocina3.jpg', altKey: 'gallery.alt.kitchen1' },
+    { src: 'src/assets/apartments/artin-house-ii/ah2_cocina3.jpg', altKey: 'gallery.alt.kitchen' },
+    { src: 'src/assets/apartments/artin-house-i/cocina12.jpg', altKey: 'gallery.alt.kitchen1' },
     { src: 'src/assets/apartments/artin-house-i/dormitoriogrande5.jpg', altKey: 'gallery.alt.dormitorioPrincipal' },
-    { src: 'src/assets/apartments/artin-house-i/dormitoriochico.jpg', altKey: 'gallery.alt.bedroom' },
-    { src: 'src/assets/apartments/artin-house-ii/cocina.jpg', altKey: 'gallery.alt.kitchen' },
-    { src: 'src/assets/apartments/artin-house-i/dormitorioGrande2.jpg', altKey: 'gallery.alt.bedroom' },
+    { src: 'src/assets/apartments/artin-house-i/ah1_dormitorioChico.jpg', altKey: 'gallery.alt.bedroom' },
+    { src: 'src/assets/apartments/artin-house-ii/ah2_cocina.jpg', altKey: 'gallery.alt.kitchen' },
+    {src: 'src/assets/apartments/complejo/juegoJardin.jpg', altKey: 'gallery.alt.garden'},
+/*     { src: 'src/assets/apartments/artin-house-i/dormitorioGrande2.jpg', altKey: 'gallery.alt.bedroom' }, */
     { src: 'src/assets/apartments/artin-house-ii/dormitorio1.jpg', altKey: 'gallery.alt.dormitorio' },
   ];
 
