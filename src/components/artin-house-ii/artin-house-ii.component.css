@@ -386,7 +386,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .apartment-hero {
     padding: 1.5rem 0;
   }
@@ -402,18 +402,18 @@
   }
   
   .apartment-amenities__grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
   }
   
   .apartment-amenities__item {
-    padding: 1rem;
-    flex-direction: row;
-    text-align: left;
+    padding: 0.5rem;
+    flex-direction: column;
+    text-align: center;
   }
   
   .apartment-amenities__icon-wrapper {
-    padding: 0.75rem;
+    padding: 0.35rem;
   }
   
   .apartment-amenities__icon {
@@ -426,21 +426,22 @@
   }
 }
 
-@media (max-width: 410px) {
+@media (max-width: 428px) {
   .apartment-amenities__grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
     padding: 0 0.5rem;
   }
   
   .apartment-amenities__item {
-    padding: 0.75rem;
-    flex-direction: row;
-    gap: 0.75rem;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
   }
   
   .apartment-amenities__icon-wrapper {
-    padding: 0.5rem;
+    padding: 0.35rem;
     flex-shrink: 0;
   }
   

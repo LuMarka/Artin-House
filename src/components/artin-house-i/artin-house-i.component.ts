@@ -58,12 +58,13 @@ export class ArtinHouseIComponent {
   // Amenidades específicas
   amenities = computed(() => [
     { icon: 'src/assets/apartments/iconos/wifi-router_3068649.png', name: this.translate('amenities.wifi')() },
+    { icon: 'src/assets/apartments/iconos/smart-tv_2912080.png', name: this.translate('amenities.tv')() },
     { icon: 'src/assets/apartments/iconos/parking_659660.png', name: this.translate('amenities.parking')() },
+    { icon: 'src/assets/apartments/iconos/store_4343738.png', name: this.translate('amenities.heating')() },
     { icon: 'src/assets/apartments/iconos/ventilator.png', name: this.translate('amenities.fan')() },
     { icon: 'src/assets/apartments/iconos/kitchen_2176529.png', name: this.translate('amenities.kitchen')() },
-    { icon: 'src/assets/apartments/iconos/smart-tv_2912080.png', name: this.translate('amenities.tv')() },
     { icon: 'src/assets/apartments/iconos/parasol_10946249.png', name: this.translate('amenities.garden')() },
-    { icon: 'src/assets/apartments/iconos/store_4343738.png', name: this.translate('amenities.heating')() }
+    { icon: 'src/assets/apartments/iconos/barbecue.png', name: this.translate('amenities.barbecue')() }
   ]);
   
   // Imágenes específicas de Artin House I
