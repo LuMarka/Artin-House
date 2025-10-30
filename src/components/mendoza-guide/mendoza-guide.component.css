@@ -496,7 +496,7 @@ em {
 @media (max-width: 640px) {
   .mendoza-guide__places-grid {
     grid-template-columns: 1fr;
-    max-width: 100%;
+    max-width: 90%;
     margin-left: 0;
     margin-right: 0;
     padding: 0;
