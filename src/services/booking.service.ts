@@ -43,6 +43,7 @@ export class BookingService {
   constructor() {
     this.loadBookingsFromStorage();
     this.loadPricingFromStorage();
+    this.fixOutdatedPricing(); // Corregir datos obsoletos en localStorage
   }
 
   // Métodos públicos para acceder a las señales
@@ -475,7 +476,7 @@ export class BookingService {
           {
             startDate: new Date('2025-12-01'),
             endDate: new Date('2026-03-31'),
-            multiplier: 1.4, // 60000/45000 = 1.3333 (para llegar a $60,000)
+            multiplier: 1.4, // 70000/50000 = 1.4 (para llegar a $70,000)
             name: 'Temporada Alta Verano 2025-2026'
           }
         ]
@@ -656,5 +657,30 @@ export class BookingService {
     this.initializeDefaultPricing();
     localStorage.removeItem('artin-house-bookings');
     localStorage.removeItem('artin-house-pricing');
+  }
+
+  // Método para corregir datos obsoletos en localStorage
+  private fixOutdatedPricing(): void {
+    const pricing = this.apartmentPricing();
+    const artinHouseII = pricing.find(p => p.apartment === 'Artin House II');
+    
+    // Si Artin House II tiene una tasa de 1.4 (multiplicador incorrecto), corregirla
+    if (artinHouseII && artinHouseII.seasonalRates) {
+      const needsUpdate = artinHouseII.seasonalRates.some(rate => rate.multiplier === 1.4);
+      
+      if (needsUpdate) {
+        this.updateApartmentPricing('Artin House II', {
+          basePrice: 50000,
+          seasonalRates: [
+            {
+              startDate: new Date('2025-12-01'),
+              endDate: new Date('2026-03-31'),
+              multiplier: 1.2, // Correcto: 60000/50000 = 1.2
+              name: 'Temporada Alta Verano 2025-2026'
+            }
+          ]
+        });
+      }
+    }
   }
 }
