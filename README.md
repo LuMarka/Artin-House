@@ -62,7 +62,7 @@ git --version       # 2.x+
 
 ### 1️⃣ Clonar el Repositorio
 ```bash
-git clone https://github.com/LuMarka/artin-house-luján.git
+git clone https://github.com/LuMarka/Artin-House.git
 cd artin-house-luján
 ```
 
@@ -322,6 +322,6 @@ MIT License - Libre para usar, modificar y distribuir
 
 **Última actualización:** Noviembre 2025
 
-[Visita el sitio](https://artin-house.vercel.app/) | [Ver código fuente](https://github.com/LuMarka/artin-house-luján)
+[Visita el sitio](https://artin-house.vercel.app/) | [Ver código fuente](https://github.com/LuMarka/Artin-House.git)
 
 </div>
