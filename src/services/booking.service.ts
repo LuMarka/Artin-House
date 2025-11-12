@@ -86,9 +86,9 @@ export class BookingService {
       if (apartment === 'Artin House I') {
         return this.calculateArtinHouseIPrice(guests);
       } else if (apartment === 'Artin House II') {
-        return 45000 + (0 * Math.max(0, guests - 1));
+        return 50000 + (0 * Math.max(0, guests - 1));
       }
-      return 45000;
+      return 50000;
     }
 
     let totalPrice: number;
@@ -468,7 +468,7 @@ export class BookingService {
       },
       {
         apartment: 'Artin House II',
-        basePrice: 45000, // Para 1-2 huéspedes (máximo permitido)
+        basePrice: 50000, // Para 1-2 huéspedes (máximo permitido)
         pricePerGuest: 0, // Sin costo adicional (máx 2 personas)
         maxGuests: 2,
         seasonalRates: [
