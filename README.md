@@ -294,7 +294,7 @@ Desarrolladora de web modernas, arquitectura escalable y experiencia de usuario.
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LuMarka)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luisa-markarian-itdeveloper/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:luisa@aureaweb.dev)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:luisamarkarian@gmail.com)
 
 ---
 
@@ -312,7 +312,7 @@ MIT License - Libre para usar, modificar y distribuir
 
 - 🐛 Reporta bugs en [Issues](https://github.com/LuMarka/artin-house-luján/issues)
 - 💬 Abre una Discussion para preguntas
-- 📧 Contacto: Por definir
+- 📧 Contacto: luisamarkarian@gmail.com
 
 ---
 
