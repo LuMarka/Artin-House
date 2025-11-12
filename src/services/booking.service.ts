@@ -475,7 +475,7 @@ export class BookingService {
           {
             startDate: new Date('2025-12-01'),
             endDate: new Date('2026-03-31'),
-            multiplier: 1.3333, // 60000/45000 = 1.3333 (para llegar a $60,000)
+            multiplier: 1.4, // 60000/45000 = 1.3333 (para llegar a $60,000)
             name: 'Temporada Alta Verano 2025-2026'
           }
         ]
