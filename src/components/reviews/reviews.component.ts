@@ -48,7 +48,65 @@ export class ReviewsComponent implements AfterViewInit, OnDestroy {
       badge: 'Local Guide',
       isRecent: true,
 
+    },
+  {   name: 'Juan Bautista Bainotti',
+      initials: 'JB',
+      date: 'Noviembre de 2025',
+    
+      rating: 5,
+      comment: 'Tuvimos la suerte de hospedarnos en las dos propiedades de Artin House Mendoza, y la experiencia fue realmente excelente.' +
+                'Los propietarios, Elizabeth y Gastón, fueron increíblemente amables y serviciales desde el primer momento. Nos aconsejaron y acompañaron en todo lo referente a la documentación para cruzar a Chile, algo que valoramos muchísimo. Su atención fue siempre tranquila, cordial y genuinamente orientada a hacer que nuestra estadía fuera perfecta.' +
+
+                'Ambas casas son muy prolijas, limpias y completas, equipadas con todo lo necesario para sentirse como en casa. Todo parecía nuevo: las camas súper cómodas, sábanas, toallas y almohadas impecables, utensilios y detalles de excelente calidad. Los baños modernos y funcionales, y un aroma en el ambiente que hacía muy agradable cada espacio.' +
+
+                'Realmente se nota el cuidado y dedicación que ponen en cada detalle. Sin dudas, un lugar para volver y recomendar.',
+      isRecent: true,
+    },
+    {
+      name: 'Ian Gimenez',
+      initials: 'IG',
+      date: 'Noviembre de 2025',
+      rating: 5,
+      comment: 'Muy agradable experiencia, todo muy limpio y bonito.Recomiendo al 100%.' +
+               'Los dueños son un 10, están para lo que necesites, de seguro pegaré una vuelta más adelante.',
+      isRecent: true,
+    },
+    {
+      name: 'Lucas Gonzalez',
+      initials: 'LG',
+      date: 'Noviembre de 2025',  
+      rating: 5,
+      comment: 'Lindo y cómodo lugar. Muy amables y atentos sus dueños.',
+      isRecent: true,
+    },
+    {
+      name: 'Silvina Egea',
+      initials: 'SE',
+      date: 'Noviembre de 2025',  
+      rating: 5,
+      comment: 'Excelente ubicación, impecable el departamento, su limpieza, comodidades y la atención cálida de su dueña Elizabeth.',
+      isRecent: true,
+    },
+    {
+      name: 'Emilia Bordin ',
+      initials: 'EB',
+      date: 'Noviembre de 2025',  
+      rating: 5,
+      comment: 'Pasamos un estadía hermosa, el hospedaje excelente y la atención de Eli aún más.' +
+                'Recomiendo Artin House para pasar unos días increíbles en Mendoza.',
+      isRecent: true,
+    },
+    {
+      name: 'Valentina Rojas',
+      initials: 'AP',
+      date: 'Noviembre de 2025',  
+      rating: 5,
+      comment: 'Me alojé hace unos días con mi familia de Bariloche. La verdad que quedamos encantados con el departamento, increíble, la comodidad, buena ubicación, y sobretodo la buena predisposición de Elizabeth y Gastón.' +
+              'Estamos con ansias de poder volver de nuevo👍🏼.',
+      isRecent: true,
     }
+
+
   ];
 
   averageRating = 5.0;
