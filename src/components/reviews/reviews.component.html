@@ -34,8 +34,21 @@
         </svg>
       </button>
       
-      <div class="reviews__list" #reviewsList>
-        <article class="reviews__item" *ngFor="let review of reviews; let i = index">
+      <div class="reviews__list" 
+           #reviewsList
+           (mousedown)="onDragStart($event)"
+           (mousemove)="onDragMove($event)"
+           (mouseup)="onDragEnd()"
+           (mouseleave)="onDragEnd()"
+           (touchstart)="onTouchStart($event)"
+           (touchmove)="onTouchMove($event)"
+           (touchend)="onTouchEnd()">
+        <article class="reviews__item" 
+                 *ngFor="let review of reviews; let i = index"
+                 (mouseenter)="pauseAutoSlide()"
+                 (mouseleave)="resumeAutoSlide()"
+                 (touchstart)="pauseAutoSlide()"
+                 (touchend)="resumeAutoSlide()">
           <!-- Encabezado de la reseña -->
           <div class="reviews__header">
             <div class="reviews__user">
@@ -64,7 +77,17 @@
           
           <!-- Contenido de la reseña -->
           <div class="reviews__content">
-            <p class="reviews__comment">{{ review.comment }}</p>
+            <p class="reviews__comment" 
+               [class.reviews__comment--expanded]="review.isExpanded">
+              {{ review.comment }}
+            </p>
+            <button 
+              *ngIf="isCommentTruncated(review.comment)" 
+              class="reviews__read-more"
+              (click)="toggleExpand(review)"
+              type="button">
+              {{ review.isExpanded ? 'Ver menos' : 'Leer más' }}
+            </button>
             
             <!-- Respuesta del propietario -->
             <div class="reviews__response" *ngIf="review.response">
