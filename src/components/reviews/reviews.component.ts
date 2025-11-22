@@ -272,7 +272,8 @@ export class ReviewsComponent implements AfterViewInit, OnDestroy {
 
   // Verificar si el comentario está truncado
   isCommentTruncated(comment: string): boolean {
-    return comment.length > 180;
+    // Límite más bajo para detectar textos largos en móviles
+    return comment.length > 120;
   }
 
   // Alternar expansión del comentario
@@ -384,7 +385,7 @@ export class ReviewsComponent implements AfterViewInit, OnDestroy {
     }
     
     // Restaurar la transición y actualizar posición
-    this.reviewsList.nativeElement.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+    this.reviewsList.nativeElement.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
     this.updateCarouselPosition();
   }
 }
