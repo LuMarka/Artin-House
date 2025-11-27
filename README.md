@@ -322,6 +322,6 @@ MIT License - Libre para usar, modificar y distribuir
 
 **Última actualización:** Noviembre 2025
 
-[Visita el sitio](https://artin-house-mendoza.vercel.app/) | [Ver código fuente](https://github.com/LuMarka/Artin-House.git)
+[Visita el sitio](https://artin-house.vercel.app/)](https://artin-house.vercel.app/) | [Ver código fuente](https://github.com/LuMarka/Artin-House.git)
 
 </div>
